@@ -1,0 +1,214 @@
+<script>
+	import {
+		Container,
+		Row,
+		Col,
+		Icon,
+		Label,
+		Input,
+		Button,
+		Card,
+		Progress
+	} from '@sveltestrap/sveltestrap';
+    import { onMount } from "svelte";
+    let nom_categorie = '';
+	let id_coach = ''; 
+	let id_categorie = ''; 
+	let id_equipe = ''; 
+	let nom_equipe = '';
+	let annee = '';
+	let annee2= 0;
+	/**
+	 * @type {any[]}
+	 */
+	let listeCoach = [];
+	let validated = false;
+
+    /**
+	 * @type {any[]}
+	 */
+  let listeEquipe = [];
+	let errorMessage = '';
+    /**
+	 * @type {any[]}
+	 */
+  let listeCategorie = [];
+	let _servicepath = 'http://localhost/webservice/';
+
+    onMount ( async()=> {
+		await recupererListeEquipe();
+		await recupererListeCategorie();
+		await recupererListeCoach();
+		annee=new Date().getFullYear().toString();
+		miseAjourAnnee();
+
+	})
+	function miseAjourAnnee(){
+		annee2=Number(annee)+1;
+	}
+
+    const recupererListeEquipe = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeEquipe.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeEquipe = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+  const recupererListeCategorie = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeCategorie.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeCategorie = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const recupererListeCoach = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeCoach.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeCoach = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	const createEquipe = async () => {
+		try {
+            console.log('id coach : '+ id_coach)
+            
+			//On crée le User
+			const updateRoute = _servicepath + 'creation_equipe.php';
+			const data = new FormData();
+
+			data.append('nom_equipe', nom_equipe);
+			data.append('nom_categorie', nom_categorie );
+			data.append('id_coach', id_coach );
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				console.log('requete ok');
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+    function VoirValeur(){
+       
+    }
+</script>
+
+<Card class="styleCardFormulaire">
+	<Row>
+		<h1>Creation d'une equipe</h1>
+	</Row>
+	<form id="frmCreationEquipe" class="formulaireClassique" on:submit|preventDefault={createEquipe}>
+		<Row>
+
+			<Col xl="6" style="margin-top:15px;">
+                <Label for="dd_categorieEquipe">Categorie l'equipe:</Label>
+				<Input type="select" id="dd_categorieEquipe" bind:value={id_categorie} on:change={VoirValeur} required>
+                    {#each listeCategorie as categorie}
+                    <option value={categorie.id}>{categorie.nom_categorie}</option>
+                    {/each }
+				</Input>
+				<Label for="dd_nomEquipe">Nom de l'equipe:</Label>
+				<Input type="select" id="dd_nomEquipe" bind:value={id_equipe} required>
+                    <option value='-1'></option>
+                    {#each listeEquipe as equipe}
+                    <option value={equipe.id}>{equipe.nom_equipe}</option>
+                    {/each }
+				</Input>
+        
+                <Label for="dd_nomCoach">Nom du Coach :</Label>
+				<Input type="select" id="dd_nomCoach" bind:value={id_coach}>
+					<option value='-1'></option>
+                    {#each listeCoach as coach}
+                    <option value={coach.id}>{coach.nom} {coach.prenom} </option>
+                    {/each }
+                </Input>
+
+				<Label for="dd_annee">Saison :</Label>
+				<Input type="text" id="dd_annee" bind:value={annee} on:change={miseAjourAnnee} style="width:150px;"></Input>/ {annee2}
+			
+					
+
+				<Button type="submit" on:click={() => (validated = true)}>Enregistrer</Button>
+            </Col>
+		</Row>
+	</form>
+</Card>
+
