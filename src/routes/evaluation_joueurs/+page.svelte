@@ -1,7 +1,11 @@
 <script>
-	import { Table, Col, Row} from "@sveltestrap/sveltestrap";
+	import { Card, CardBody, CardHeader, Input, Label,ButtonToolbar,ButtonGroup,Button } from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+
+	let nomJoueur='Ribault';
+	let prenomJoueur='Raphaël';
+	let noteEndurance = 5;
 
 	let liste_joueurs = [];
 	let nom = '';
@@ -61,4 +65,36 @@
 		}
 	};
 	</script>
-    
+    <Card>
+		<CardHeader>
+			<h1>Evaluation de {prenomJoueur} {nomJoueur}</h1>
+			<strong>Toutes les notes sont sur 10 points</strong>
+		</CardHeader>
+		<CardBody>
+			<h3>Critères Physiques</h3>
+			<Label for="iEndurance">Endurance : {noteEndurance}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteEndurance} />
+			<Label for="iEndurance">Motricité : </Label>
+			
+			<Label for="iEndurance">Force : </Label>
+			<Input type="text"/>
+			<Label for="iEndurance">Vitesse : </Label>
+			<Input type="text"/>
+	
+			<h3>Critères Techniques</h3>
+			<Label for="iEndurance">Drible : </Label>
+			<Input type="text"/>
+			<Label for="iEndurance">Passe : </Label>
+			<Input type="text"/>
+			<Label for="iEndurance">Transversale : </Label>
+			<Input type="text"/>
+	
+			<h3>Comportement</h3>
+			<Label for="iEndurance">Assiduité : </Label>
+			<Input type="text"/>
+			<Label for="iEndurance">Respect : </Label>
+			<Input type="text"/>
+			<Label for="iEndurance">Leadership : </Label>
+			<Input type="text"/>
+		</CardBody>
+	</Card>

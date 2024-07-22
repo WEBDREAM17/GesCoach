@@ -3,6 +3,9 @@
 	import { Table, Button,Col, Row} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
 
+	/**
+	 * @type {any[]}
+	 */
 	let liste_joueurs = [];
 	let nom = '';
     let prenom = '';
