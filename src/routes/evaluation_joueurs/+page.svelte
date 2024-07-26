@@ -1,11 +1,38 @@
 <script>
-	import { Card, CardBody, CardHeader, Input, Label,ButtonToolbar,ButtonGroup,Button } from "@sveltestrap/sveltestrap";
+	import { Card, CardBody, CardHeader, Input, Label,Row, Col,Button, Alert } from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
 
 	let nomJoueur='Ribault';
 	let prenomJoueur='Raphaël';
-	let noteEndurance = 5;
+	let id_joueur ='2';
+	let id_evaluateur='3';
+	let evalTerminer = false;
+
+    let noteAttitude = 5;
+    let noteLeader = 5;
+    let noteCompete = 5;
+    let noteAssiduite=5;
+
+    let noteDrible = 5;
+    let noteConduite = 5;
+    let notePasseC = 5;
+    let notePasseL = 5;
+    let notePiedFaible = 5;
+    let noteTete = 5;
+    let noteTir = 5;
+    let noteTouche1 = 5;
+
+    let noteCoordination = 5;
+    let noteVitesse = 5;
+    let noteEndurance = 5;
+    let noteForce = 5;
+
+    let noteJeuOff = 5;
+    let noteJeuDef = 5;
+    let noteVision = 5;
+    let noteDecision = 5;
+
 
 	let liste_joueurs = [];
 	let nom = '';
@@ -24,6 +51,62 @@
         await recupererJoueur(id_joueur);
 
 	})
+	const createEvalutionJoueur = async () => {
+		try {
+		
+			//On crée le User
+			const updateRoute = _servicepath + 'evaluation_joueur.php';
+			const data = new FormData();
+
+
+			
+			data.append('id_joueur', id_joueur);
+    data.append('id_evaluateur', id_evaluateur);
+    data.append('noteAttitude', noteAttitude.toString());
+    data.append('noteAssiduite', noteAssiduite.toString());
+    data.append('noteLeader', noteLeader.toString());
+    data.append('noteCompete', noteCompete.toString());
+    data.append('noteDrible', noteDrible.toString());
+    data.append('noteConduite', noteConduite.toString());
+    data.append('notePasseC', notePasseC.toString());
+    data.append('notePasseL', notePasseL.toString());
+    data.append('noteTir', noteTir.toString());
+    data.append('notePiedFaible', notePiedFaible.toString());
+    data.append('noteTete', noteTete.toString());
+    data.append('noteTouche1', noteTouche1.toString());
+    data.append('noteJeuOff', noteJeuOff.toString());
+    data.append('noteJeuDef', noteJeuDef.toString());
+    data.append('noteDecision', noteDecision.toString());
+    data.append('noteVision', noteVision.toString());
+    data.append('noteCoordination', noteCoordination.toString());
+    data.append('noteVitesse', noteVitesse.toString());
+    data.append('noteEndurance', noteEndurance.toString());
+    data.append('noteForce', noteForce.toString());
+			
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				console.log('requete ok');
+				evalTerminer = true;
+
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	const recupererJoueur = async (id_joueur) => {
 		try {
 			//On crée le User
@@ -66,35 +149,76 @@
 	};
 	</script>
     <Card>
-		<CardHeader>
-			<h1>Evaluation de {prenomJoueur} {nomJoueur}</h1>
+		<CardHeader style="height:200px; background-color:grey;">
+			<h1 style="color:white;font-size:3rem;">Evaluation de {prenomJoueur} {nomJoueur}</h1>
 			<strong>Toutes les notes sont sur 10 points</strong>
+           
 		</CardHeader>
 		<CardBody>
-			<h3>Critères Physiques</h3>
-			<Label for="iEndurance">Endurance : {noteEndurance}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteEndurance} />
-			<Label for="iEndurance">Motricité : </Label>
+
+            <h3 style="color:red;">Critères Mentales</h3>
+			<Label for="iEAttitude">Attitude (veut progresser): {noteAttitude}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAttitude} />
+			<Label for="iLeader">Leadership :{noteLeader}/10 </Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteLeader} />
+			<Label for="iEndurance">Compétitivité : {noteCompete}/10</Label>
+            <Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteCompete} />
+			<Label for="iEndurance">Assiduité : {noteAssiduite}/10</Label>
+            <Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAssiduite} />
 			
-			<Label for="iEndurance">Force : </Label>
-			<Input type="text"/>
-			<Label for="iEndurance">Vitesse : </Label>
-			<Input type="text"/>
+            <h3 style="color:red;">Critères Techniques</h3>
+			<Label for="iEndurance">Drible : {noteDrible}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDrible} />
+			<Label for="iEndurance">Conduite : {noteConduite}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteConduite} />
+			<Label for="iEndurance"> Passe courte : {notePasseC}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePasseC} />
+            <Label for="iEndurance"> Passe longue :{notePasseL}/10 </Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePasseL} />
+            <Label for="iEndurance"> 1e touche (contôle) :{noteTouche1}/10 </Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTouche1} />
+            <Label for="iEndurance"> Tir :{noteTir}/10 </Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTir} />
+            <Label for="iEndurance"> Tête : {noteTete}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTete} />
+            <Label for="iEndurance"> Pied faible : {notePiedFaible}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePiedFaible} />
+
+			<h3 style="color:red;">Critères Physiques</h3>
+			<Label for="iEndurance">Coordination : {noteCoordination}/10</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteCoordination} />
+			<Label for="iEndurance">Vitesse: {noteVitesse}</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteVitesse} />
+			<Label for="iEndurance">Endurance : {noteEndurance}</Label>
+            <Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteEndurance} />
+			<Label for="iEndurance">Force : {noteForce}</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteForce} />
 	
-			<h3>Critères Techniques</h3>
-			<Label for="iEndurance">Drible : </Label>
-			<Input type="text"/>
-			<Label for="iEndurance">Passe : </Label>
-			<Input type="text"/>
-			<Label for="iEndurance">Transversale : </Label>
-			<Input type="text"/>
-	
-			<h3>Comportement</h3>
-			<Label for="iEndurance">Assiduité : </Label>
-			<Input type="text"/>
-			<Label for="iEndurance">Respect : </Label>
-			<Input type="text"/>
-			<Label for="iEndurance">Leadership : </Label>
-			<Input type="text"/>
+			<h3 style="color:red;">Critères Tactique</h3>
+			<Label for="iEndurance">Jeu défensif (marquage, couverture) : {noteJeuDef}</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteJeuDef} />
+			<Label for="iEndurance">Jeu offensif (démarquage, implication) : {noteJeuOff}</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteJeuOff} />
+			<Label for="iEndurance">Vision du jeu (levé la tête) : {noteVision}</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteVision} />
+            <Label for="iEndurance">Prise de décision (choix de jeu) : {noteDecision}</Label>
+			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDecision} />
 		</CardBody>
+        <h3>Commentaire générale</h3>
+        <Row>
+            <Col style="border: 1px solid black; height:200px; margin: 20px 10px;" ><p>Lorem50</p></Col>
+          </Row>
+          <Row>
+            <Col style="border: 1px solid black; height:100px">Signature Coach</Col>
+            <Col style="border: 1px solid black; height:100px">Signature Joueur</Col>
+            <Col style="border: 1px solid black; height:100px">Signateur Parent(mineur)</Col>
+            <Col style="border: 1px solid black; height:100px">Signature D. Sportif</Col>
+          </Row>
+		<Row>
+			{#if evalTerminer}
+			<Alert color="success">Evaluation effectuer</Alert>
+		{:else}
+			<Button color="primary" on:click={createEvalutionJoueur}>Enregistrer</Button>
+			{/if}
+		</Row>
 	</Card>

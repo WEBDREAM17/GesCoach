@@ -22,22 +22,25 @@
 	<Collapse {isOpen} navbar>
 		<Nav navbar>
 			<NavItem>
-				<NavLink href="about" on:click={toggle}>About</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;" href="Accueil" on:click={toggle}>Accueil</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="Home" on:click={toggle}>Home</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="Home" on:click={toggle}>Home</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="creation_equipes" on:click={toggle}>Espace Equipes</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="creation_equipes" on:click={toggle}>Espace Equipes</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="creation_evenement" on:click={toggle}>Espace Évènements</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="creation_evenement" on:click={toggle}>Espace Évènements</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink href="creation_personne" on:click={toggle}>Creation personne</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="creation_personne" on:click={toggle}>Creation personne</NavLink>
+			</NavItem>
+			<NavItem>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="evaluation_joueurs" on:click={toggle}>Evaluation</NavLink>
 			</NavItem>
 		</Nav>
 	</Collapse>
