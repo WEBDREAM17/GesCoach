@@ -28,6 +28,12 @@
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="Home" on:click={toggle}>Home</NavLink>
 			</NavItem>
 			<NavItem>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="Actualités du club" on:click={toggle}>Actualités du club</NavLink>
+			</NavItem>
+			<NavItem>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="Notre staff" on:click={toggle}>Notre staff</NavLink>
+			</NavItem>
+			<NavItem>
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink>
 			</NavItem>
 			<NavItem>

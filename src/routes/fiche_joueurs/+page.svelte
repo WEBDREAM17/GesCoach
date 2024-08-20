@@ -12,6 +12,7 @@
 	let licence = '';
 	let poste1 = '';
 	let poste2 = '';
+	let url_photo ='';
 
 	let _servicepath = 'http://localhost/webservice/';
 
@@ -45,6 +46,7 @@
 				licence = monJoueur.numero_licence;
 				poste1 = monJoueur.poste1;
 				poste2 = monJoueur.poste2;
+				url_photo = monJoueur.url_photo;
 
 				if (date == null) {
 					date = 'date non renseigné';
@@ -66,7 +68,7 @@
 	<Col><img class="logoClub" src="/src/lib/images/16.png" alt="" /></Col>
 	<Col style="font-size:3rem;">{nom} {prenom}</Col>
 	<Col style="font-size:3rem;">{nom} {prenom}</Col>
-	<Col><img class="logoClub" src="/src/lib/images/16.png" alt="" /></Col>
+	<Col><img src="http://localhost/webservice{url_photo}" width="300px"/></Col>
 </Row>
 <Row
 	style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"

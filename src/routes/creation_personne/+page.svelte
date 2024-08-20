@@ -74,6 +74,10 @@
 			if (res.status == '1') {
 				console.log('requete ok');
 				creationOk = true;
+				// APPEL DE L'UPLOAD DE LA PHOTO
+
+				// @ts-ignore
+				await uploadPhoto (res.id);
 				// @ts-ignore
 				let id_joueur=res.id;
 				if(type_personne=='2'){
@@ -91,6 +95,50 @@
 			console.log(error);
 		}
 	};
+	
+	const uploadPhoto2 = async () => {
+		await uploadPhoto('17');
+	}
+
+	// @ts-ignore
+	const uploadPhoto = async (mon_id_joueur) => {
+		try {
+		
+			let maPhoto = document.getElementById('iPhoto');
+			console.log(maPhoto.files[0]);
+			// @ts-ignore
+			if (maPhoto.value !='')
+			{
+				
+				//on appelle le webservice d'uplod de photo
+			
+			const updateRoute = _servicepath + 'upload.php';
+			const data = new FormData();
+			data.append('id', mon_id_joueur);
+			// @ts-ignore
+			data.append('file',maPhoto.files[0]);
+			
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+		}
+				
+			 else {
+				
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 	const createPostePerssonne = async (/** @type {string | Blob} */ id_joueur,/** @type {string | Blob} */ id_poste) => {
 		try {
 		
@@ -192,7 +240,7 @@
 		<Row>
 			<Col xl="6">
 				<Label for="iPhoto">Photo de la personne :</Label>
-				<Input name="iPhoto" type="file" />
+				<Input name="iPhoto" type="file" id="iPhoto" accept=".jpg, .jpeg, .png"/>
 				<Label for="iNom">Nom :</Label>
 				<Input name="iNom" type="text"  bind:value={nom} />
 				<Label for="iPrenom">Prénom :</Label>
@@ -304,6 +352,7 @@
 		<Row>
 			<Col>
 				<Button type="submit">Enregistrer</Button>
+				
 			</Col>
 		</Row>
 	</form>

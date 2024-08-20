@@ -1,5 +1,5 @@
 <script>
-	import { Card, CardBody, CardHeader, Input, Label,Row, Col,Button, Alert } from "@sveltestrap/sveltestrap";
+	import { Card, CardBody, CardHeader, Input, Label,Row, Col,Button, Alert, Image } from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
 
@@ -60,7 +60,7 @@
 
 
 			
-			data.append('id_joueur', id_joueur);
+	data.append('id_joueur', id_joueur);
     data.append('id_evaluateur', id_evaluateur);
     data.append('noteAttitude', noteAttitude.toString());
     data.append('noteAssiduite', noteAssiduite.toString());
@@ -129,6 +129,7 @@
                 nom = monJoueur.nom;
                 prenom = monJoueur.prenom;
                 date = monJoueur.date;
+				categorie = monJoueur.categorie;
 				equipe = monJoueur.equipe;
 				licence = monJoueur.numero_licence;
 				poste1 = monJoueur.poste1;
@@ -148,71 +149,91 @@
 		}
 	};
 	</script>
-    <Card>
-		<CardHeader style="height:200px; background-color:grey;">
-			<h1 style="color:white;font-size:3rem;">Evaluation de {prenomJoueur} {nomJoueur}</h1>
-			<strong>Toutes les notes sont sur 10 points</strong>
-           
-		</CardHeader>
-		<CardBody>
-
-            <h3 style="color:red;">Critères Mentales</h3>
-			<Label for="iEAttitude">Attitude (veut progresser): {noteAttitude}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAttitude} />
-			<Label for="iLeader">Leadership :{noteLeader}/10 </Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteLeader} />
-			<Label for="iEndurance">Compétitivité : {noteCompete}/10</Label>
-            <Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteCompete} />
-			<Label for="iEndurance">Assiduité : {noteAssiduite}/10</Label>
-            <Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAssiduite} />
+    
+		<CardHeader style="height:200px; background-color:grey; padding:30px;">
+			<div><h1 style="color:white;font-size:3rem;">Evaluation de {prenomJoueur} {nomJoueur} </h1></div>
 			
-            <h3 style="color:red;">Critères Techniques</h3>
-			<Label for="iEndurance">Drible : {noteDrible}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDrible} />
-			<Label for="iEndurance">Conduite : {noteConduite}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteConduite} />
-			<Label for="iEndurance"> Passe courte : {notePasseC}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePasseC} />
-            <Label for="iEndurance"> Passe longue :{notePasseL}/10 </Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePasseL} />
-            <Label for="iEndurance"> 1e touche (contôle) :{noteTouche1}/10 </Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTouche1} />
-            <Label for="iEndurance"> Tir :{noteTir}/10 </Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTir} />
-            <Label for="iEndurance"> Tête : {noteTete}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTete} />
-            <Label for="iEndurance"> Pied faible : {notePiedFaible}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePiedFaible} />
+			<strong>Toutes les notes sont sur 10 points</strong>
+		</CardHeader>
 
-			<h3 style="color:red;">Critères Physiques</h3>
-			<Label for="iEndurance">Coordination : {noteCoordination}/10</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteCoordination} />
-			<Label for="iEndurance">Vitesse: {noteVitesse}</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteVitesse} />
-			<Label for="iEndurance">Endurance : {noteEndurance}</Label>
-            <Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteEndurance} />
-			<Label for="iEndurance">Force : {noteForce}</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteForce} />
-	
-			<h3 style="color:red;">Critères Tactique</h3>
-			<Label for="iEndurance">Jeu défensif (marquage, couverture) : {noteJeuDef}</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteJeuDef} />
-			<Label for="iEndurance">Jeu offensif (démarquage, implication) : {noteJeuOff}</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteJeuOff} />
-			<Label for="iEndurance">Vision du jeu (levé la tête) : {noteVision}</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteVision} />
-            <Label for="iEndurance">Prise de décision (choix de jeu) : {noteDecision}</Label>
-			<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDecision} />
+
+		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
+			<div style="width: 800px;">
+				<h3 style="color:red;">Critères Mentales</h3>
+				<Label for="iEAttitude">Attitude (veut progresser): {noteAttitude}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAttitude} />
+				<Label for="iLeader">Leadership :{noteLeader}/10 </Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteLeader} />
+				<Label for="iEndurance">Compétitivité : {noteCompete}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteCompete} />
+				<Label for="iEndurance">Assiduité : {noteAssiduite}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAssiduite} />
+			</div>
+			<Image style="width:600px;" fluid alt="This is a fluid Image" src="https://picsum.photos/id/518/1500/667.jpg" />
 		</CardBody>
+			
+		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
+			<div style="width: 800px;">
+				<h3 style="color:red;">Critères Techniques</h3>
+				<Label for="iEndurance">Drible : {noteDrible}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDrible} />
+				<Label for="iEndurance">Conduite : {noteConduite}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteConduite} />
+				<Label for="iEndurance"> Passe courte : {notePasseC}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePasseC} />
+				<Label for="iEndurance"> Passe longue :{notePasseL}/10 </Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePasseL} />
+				<Label for="iEndurance"> 1e touche (contôle) :{noteTouche1}/10 </Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTouche1} />
+				<Label for="iEndurance"> Tir :{noteTir}/10 </Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTir} />
+				<Label for="iEndurance"> Tête : {noteTete}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteTete} />
+				<Label for="iEndurance"> Pied faible : {notePiedFaible}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePiedFaible} />
+			</div>
+			<Image style="width:600px;" fluid alt="This is a fluid Image" src="https://picsum.photos/id/518/1500/667.jpg" />
+		</CardBody>		
+					
+		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
+			<div style="width: 800px;">
+				<h3 style="color:red;">Critères Physiques</h3>
+				<Label for="iEndurance">Coordination : {noteCoordination}/10</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteCoordination} />
+				<Label for="iEndurance">Vitesse: {noteVitesse}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteVitesse} />
+				<Label for="iEndurance">Endurance : {noteEndurance}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteEndurance} />
+				<Label for="iEndurance">Force : {noteForce}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteForce} />
+			</div>
+			<Image style="width:600px;" fluid alt="This is a fluid Image" src="https://picsum.photos/id/518/1500/667.jpg" />
+		</CardBody>	
+			
+		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
+			<div style="width: 800px;">
+				<h3 style="color:red;">Critères Tactique</h3>
+				<Label for="iEndurance">Jeu défensif (marquage, couverture) : {noteJeuDef}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteJeuDef} />
+				<Label for="iEndurance">Jeu offensif (démarquage, implication) : {noteJeuOff}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteJeuOff} />
+				<Label for="iEndurance">Vision du jeu (levé la tête) : {noteVision}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteVision} />
+				<Label for="iEndurance">Prise de décision (choix de jeu) : {noteDecision}</Label>
+				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDecision} />
+			</div>
+			<Image style="width:600px;" fluid alt="This is a fluid Image" src="https://picsum.photos/id/518/1500/667.jpg" />
+		</CardBody>		
+           
         <h3>Commentaire générale</h3>
         <Row>
-            <Col style="border: 1px solid black; height:200px; margin: 20px 10px;" ><p>Lorem50</p></Col>
+            <Col style="padding:30px; margin:20px 10px; border:3px solid black;"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius odit perspiciatis, animi minima adipisci optio quia ea dolores magnam amet, tempora molestiae laudantium. Incidunt, deleniti inventore! Officia, vero culpa, optio qui dolorum esse similique modi expedita accusamus explicabo facere nihil, sequi nulla nobis natus dolor fugiat. Saepe ea blanditiis accusamus.</p></Col>
           </Row>
-          <Row>
-            <Col style="border: 1px solid black; height:100px">Signature Coach</Col>
-            <Col style="border: 1px solid black; height:100px">Signature Joueur</Col>
-            <Col style="border: 1px solid black; height:100px">Signateur Parent(mineur)</Col>
-            <Col style="border: 1px solid black; height:100px">Signature D. Sportif</Col>
+          <Row style="margin: 20px auto; gap:10px;">
+            <Col style="border: 3px solid black; height:100px">Signature Coach</Col>
+            <Col style="border: 3px solid black; height:100px">Signature Joueur</Col>
+            <Col style="border: 3px solid black; height:100px">Signateur Parent(mineur)</Col>
+            <Col style="border: 3px solid black; height:100px">Signature D. Sportif</Col>
           </Row>
 		<Row>
 			{#if evalTerminer}
@@ -221,4 +242,4 @@
 			<Button color="primary" on:click={createEvalutionJoueur}>Enregistrer</Button>
 			{/if}
 		</Row>
-	</Card>
+	

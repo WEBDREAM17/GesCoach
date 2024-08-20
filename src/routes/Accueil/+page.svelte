@@ -20,9 +20,8 @@
     <div style="border:2px solid black; width:800px; background-color:black;">
         <h4  style="color: red; padding:20px 0 0 20px;">Bienvenue à</h4>
         <h1 style="color: white;padding:10px 0 0 20px;">LE PARC FOOTALL CLUB</h1>
-        <p style="color: white;padding:10px 40px 0 20px;font-size:1.3rem;">L'Olympique Rovenain est le club de football du Rove. Situé aux portes de Marseille, ce club favorise l'excellence dans un cadre magnifique.
-            Contact : Directeur sportif Christophe Rouzault E-mail :
-            <a href="/">orovenain@aol.com </a></p>
+        <p style="color: white;padding:10px 40px 0 20px;font-size:1.3rem;">Le Parc Fc est le club de football du quartier populaire du 3eme arrondissement de Marseille "Felix-Pyat". Ce club favorise l'accompagnement sportif et éducatif de chaque enfant. Notre objectif est de développer l'épanouissement, la progression et les aider à cheminer vers la réussite en développant chez chaque individu la confiance en soi, l'estme de soi et la motivation. <br>Pour plus d'infos n'hesiter pas à nous contacter par mail :
+            <a href="/">parcfc@aol.com </a></p>
     </div>
   </Carousel>
 ;
@@ -41,7 +40,7 @@
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
         <img style="width:100px;" src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
-        <h3 style="color:color;">Le respect</h3>
+        <h3 style="color:color;">Respect</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, voluptatem?</p>
         </div>
     </Col>
@@ -49,14 +48,14 @@
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
         <img style="width:100px;" src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
-        <h3 style="color:color;">La jeunesse</h3>
+        <h3 style="color:color;">Jeunesse</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, voluptatem?</p>
         </div>
     </Col>
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
         <img style="width:100px;" src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
-        <h3 style="color:color;">La performance</h3>
+        <h3 style="color:color;">Performance</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, voluptatem?</p>
         </div>
     </Col>
@@ -70,9 +69,9 @@
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
         <img style="width:100px;" src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
-        <h3 style="color:color;">Entrainement</h3>
+        <h3 style="color:color;">Réussite</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi, voluptatem?</p>
-        </div>  
+        </div> 
     </Col>
   </Row>
   <Carousel style="width:1600px; margin:100px auto;" {items} bind:activeIndex>

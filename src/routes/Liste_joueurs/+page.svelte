@@ -155,14 +155,14 @@
 			<td>{joueur.poste1}</td>
 			<td>{joueur.poste2}</td>
 			<td>{joueur.id_categorie}</td>
-			<td>{joueur.equipe}</td>
+			<td>{joueur.equipe} <img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
 			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
 			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
 		  </tr>
 		 {/each}
 		</tbody>
 	  </Table>
-	  <Modal body header="Modal title" isOpen={open} {toggle}>
+	  <Modal body header="Lancer une évaluation" isOpen={open} {toggle}>
 		Veuillez choisir l'évaluateur dans la liste ci-dessous :
 		<Input type="select" id='selListeCoach' bind:value={id_personne}>
 			{#each liste_coach as coach}
