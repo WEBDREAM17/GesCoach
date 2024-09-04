@@ -2,6 +2,8 @@
 	import { Table, Col, Row } from '@sveltestrap/sveltestrap';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
+	import RadarChart from '../composants/RadarChart.svelte'; 
+
 
 	let liste_joueurs = [];
 	let liste_eval = [];
@@ -19,6 +21,7 @@
 	let poste2 = '';
 	let url_photo ='';
 	let compteur = 0;
+	let dataColors;
 
 	let _servicepath = 'http://localhost/webservice/';
 
@@ -163,6 +166,8 @@
 			console.log(error);
 		}
 	};
+
+	
 </script>
 
 <Row
@@ -235,7 +240,7 @@
 			</tr>
 		</Table>
 	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6">.col-6</Col>
+	<Col style="border:2px solid black;margin:20px;" xs="6"><RadarChart dataColors={["--vz-success-rgb, 0.2","--vz-success","--vz-primary-rgb, 0.2","--vz-primary"]}/></Col>
 	<Col style="border:2px solid black;margin:20px;">
 		<Table striped>
 			<thead>
