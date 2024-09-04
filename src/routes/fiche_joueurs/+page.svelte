@@ -240,7 +240,7 @@
 			</tr>
 		</Table>
 	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6"><RadarChart dataColors={["--vz-success-rgb, 0.2","--vz-success","--vz-primary-rgb, 0.2","--vz-primary"]}/></Col>
+	<Col style="border:2px solid black;margin:20px;" xs="6"><RadarChart dataColors={["blue","blue","red","red"]}/></Col>
 	<Col style="border:2px solid black;margin:20px;">
 		<Table striped>
 			<thead>

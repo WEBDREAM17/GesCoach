@@ -75,7 +75,7 @@
                     pointBorderColor: "#fff",
                     pointHoverBackgroundColor: "#fff",
                     pointHoverBorderColor: radarChartColors[1], //"#2ab57d",
-                    data: notesEvals1,
+                    data: [65, 59, 90, 81, 56, 55, 40],
                 },
                 {
                     label: "Eval 2",
@@ -85,17 +85,7 @@
                     pointBorderColor: "#fff",
                     pointHoverBackgroundColor: "#fff",
                     pointHoverBorderColor: radarChartColors[3], //"#5156be",
-                    data: notesEvals2,
-                },
-                {
-                    label: "Eval 3",
-                    backgroundColor: radarChartColors[2], //"rgba(81, 86, 190, 0.2)",
-                    borderColor: radarChartColors[3], //"#5156be",
-                    pointBackgroundColor: radarChartColors[3], //"#5156be",
-                    pointBorderColor: "#fff",
-                    pointHoverBackgroundColor: "#fff",
-                    pointHoverBorderColor: radarChartColors[3], //"#5156be",
-                    data: notesEvals3,
+                    data: [28, 48, 40, 19, 96, 27, 100],
                 },
             ],
         };
