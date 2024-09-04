@@ -79,7 +79,7 @@
 				body: data
 			});
 
-			console.log('avant requete 1');
+			console.log('avant requete eval');
 			res = await res.json();
 			console.log('2');
 			console.log(res);
@@ -122,29 +122,36 @@
 			//On crée le User
 			const updateRoute = _servicepath + 'recuperer_poste.php';
 			const data = new FormData();
-			data.append('id_personne', id_joueur);
+			data.append('id_joueur', id_joueur);
 			let res = await fetch(updateRoute, {
 				method: 'POST',
 				body: data
 			});
 
-			console.log('avant requete');
+			console.log('avant requete poste');
 			res = await res.json();
-
+			console.log('poste :');
 			console.log(res);
 			// @ts-ignore
 			if (res.status == '1') {
-				liste_joueurs = res.data;
-				liste_poste = res.data;
-				let monJoueur = liste_joueurs[0];
-				nom = monJoueur.nom;
-				prenom = monJoueur.prenom;
-				date = monJoueur.date;
-				equipe = monJoueur.equipe;
-				licence = monJoueur.numero_licence;
-				poste1 = monJoueur.poste1;
-				poste2 = monJoueur.poste2;
-				url_photo = monJoueur.url_photo;
+				let posts = res.data;
+				console.log(posts[0])
+				if (posts [0]!=undefined)
+				{
+					poste1=posts[0].poste;
+				}
+				else{
+					poste1 = '';
+				}
+
+				if (posts [1]!=undefined)
+				{
+					poste1=posts [1];
+					
+				}
+				else{
+					poste2 = '';
+				}
 
 				
 				console.log(liste_joueurs);
@@ -354,5 +361,5 @@
 			</tr>
 		</Table>
 	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6">.col-6</Col>
+	<Col style="border:2px solid black;margin:20px;" xs="6"></Col>
 </Row>
