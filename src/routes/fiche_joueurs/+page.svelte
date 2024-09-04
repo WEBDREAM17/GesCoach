@@ -11,6 +11,8 @@
 	let eval1 = [];
 	let eval2 = [];
 	let eval3 = [];
+
+	let eval1FormatteGraph = [];
 	let nom = '';
 	let prenom = '';
 	let date = '';
@@ -45,7 +47,7 @@
 			console.log('avant requete');
 			res = await res.json();
 
-			console.log(res);
+			
 			// @ts-ignore
 			if (res.status == '1') {
 				liste_joueurs = res.data;
@@ -62,7 +64,7 @@
 				if (date == null) {
 					date = 'date non renseigné';
 				}
-				console.log(liste_joueurs);
+				
 			} else {
 				// @ts-ignore
 				console.log(res.message);
@@ -82,10 +84,7 @@
 				body: data
 			});
 
-			console.log('avant requete eval');
 			res = await res.json();
-			console.log('2');
-			console.log(res);
 			// @ts-ignore
 			if (res.status == '1') {
 				console.log(res.data)
@@ -94,8 +93,14 @@
 				liste_eval.forEach(evalu => {
 					if(compteur == 0)
 					{
+						console.log('eval :');
 						console.log(evalu);
 						eval1 = evalu;
+						eval1FormatteGraph[0] = evalu.noteAssiduite;
+						eval1FormatteGraph[1] = evalu.noteVitesse;
+						eval1FormatteGraph[2] = 4;
+						eval1FormatteGraph[3] = 4; 
+						console.log(eval1FormatteGraph);
 					}
 					if(compteur == 1)
 					{
@@ -240,7 +245,7 @@
 			</tr>
 		</Table>
 	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6"><RadarChart dataColors={["blue","blue","red","red"]}/></Col>
+	<Col style="border:2px solid black;margin:20px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
 	<Col style="border:2px solid black;margin:20px;">
 		<Table striped>
 			<thead>
