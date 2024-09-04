@@ -207,7 +207,7 @@
 				<Label for="iEndurance">Force : {noteForce}</Label>
 				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteForce} />
 			</div>
-			<Image style="width:600px;" fluid alt="This is a fluid Image" src="https://picsum.photos/id/518/1500/667.jpg" />
+			<Image style="width:600px;" fluid alt="This is a fluid Image" src="/src/lib/images/1.png" />
 		</CardBody>	
 			
 		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">

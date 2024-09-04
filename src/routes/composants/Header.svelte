@@ -17,7 +17,7 @@
 </script>
 
 <Navbar color="dark" theme="dark">
-	<NavbarBrand href="/" class="me-auto">GesCoach</NavbarBrand>
+	<NavbarBrand href="/" class="me-auto">Parc Football Club</NavbarBrand>
 	<NavbarToggler on:click={toggle} class="me-2" />
 	<Collapse {isOpen} navbar>
 		<Nav navbar>

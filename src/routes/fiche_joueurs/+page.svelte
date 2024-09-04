@@ -4,6 +4,11 @@
 	import { page } from '$app/stores';
 
 	let liste_joueurs = [];
+	let liste_eval = [];
+	let liste_poste = [];
+	let eval1 = [];
+	let eval2 = [];
+	let eval3 = [];
 	let nom = '';
 	let prenom = '';
 	let date = '';
@@ -13,12 +18,15 @@
 	let poste1 = '';
 	let poste2 = '';
 	let url_photo ='';
+	let compteur = 0;
 
 	let _servicepath = 'http://localhost/webservice/';
 
 	onMount(async () => {
 		let id_joueur = $page.url.searchParams.get('id');
 		await recupererJoueur(id_joueur);
+		await recupererEval(id_joueur);
+		await recupererPoste(id_joueur);
 	});
 	const recupererJoueur = async (id_joueur) => {
 		try {
@@ -60,6 +68,94 @@
 			console.log(error);
 		}
 	};
+	const recupererEval = async (id_joueur) => {
+		try {
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_eval_idjoueur.php';
+			const data = new FormData();
+			data.append('id_joueur', id_joueur);
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete 1');
+			res = await res.json();
+			console.log('2');
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				console.log(res.data)
+				liste_eval = res.data;
+				
+				liste_eval.forEach(evalu => {
+					if(compteur == 0)
+					{
+						console.log(evalu);
+						eval1 = evalu;
+					}
+					if(compteur == 1)
+					{
+						eval2 = evalu;
+					}
+					if(compteur == 2)
+					{
+						eval3 = evalu;
+					}
+					compteur = compteur+1;
+				});
+
+				if (date == null) {
+					date = 'date non renseigné';
+				}
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	const recupererPoste = async (id_joueur) => {
+		try {
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_poste.php';
+			const data = new FormData();
+			data.append('id_personne', id_joueur);
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete');
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				liste_joueurs = res.data;
+				liste_poste = res.data;
+				let monJoueur = liste_joueurs[0];
+				nom = monJoueur.nom;
+				prenom = monJoueur.prenom;
+				date = monJoueur.date;
+				equipe = monJoueur.equipe;
+				licence = monJoueur.numero_licence;
+				poste1 = monJoueur.poste1;
+				poste2 = monJoueur.poste2;
+				url_photo = monJoueur.url_photo;
+
+				
+				console.log(liste_joueurs);
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 </script>
 
 <Row
@@ -67,7 +163,7 @@
 >
 	<Col><img class="logoClub" src="/src/lib/images/16.png" alt="" /></Col>
 	<Col style="font-size:3rem;">{nom} {prenom}</Col>
-	<Col style="font-size:3rem;">{nom} {prenom}</Col>
+	<Col style="font-size:3rem;">{poste1} {poste2}</Col>
 	<Col><img src="http://localhost/webservice{url_photo}" width="300px"/></Col>
 </Row>
 <Row
@@ -79,17 +175,35 @@
 				<h1>Capacité Mentale</h1>
 			<tr>
 				<th>Aspect</th>
-				<th>Date 1</th>
-				<th>Date</th>
-				<th>Date 3</th>
+			{#if compteur>0}
+
+				<th>{eval1.date}</th>
+			{/if}
+			{#if compteur>1}
+
+				<th>{eval2.date}</th>
+			{/if}
+			{#if compteur>2}
+
+				<th>{eval3.date}</th>
+			{/if}
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 				<td>Endurance</td>
-				<td></td>
-				<td></td>
-				<td></td>
+				<td>{#if compteur>0}
+
+					{eval1.noteEndurance}/10
+				{/if}</td>
+				<td>{#if compteur>1}
+
+					{eval2.noteEndurance}/10
+				{/if}</td>
+				<td>{#if compteur>2}
+
+					{eval3.noteEndurance}/10
+				{/if}</td>
 				</tr>
 			</tbody>
 			<tr>
@@ -122,7 +236,7 @@
 			<tr>
 				<th>Aspect</th>
 				<th>Date 1</th>
-				<th>Date</th>
+				<th>Date 2</th>
 				<th>Date 3</th>
 				</tr>
 			</thead>
@@ -164,7 +278,7 @@
 			<tr>
 				<th>Aspect</th>
 				<th>Date 1</th>
-				<th>Date</th>
+				<th>Date 2</th>
 				<th>Date 3</th>
 				</tr>
 			</thead>
@@ -206,7 +320,7 @@
 			<tr>
 				<th>Aspect</th>
 				<th>Date 1</th>
-				<th>Date</th>
+				<th>Date 2</th>
 				<th>Date 3</th>
 				</tr>
 			</thead>
