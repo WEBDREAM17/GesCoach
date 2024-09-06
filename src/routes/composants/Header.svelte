@@ -16,8 +16,8 @@
 	}
 </script>
 
-<Navbar color="dark" theme="dark">
-	<NavbarBrand href="/" class="me-auto">Parc Football Club</NavbarBrand>
+<Navbar style="height:200px; background-color:white; border-bottom: 10px solid black;" >
+	<NavbarBrand  href="/" class="me-auto"><img style="height:150px; display:flex; margin: 20px auto;" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt=""></NavbarBrand>
 	<NavbarToggler on:click={toggle} class="me-2" />
 	<Collapse {isOpen} navbar>
 		<Nav navbar>
@@ -31,7 +31,7 @@
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="Actualités du club" on:click={toggle}>Actualités du club</NavLink>
 			</NavItem>
 			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="Notre staff" on:click={toggle}>Notre staff</NavLink>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="c" on:click={toggle}>Notre staff</NavLink>
 			</NavItem>
 			<NavItem>
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink>

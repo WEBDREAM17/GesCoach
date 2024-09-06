@@ -18,13 +18,15 @@
 	let licence = '';
 	let poste1 = '';
 	let poste2 = '';
+	
 	let _servicepath = 'http://localhost/webservice/';
 	let open = false;
   
 	onMount ( async()=> {
 		await recupererJoueur();
 		await recupererCoach();
-
+		await recupererPoste(id_joueur);
+		await supprimer_personne(id_joueur);
 	})
 	const toggle = (/** @type {string} */ idJoueur) => {
 		id_joueur = idJoueur;
@@ -48,15 +50,15 @@
 			// @ts-ignore
 			if (res.status == '1') {
 				liste_joueurs = res.data;
-                nom = '';
-                prenom = '';
-                date = '';
-				categorie ='';
-				equipe = '';
-				licence ='';
-				poste1 = '';
-				poste2 = '';
-				console.log(liste_joueurs);
+				let monJoueur = liste_joueurs[0];
+				nom = monJoueur.nom;
+				prenom = monJoueur.prenom;
+				date = monJoueur.date;
+				equipe = monJoueur.equipe;
+				licence = monJoueur.numero_licence;
+				poste1 = monJoueur.poste1;
+				poste2 = monJoueur.poste2;
+				url_photo = monJoueur.url_photo;
 			} else {
 				// @ts-ignore
 				console.log(res.message);
@@ -93,6 +95,92 @@
 			console.log(error);
 		}
 	};
+	const supprimer_personne = async (id_joueur) => {
+		try {
+			//On supprime le User
+			const updateRoute = _servicepath + 'supprimer_personne.php';
+			const data = new FormData();
+			data.append('id_personne', id_joueur);
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete');
+			res = await res.json();
+
+			
+			// @ts-ignore
+			if (res.status == '1') {
+				liste_joueurs = res.data;
+				let monJoueur = liste_joueurs[0];
+				nom = monJoueur.nom;
+				prenom = monJoueur.prenom;
+				date = monJoueur.date;
+				equipe = monJoueur.equipe;
+				licence = monJoueur.numero_licence;
+				poste1 = monJoueur.poste1;
+				poste2 = monJoueur.poste2;
+				url_photo = monJoueur.url_photo;
+
+				if (date == null) {
+					date = 'date non renseigné';
+				}
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	const recupererPoste = async (id_joueur) => {
+		try {
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_poste.php';
+			const data = new FormData();
+			data.append('id_joueur', id_joueur);
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete poste');
+			res = await res.json();
+			console.log('poste :');
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				let posts = res.data;
+				console.log(posts[0])
+				if (posts [0]!=undefined)
+				{
+					poste1=posts[0].poste;
+				}
+				else{
+					poste1 = '';
+				}
+
+				if (posts [1]!=undefined)
+				{
+					poste1=posts [1];
+					
+				}
+				else{
+					poste2 = '';
+				}
+
+				
+				console.log(liste_joueurs);
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	const creerDemandeEval = async () => {
 		try {
 
@@ -112,6 +200,8 @@
 			console.log(res);
 			// @ts-ignore
 			if (res.status == '1') {
+				
+				goto('evaluation_joueurs?id='+id_joueur);
 				toggle('-1');
 
 			} else {
@@ -146,7 +236,7 @@
 		<tbody>
 			{#each liste_joueurs as joueur}
 		  <tr>
-			<th scope="row">1</th>
+			<th scope="row">{joueur.id}</th>
 			<td>{joueur.nom}</td>
 			<td>{joueur.prenom}</td>
 			<td>{joueur.numero_licence}</td>
@@ -158,6 +248,7 @@
 			<td>{joueur.equipe} <img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
 			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
 			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
+			<td><Button on:click="{()=>toggle(joueur.id)}"" style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
 		  </tr>
 		 {/each}
 		</tbody>

@@ -13,6 +13,8 @@
 	let eval3 = [];
 
 	let eval1FormatteGraph = [];
+	let eval2FormatteGraph = [];
+	let eval3FormatteGraph = [];
 	let nom = '';
 	let prenom = '';
 	let date = '';
@@ -32,6 +34,7 @@
 		await recupererJoueur(id_joueur);
 		await recupererEval(id_joueur);
 		await recupererPoste(id_joueur);
+		
 	});
 	const recupererJoueur = async (id_joueur) => {
 		try {
@@ -73,6 +76,7 @@
 			console.log(error);
 		}
 	};
+	
 	const recupererEval = async (id_joueur) => {
 		try {
 			//On crée le User
@@ -96,19 +100,27 @@
 						console.log('eval :');
 						console.log(evalu);
 						eval1 = evalu;
-						eval1FormatteGraph[0] = evalu.noteAssiduite;
-						eval1FormatteGraph[1] = evalu.noteVitesse;
-						eval1FormatteGraph[2] = 4;
-						eval1FormatteGraph[3] = 4; 
+						eval1FormatteGraph[0] = 6;
+						eval1FormatteGraph[1] = 8;
+						eval1FormatteGraph[2] = 7;
+						eval1FormatteGraph[3] = 5; 
 						console.log(eval1FormatteGraph);
 					}
 					if(compteur == 1)
 					{
 						eval2 = evalu;
+						eval2FormatteGraph[0] = evalu.noteAssiduite;
+						eval2FormatteGraph[1] = evalu.noteVitesse;
+						eval2FormatteGraph[2] = 4;
+						eval2FormatteGraph[3] = 4; 
 					}
 					if(compteur == 2)
 					{
 						eval3 = evalu;
+						eval3FormatteGraph[0] = evalu.noteAssiduite;
+						eval3FormatteGraph[1] = evalu.noteVitesse;
+						eval3FormatteGraph[2] = 4;
+						eval3FormatteGraph[3] = 4; 
 					}
 					compteur = compteur+1;
 				});
@@ -176,12 +188,12 @@
 </script>
 
 <Row
-	style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"
->
-	<Col><img class="logoClub" src="/src/lib/images/16.png" alt="" /></Col>
-	<Col style="font-size:3rem;">{nom} {prenom}</Col>
-	<Col style="font-size:3rem;">{poste1} {poste2}</Col>
-	<Col><img src="http://localhost/webservice{url_photo}" width="300px"/></Col>
+	style="border:2px solid black; background-color: black; margin:20px; display:flex; align-items:center;justify-content:space-between;">
+	<Col><img class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
+	<Col style="font-size:3rem; color:white;">{nom} {prenom}</Col>
+	<Col style="font-size:3rem; color: white;">{poste1} {poste2}</Col>
+	<Col><img src="http://localhost/webservice{url_photo}" width="200px"/></Col>
+	<Col style="border:2px solid black; background-color: grey; text-align:center; width:100px;"><a style="color:black; text-decoration:none; " href="/Liste_joueurs">Retour liste joueurs</a></Col>
 </Row>
 <Row
 	style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"
@@ -189,7 +201,7 @@
 	<Col style="border:2px solid black;margin:20px;">
 		<Table striped>
 			<thead>
-				<h1>Capacité Mentale</h1>
+				<h1>Capacité Physique</h1>
 			<tr>
 				<th>Aspect</th>
 			{#if compteur>0}
@@ -245,11 +257,14 @@
 			</tr>
 		</Table>
 	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
+	<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
+</Row>
+
+<Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
 	<Col style="border:2px solid black;margin:20px;">
 		<Table striped>
 			<thead>
-				<h1>Capacités Physiques</h1>
+				<h1>Capacités Mentales</h1>
 			<tr>
 				<th>Aspect</th>
 				<th>Date 1</th>
@@ -287,89 +302,96 @@
 			</tr>
 		</Table>
 	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6">.col-6</Col>
-	<Col style="border:2px solid black;margin:20px;">
-		<Table striped>
-			<thead>
-				<h1>Capacités Techniques</h1>
-			<tr>
-				<th>Aspect</th>
-				<th>Date 1</th>
-				<th>Date 2</th>
-				<th>Date 3</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<td>Conduite</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				</tr>
-			</tbody>
-			<tr>
-				<td>Passe</td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tbody>
-			<tr>
-				<td>Drible</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				</tr>
-			</tbody>
-			<tr>
-				<td>Tir</td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</Table>
-	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6">.col-6</Col>
-	<Col style="border:2px solid black;margin:20px;">
-		<Table striped>
-			<thead>
-				<h1>Capacités Tactiques</h1>
-			<tr>
-				<th>Aspect</th>
-				<th>Date 1</th>
-				<th>Date 2</th>
-				<th>Date 3</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<td>Jeu defensif</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				</tr>
-			</tbody>
-			<tr>
-				<td>Jeu offensif</td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-			<tbody>
-			<tr>
-				<td>Vision du jeu</td>
-				<td></td>
-				<td></td>
-				<td></td>
-				</tr>
-			</tbody>
-			<tr>
-				<td>Prise de décision</td>
-				<td></td>
-				<td></td>
-				<td></td>
-			</tr>
-		</Table>
-	</Col>
-	<Col style="border:2px solid black;margin:20px;" xs="6"></Col>
+	<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
 </Row>
+	
+	<Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
+		<Col style="border:2px solid black;margin:20px;">
+			<Table striped>
+				<thead>
+					<h1>Capacités Techniques</h1>
+				<tr>
+					<th>Aspect</th>
+					<th>Date 1</th>
+					<th>Date 2</th>
+					<th>Date 3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td>Conduite</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					</tr>
+				</tbody>
+				<tr>
+					<td>Passe</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tbody>
+				<tr>
+					<td>Drible</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					</tr>
+				</tbody>
+				<tr>
+					<td>Tir</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</Table>
+		</Col>
+		<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
+	</Row>
+
+	<Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
+		<Col style="border:2px solid black;margin:20px;">
+			<Table striped>
+				<thead>
+					<h1>Capacités Tactiques</h1>
+				<tr>
+					<th>Aspect</th>
+					<th>Date 1</th>
+					<th>Date 2</th>
+					<th>Date 3</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+					<td>Jeu defensif</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					</tr>
+				</tbody>
+				<tr>
+					<td>Jeu offensif</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+				<tbody>
+				<tr>
+					<td>Vision du jeu</td>
+					<td></td>
+					<td></td>
+					<td></td>
+					</tr>
+				</tbody>
+				<tr>
+					<td>Prise de décision</td>
+					<td></td>
+					<td></td>
+					<td></td>
+				</tr>
+			</Table>
+		</Col>
+		<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
+	</Row>
+	

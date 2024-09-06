@@ -47,7 +47,7 @@
 	let _servicepath = 'http://localhost/webservice/';
 
 	onMount ( async()=> {
-		let id_joueur =$page.url.searchParams.get('id');
+		id_joueur =$page.url.searchParams.get('id');
         await recupererJoueur(id_joueur);
 
 	})
@@ -151,7 +151,7 @@
 	</script>
     
 		<CardHeader style="height:200px; background-color:grey; padding:30px;">
-			<div><h1 style="color:white;font-size:3rem;">Evaluation de {prenomJoueur} {nomJoueur} </h1></div>
+			<div><h1 style="color:white;font-size:3rem;">Evaluation de {prenom} {nom} </h1></div>
 			
 			<strong>Toutes les notes sont sur 10 points</strong>
 		</CardHeader>

@@ -2,87 +2,30 @@
 	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+</script>  
 
-    let liste_coach = [];
-    let _servicepath = 'http://localhost/webservice/';
-
-    onMount ( async()=> {
-		await recupererCoach();
-
-	})
-
-    const recupererCoach = async () => {
-		try {
-			//On crée le User
-			const updateRoute = _servicepath + 'recuperer_personnes.php';
-			const data = new FormData();
-			data.append('id_statut','1');
-			let res = await fetch(updateRoute, {
-				method: 'POST',
-				body: data
-			});
-
-			console.log('avant requete')
-			res = await res.json();
-
-			console.log(res);
-			// @ts-ignore
-			if (res.status == '1') {
-				liste_coach = res.data;
-               
-				
-			} else {
-				// @ts-ignore
-				console.log(res.message);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-</script>
-
-<Card>
-  <CardHeader>
-    <CardTitle style="font-size:4rem; margin: 10px 50px;">Notre staff</CardTitle>
+  <CardHeader style="background-color:black">
+    <CardTitle style="font-size:4rem; margin: 10px 30px; color:grey;">Notre Staff - Le Parc Football Club</CardTitle>
   </CardHeader>
-  <CardBody style="background-color:gray; display:flex; align-items:center; justify-content:space-between; margin:50px 50px;">
-      <img src="src/lib/images/20.png" alt="">
-      <div>
-        <h2 style="font-size:3rem; color:white;">Le staff</h2>
-        <p style="font-size:1.2rem;width:600px;">Un club de football, c'est des joueurs, mais aussi un groupe d'entraineurs bénévole au service du club.</p>
-      </div>
+  <CardBody style="width:1000px; margin: 50px 30px;">
+    <Col><p style="font-size:1.3rem;">Rencontrez l'équipe derrière l'équiepe. Notre jeune staff est composé de professionnels et de jeunes passionnés qui sont dédiés au développement de nos joueurs, tant sur le terrain qu'en dehors.</p></Col>
+    <Col>
+      <h2 style="font-size:1.7rem; margin-top:50px;">Directeur Technique</h2>
+      <p style="font-size:1.3rem;">Notre directeur technique apporte une richesse de connaissances et d’expérience, ayant joué et entraîné au plus haut niveau. Il est responsable de la supervision de tous les aspects de notre programme de football, de l’élaboration de la stratégie à la mise en œuvre des plans d’entraînement. </p></Col>
+    <Col>
+      <h2 style="font-size:1.7rem; margin-top:50px;">Entaîneurs</h2>
+      <p style="font-size:1.3rem;">Chaque équipe du Parc FC est guidée par un entraîneur dédié qui possède une compréhension approfondie du jeu et une passion pour le développement des jeunes joueurs. Nos entraîneurs travaillent en étroite collaboration avec le directeur technique pour veiller à ce que tous les joueurs atteignent leur potentiel maximum.</p>
+    </Col>
+    <Col>
+    <h2 style="font-size:1.7rem; margin-top:50px;">Coordinateur Administratif</h2>
+    <p style="font-size:1.3rem;">Notre coordinateur administratif est le moteur qui fait tourner Le Parc FC. De la coordination des horaires d’entraînement et des matches à la gestion des inscriptions, il assure le bon déroulement de toutes nos opérations.
+
+      Chaque membre de notre staff joue un rôle crucial pour faire du Parc FC une association de football de premier plan. Nous sommes fiers de l’équipe que nous avons constituée et nous sommes impatients de vous voir nous rejoindre pour la saison 2024-2025 !</p>
+    </Col>
   </CardBody>
-  <CardBody>
-  <CardSubtitle style="color:black; font-size:2.5rem; margin:0 30px; padding:20px; border:solid black; text-align:center;">Ecole de football</CardSubtitle>
-  <CardText style="display:flex; align-items:center; justify-content:space-between; margin: 10px 30px;">
-    <ul>
-      {#each liste_coach as coach}
-      <li>{coach.nom}<a href="">fiche Coach</a></li>
-      {/each}
-    </ul>
-    <img src="src/lib/images/20.png" alt="">
-  </CardText>
-</CardBody>
-<CardBody>
-    <CardSubtitle style="color:black; font-size:2.5rem; margin:0 30px; padding:20px;border:solid black;text-align:center;">Pole Préformation</CardSubtitle>
-    <CardText style="display:flex; align-items:center; justify-content:space-between;margin: 10px 30px;">
-      <ul>
-        {#each liste_coach as coach}
-      <li>{coach.nom}<a href="">fiche Coach</a></li>
-      {/each}
-      </ul>
-      <img src="src/lib/images/20.png" alt="">
-    </CardText>
-  </CardBody>
-  <CardBody>
-    <CardSubtitle style="color:black; font-size:2.5rem; margin:0 30px; padding:20px; border:solid black;text-align:center;">Pole ambition</CardSubtitle>
-    <CardText style="display:flex; align-items:center; justify-content:space-between;margin: 10px 30px;; ">
-      <ul>
-        {#each liste_coach as coach}
-        <li>{coach.nom}<a href="">fiche Coach</a></li>
-        {/each}
-      </ul>
-      <img src="src/lib/images/20.png" alt="">
-    </CardText>
-  </CardBody>
-</Card>
+ 
+    
+ 
+ 
+  
+
