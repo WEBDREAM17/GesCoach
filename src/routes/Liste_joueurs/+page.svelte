@@ -1,8 +1,17 @@
 <script>
-	import { goto } from "$app/navigation";
-	import { Table, Button,Col, Row, Modal, Input, ModalFooter} from "@sveltestrap/sveltestrap";
+	import { goto, invalidateAll } from "$app/navigation";
+	import { Table, Button,Col, Row, Input, ModalFooter,
+    ButtonGroup,
+    Modal,
+    ModalBody,
+    ModalHeader } from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
 
+	let openSuppression = false;
+  	const toggleSuppression = (/** @type {string} */ idJoueur) => {
+		id_joueur = idJoueur;
+		openSuppression = !openSuppression
+	};
 	/**
 	 * @type {any[]}
 	 */
@@ -94,8 +103,9 @@
 			console.log(error);
 		}
 	};
-	const supprimer_personne = async (id_joueur) => {
+	const supprimer_personne = async () => {
 		try {
+
 			//On crée le User
 			const updateRoute = _servicepath + 'supprimer_personne.php';
 			const data = new FormData();
@@ -111,16 +121,11 @@
 			
 			// @ts-ignore
 			if (res.status == '1') {
-				liste_joueurs = res.data;
-				let monJoueur = liste_joueurs[0];
-				nom = monJoueur.nom;
-				prenom = monJoueur.prenom;
-				date = monJoueur.date;
-				equipe = monJoueur.equipe;
-				licence = monJoueur.numero_licence;
-				poste1 = monJoueur.poste1;
-				poste2 = monJoueur.poste2;
-				url_photo = monJoueur.url_photo;
+				//On faut disparaitre la modal de confirmation
+				toggleSuppression('-1');
+
+				//On actualise la liste
+				await recupererJoueur();
 
 				if (date == null) {
 					date = 'date non renseigné';
@@ -247,7 +252,7 @@
 			<td>{joueur.equipe} <img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
 			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
 			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
-			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
+			<td><Button on:click={()=>toggleSuppression(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
 		  </tr>
 		 {/each}
 		</tbody>
@@ -265,4 +270,14 @@
 			<Button color="secondary" on:click={()=>toggle('-1')}>Annuler</Button>
 		  </ModalFooter>
 	  </Modal>
+	  <div>
+		<Modal isOpen={openSuppression} backdrop={false}>
+		  <ModalHeader>Etes vous sûr de vouloir supprimer ce joueur ?</ModalHeader>
+		  
+		  <ModalFooter>
+			<Button color="primary" on:click={supprimer_personne}>Supprimer</Button>
+			<Button color="secondary" on:click={()=>toggleSuppression('-1')}>Annuler</Button>
+		  </ModalFooter>
+		</Modal>
+	  </div>
 
