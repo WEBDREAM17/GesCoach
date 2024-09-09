@@ -15,13 +15,17 @@
 	let id_coach = ''; 
 	let id_categorie = ''; 
 	let id_equipe = ''; 
+	let id_joueur = '';
 	let nom_equipe = '';
 	let annee = '';
 	let annee2= 0;
+	let nom = '';
+    let prenom = '';
 	/**
 	 * @type {any[]}
 	 */
 	let listeCoach = [];
+	let liste_joueurs = [];
 	let validated = false;
 
     /**
@@ -39,6 +43,7 @@
 		await recupererListeEquipe();
 		await recupererListeCategorie();
 		await recupererListeCoach();
+		await recupererJoueur();
 		annee=new Date().getFullYear().toString();
 		miseAjourAnnee();
 
@@ -133,6 +138,41 @@
 			console.log(error);
 		}
 	};
+	const recupererJoueur = async () => {
+		try {
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_personnes.php';
+			const data = new FormData();
+			data.append('id_statut','2');
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				liste_joueurs = res.data;
+				let monJoueur = liste_joueurs[0];
+				nom = monJoueur.nom;
+				prenom = monJoueur.prenom;
+				date = monJoueur.date;
+				equipe = monJoueur.equipe;
+				licence = monJoueur.numero_licence;
+				poste1 = monJoueur.poste1;
+				poste2 = monJoueur.poste2;
+				url_photo = monJoueur.url_photo;
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	const createEquipe = async () => {
 		try {
             console.log('id coach : '+ id_coach)
@@ -200,7 +240,7 @@
                     <option value={coach.id}>{coach.nom} {coach.prenom} </option>
                     {/each }
                 </Input>
-
+			
 				<Label for="dd_annee">Saison :</Label>
 				<Input type="text" id="dd_annee" bind:value={annee} on:change={miseAjourAnnee} style="width:150px;"></Input>/ {annee2}
 			

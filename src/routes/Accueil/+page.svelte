@@ -88,9 +88,9 @@
     <Button color={sizeToColorMap[size]} href="Nos equipes" on:click={toggle}>Nos equipes</Button>
     <Button color={sizeToColorMap[size]} href="Le Parc Fc" on:click={toggle}>Le Parc FC</Button>
     <Button color={sizeToColorMap[size]} href="/" on:click={toggle}>Planning des entraînements</Button>
-    <Button color={sizeToColorMap[size]} href="Notre staff" on:click={toggle}>Inscriptions 24/25</Button>
-    <Button color={sizeToColorMap[size]} href="Notre staff" on:click={toggle}>Notre staff </Button>
-    <Button color={sizeToColorMap[size]} href="Notre staff" on:click={toggle}>Nos contacts</Button>
+    <Button color={sizeToColorMap[size]} href="/" on:click={toggle}>Inscriptions 24/25</Button>
+    <Button color={sizeToColorMap[size]} href="/" on:click={toggle}>Notre staff </Button>
+    <Button color={sizeToColorMap[size]} href="Nos evenements" on:click={toggle}>Nos contacts</Button>
   </ButtonGroup>
 {/each}
   </Row>

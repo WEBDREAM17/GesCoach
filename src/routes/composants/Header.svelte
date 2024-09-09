@@ -24,14 +24,9 @@
 			<NavItem>
 				<NavLink style="font-size:1.3rem; color:aqua;" href="Accueil" on:click={toggle}>Accueil</NavLink>
 			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="Home" on:click={toggle}>Home</NavLink>
-			</NavItem>
+
 			<NavItem>
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="Actualités du club" on:click={toggle}>Actualités du club</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="c" on:click={toggle}>Notre staff</NavLink>
 			</NavItem>
 			<NavItem>
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink>
@@ -47,6 +42,9 @@
 			</NavItem>
 			<NavItem>
 				<NavLink style="font-size:1.3rem; color:aqua;"  href="evaluation_joueurs" on:click={toggle}>Evaluation</NavLink>
+			</NavItem>
+			<NavItem>
+				<NavLink style="font-size:1.3rem; color:aqua;"  href="fiche_equipes" on:click={toggle}>equipe</NavLink>
 			</NavItem>
 		</Nav>
 	</Collapse>

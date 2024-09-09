@@ -1,7 +1,134 @@
 <script>
-	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText} from "@sveltestrap/sveltestrap";
+	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText, Table} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+
+    let nom_categorie = '';
+	let id_coach = ''; 
+	let id_categorie = ''; 
+	let id_equipe = ''; 
+	let id_joueur = '';
+	let nom_equipe = '';
+	let annee = '';
+	let annee2= 0;
+	let nom = '';
+    
+	/**
+	 * @type {any[]}
+	 */
+	let listeCoach = [];
+	
+	let validated = false;
+
+    /**
+	 * @type {any[]}
+	 */
+  let listeEquipe = [];
+	let errorMessage = '';
+    /**
+	 * @type {any[]}
+	 */
+  let listeCategorie = [];
+	let _servicepath = 'http://localhost/webservice/';
+
+    onMount ( async()=> {
+		await recupererListeEquipe();
+		await recupererListeCategorie();
+		await recupererListeCoach();
+		annee=new Date().getFullYear().toString();
+		miseAjourAnnee();
+
+	})
+	function miseAjourAnnee(){
+		annee2=Number(annee)+1;
+	}
+
+    const recupererListeEquipe = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeEquipe.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeEquipe = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+  const recupererListeCategorie = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeCategorie.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeCategorie = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const recupererListeCoach = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeCoach.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeCoach = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 </script>  
 
   <CardHeader style="background-color:black">
@@ -41,8 +168,35 @@
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U13</h2>
       <p style="font-size:1.3rem;">Notre équipe U13 est le sommet de notre parcours de développement. Les matches se jouent en 11 contre 11, sur un terrain de taille normale. À ce stade, nos joueurs ont développé un excellent ensemble de compétences et une compréhension approfondie du jeu.
 
-        Chaque équipe Phoenix a sa propre personnalité et ses propres objectifs, mais toutes partagent l’amour du jeu et le désir de s’améliorer. Nous sommes impatients de vous voir soutenir nos équipes pour la saison 2023-2024 !</p>
+        Chaque équipe du Parc Fc a sa propre personnalité et ses propres objectifs, mais toutes partagent l’amour du jeu et le désir de s’améliorer. Nous sommes impatients de vous voir soutenir nos équipes pour la saison 2023-2024 !</p>
     </Col>
+
+    <h1>Liste des Equipes</h1>
+      <Table striped>
+        <thead>
+          <tr>
+          <th>#</th>
+          <th>Categorie</th>
+          <th>Equipe</th>
+          <th>nom du Coach</th>
+          </tr>
+        </thead>
+        <tbody>
+          {#each listeEquipe as equipes}
+          <tr>
+          <th scope="row">{equipes.id}</th>
+          <td>{equipes.nom_categorie}</td>
+          <td>{equipes.nom_equipe}</td>
+          <td>{equipes.dd_nomCoach}</td>
+          <!-- <td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
+          <td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
+          <td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td> -->
+          </tr>
+         {/each}
+        </tbody>
+        </Table>
+
+
   </CardBody>
  
     

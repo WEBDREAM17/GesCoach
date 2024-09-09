@@ -1,42 +1,63 @@
 <script>
-	import { goto } from "$app/navigation";
-	import { Table, Button,Col, Row, Modal, Input, ModalFooter} from "@sveltestrap/sveltestrap";
-	import { onMount } from "svelte";
+	import { Table, Col, Row, Button, Modal, Input, ModalFooter } from '@sveltestrap/sveltestrap';
+	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import RadarChart from '../composants/RadarChart.svelte'; 
 
+	let nom_categorie = '';
+	let id_coach = ''; 
+	let id_categorie = ''; 
+	let id_equipe = ''; 
+	let id_joueur = '';
+	let nom_equipe = '';
+	let annee = '';
+	let annee2= 0;
+	let nom = '';
+    let prenom = '';
 	/**
 	 * @type {any[]}
 	 */
+	let listeCoach = [];
+	let validated = false;
+
+    /**
+	 * @type {any[]}
+	 */
+  let listeEquipe = [];
+	let errorMessage = '';
+    /**
+	 * @type {any[]}
+	 */
+  	let listeCategorie = [];
 	let liste_joueurs = [];
-	let liste_coach = [];
-	let id_joueur = '';
-	let id_personne ='';
-	let nom = '';
-    let prenom = '';
-    let date = '';
+	let liste_poste = [];
+	
+	
+	let date = '';
 	let categorie = '';
-	let equipe= '';
+	let equipe = '';
 	let licence = '';
 	let poste1 = '';
 	let poste2 = '';
 	
+
 	let _servicepath = 'http://localhost/webservice/';
-	let open = false;
-  
-	onMount ( async()=> {
-		await recupererJoueur();
-		await recupererCoach();
+
+	onMount(async () => {
+		let id_joueur = $page.url.searchParams.get('id');
+		await recupererJoueur(id_joueur);
 		await recupererPoste(id_joueur);
-	})
-	const toggle = (/** @type {string} */ idJoueur) => {
-		id_joueur = idJoueur;
-		(open = !open);
-	}
-	const recupererJoueur = async () => {
+		await recupererListeEquipe();
+		await recupererListeCategorie();
+		await recupererListeCoach();
+		
+	});
+	const recupererListeEquipe = async () => {
 		try {
-			//On crée le User
-			const updateRoute = _servicepath + 'recuperer_personnes.php';
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeEquipe.php';
 			const data = new FormData();
-			data.append('id_statut','2');
+			
 			let res = await fetch(updateRoute, {
 				method: 'POST',
 				body: data
@@ -48,43 +69,8 @@
 			console.log(res);
 			// @ts-ignore
 			if (res.status == '1') {
-				liste_joueurs = res.data;
-				let monJoueur = liste_joueurs[0];
-				nom = monJoueur.nom;
-				prenom = monJoueur.prenom;
-				date = monJoueur.date;
-				equipe = monJoueur.equipe;
-				licence = monJoueur.numero_licence;
-				poste1 = monJoueur.poste1;
-				poste2 = monJoueur.poste2;
-				url_photo = monJoueur.url_photo;
-			} else {
 				// @ts-ignore
-				console.log(res.message);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-	const recupererCoach = async () => {
-		try {
-			//On crée le User
-			const updateRoute = _servicepath + 'recuperer_personnes.php';
-			const data = new FormData();
-			data.append('id_statut','1');
-			let res = await fetch(updateRoute, {
-				method: 'POST',
-				body: data
-			});
-
-			console.log('avant requete')
-			res = await res.json();
-
-			console.log(res);
-			// @ts-ignore
-			if (res.status == '1') {
-				liste_coach = res.data;
-               
+				listeEquipe = res.data;
 				
 			} else {
 				// @ts-ignore
@@ -94,10 +80,68 @@
 			console.log(error);
 		}
 	};
-	const supprimer_personne = async (id_joueur) => {
+
+  const recupererListeCategorie = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeCategorie.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeCategorie = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+	const recupererListeCoach = async () => {
+		try {
+			//On recupere un evenement
+			const updateRoute = _servicepath + 'recuperer_listeCoach.php';
+			const data = new FormData();
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				// @ts-ignore
+				listeCoach = res.data;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+	const recupererJoueur = async (id_joueur) => {
 		try {
 			//On crée le User
-			const updateRoute = _servicepath + 'supprimer_personne.php';
+			const updateRoute = _servicepath + 'recuperer_personnes_id.php';
 			const data = new FormData();
 			data.append('id_personne', id_joueur);
 			let res = await fetch(updateRoute, {
@@ -134,6 +178,7 @@
 			console.log(error);
 		}
 	};
+	
 	const recupererPoste = async (id_joueur) => {
 		try {
 			//On crée le User
@@ -170,7 +215,6 @@
 					poste2 = '';
 				}
 
-				
 				console.log(liste_joueurs);
 			} else {
 				// @ts-ignore
@@ -180,41 +224,18 @@
 			console.log(error);
 		}
 	};
-	const creerDemandeEval = async () => {
-		try {
 
-			//On crée le User
-			const updateRoute = _servicepath + 'demande_evaluation.php';
-			const data = new FormData();
-			data.append('id_joueur',id_joueur);
-			data.append('id_personne',id_personne);
-			let res = await fetch(updateRoute, {
-				method: 'POST',
-				body: data
-			});
-
-			console.log('avant requete')
-			res = await res.json();
-
-			console.log(res);
-			// @ts-ignore
-			if (res.status == '1') {
-				
-				goto('evaluation_joueurs?id='+id_joueur);
-				toggle('-1');
-
-			} else {
-				// @ts-ignore
-				console.log(res.message);
-			}
-		} catch (error) {
-			console.log(error);
-		}
-	};
-	</script>
 	
-	<h1>Liste Joueurs</h1>
-<Button color="info" on:click={()=>goto('creation_personne')}>Créer un joueur</Button>
+</script>
+
+<Row
+	style="border:2px solid black; background-color: black; margin:20px; display:flex; align-items:center;justify-content:space-between;">
+	<Col><img class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
+	<Col style="font-size:3rem; color:white;">Categorie :{categorie.nom_categorie} Equipe :{equipe.nom_equipe}</Col>
+	<Col style="font-size:3rem; color: white;"> Coach : {coach.nom} {coach.prenom} </Col>
+	<Col style="border:2px solid black; background-color: grey; text-align:center; width:100px;"><a style="color:black; text-decoration:none; " href="/Nos equipes">Retour à la liste des équipes</a></Col>
+</Row>
+<Button color="info" on:click={()=>goto('creation_personne')}>Ajouter un joueur</Button>
 	<Table striped>
 		<thead>
 		  <tr>
@@ -252,17 +273,6 @@
 		 {/each}
 		</tbody>
 	  </Table>
-	  <Modal body header="Lancer une évaluation" isOpen={open} {toggle}>
-		Veuillez choisir l'évaluateur dans la liste ci-dessous :
-		<Input type="select" id='selListeCoach' bind:value={id_personne}>
-			{#each liste_coach as coach}
-			<option value="{coach.id}">{coach.nom} {coach.prenom}</option>
-			{/each}
-		</Input>
+	
 
-		<ModalFooter>
-			<Button color="primary" on:click={creerDemandeEval}>Lancer L'évaluation</Button>
-			<Button color="secondary" on:click={()=>toggle('-1')}>Annuler</Button>
-		  </ModalFooter>
-	  </Modal>
-
+	
