@@ -62,9 +62,11 @@
 			data.append('id_categorie', id_categorie);
 			//TO DO : rajouter poste1 et poste2 et les ajouter aussi dans le webservice creation_personne.php
 			let poste = document.getElementById('dd_postPersonne');
+			let poste2 = document.getElementById('dd_postPersonne2');
 			let lePoste1DeMonJoueur = poste.options[poste.selectedIndex].text;
 			data.append('poste1', lePoste1DeMonJoueur);
-			
+			let lePoste2DeMonJoueur = poste2.options[poste2.selectedIndex].text;
+			data.append('poste2', lePoste2DeMonJoueur);
 			let res = await fetch(updateRoute, {
 				method: 'POST',
 				body: data
