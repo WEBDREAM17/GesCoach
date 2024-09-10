@@ -60,6 +60,10 @@
 			data.append('date_naissance', date_naissance);
 			data.append('url_photo','');
 			data.append('id_categorie', id_categorie);
+			//TO DO : rajouter poste1 et poste2 et les ajouter aussi dans le webservice creation_personne.php
+			let poste = document.getElementById('dd_postPersonne');
+			let lePoste1DeMonJoueur = poste.options[poste.selectedIndex].text;
+			data.append('poste1', lePoste1DeMonJoueur);
 			
 			let res = await fetch(updateRoute, {
 				method: 'POST',
@@ -294,7 +298,7 @@
 				<Row>
 					<Col xl="6">
 						<Label for="dd_postPersonne">Poste Joueur :</Label>
-						<Input type="select" name="" id="dd_postPersonne" bind:value={poste1}>
+						<Input type="select" name="" id="dd_postPersonne" bind:value={poste1} >
 							<option value="1">Gardien de but</option>
 							<option value="2">Defenseur Central</option>
 							<option value="3">Arrière Droit</option>

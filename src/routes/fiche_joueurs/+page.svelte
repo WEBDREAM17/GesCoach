@@ -26,17 +26,19 @@
 	let url_photo ='';
 	let compteur = 0;
 	let dataColors;
+	let id_joueur = '-1';
 
 	let _servicepath = 'http://localhost/webservice/';
 
 	onMount(async () => {
-		let id_joueur = $page.url.searchParams.get('id');
+		// @ts-ignore
+		id_joueur = $page.url.searchParams.get('id');
 		await recupererJoueur(id_joueur);
 		await recupererEval(id_joueur);
 		await recupererPoste(id_joueur);
 		
 	});
-	const recupererJoueur = async (id_joueur) => {
+	const recupererJoueur = async () => {
 		try {
 			//On crée le User
 			const updateRoute = _servicepath + 'recuperer_personnes_id.php';
@@ -63,6 +65,17 @@
 				poste1 = monJoueur.poste1;
 				poste2 = monJoueur.poste2;
 				url_photo = monJoueur.url_photo;
+				console.log('photo : ' + url_photo);
+				//Si pas de photo alors on affiche la photo générique
+				if(url_photo == null || url_photo == '') 
+				{					
+					url_photo = 'src/lib/images/avatar_garcon.png';
+					console.log('photo2 : ' + url_photo);
+				}
+				else
+				{
+					url_photo = 'http://localhost/webservice/' + monJoueur.url_photo;
+				}
 
 				if (date == null) {
 					date = 'date non renseigné';
@@ -77,7 +90,7 @@
 		}
 	};
 	
-	const recupererEval = async (id_joueur) => {
+	const recupererEval = async () => {
 		try {
 			//On crée le User
 			const updateRoute = _servicepath + 'recuperer_eval_idjoueur.php';
@@ -137,7 +150,7 @@
 			console.log(error);
 		}
 	};
-	const recupererPoste = async (id_joueur) => {
+	const recupererPoste = async () => {
 		try {
 			//On crée le User
 			const updateRoute = _servicepath + 'recuperer_poste.php';
@@ -174,6 +187,7 @@
 				}
 
 				
+				// @ts-ignore
 				console.log(liste_joueurs);
 			} else {
 				// @ts-ignore
@@ -192,7 +206,7 @@
 	<Col><img class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
 	<Col style="font-size:3rem; color:white;">{nom} {prenom}</Col>
 	<Col style="font-size:3rem; color: white;">{poste1} {poste2}</Col>
-	<Col><img src="http://localhost/webservice{url_photo}" width="200px"/></Col>
+	<Col><img src="{url_photo}" width="200px"/></Col>
 	<Col style="border:2px solid black; background-color: grey; text-align:center; width:100px;"><a style="color:black; text-decoration:none; " href="/Liste_joueurs">Retour liste joueurs</a></Col>
 </Row>
 <Row

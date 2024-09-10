@@ -2,10 +2,32 @@
     import { Radar } from 'svelte-chartjs';
     export let dataColors;
     import { browser } from "$app/environment"
+    import { onMount } from "svelte";
 
-    export let notesEvals1;
-    export let notesEvals2;
-    export let notesEvals3;
+    export let id_joueur;
+    
+    /**
+	 * @type {number[]}
+	 */
+    let eval1FormatteGraph = [];
+	/**
+	 * @type {number[]}
+	 */
+	let eval2FormatteGraph = [];
+	let eval3FormatteGraph = [];
+
+    let liste_eval = [];
+    let _servicepath = 'http://localhost/webservice/';
+	let compteur = 0;
+	/**
+	 * @type {any[]}
+	 */
+	let eval1 = [];
+	/**
+	 * @type {any[]}
+	 */
+	let eval2 = [];
+	let eval3 = [];
 
     import {
         Chart as ChartJS,
@@ -26,6 +48,70 @@
         LineElement
     );
 
+    onMount ( async()=> {
+        await recupererEval();
+	})
+
+    const recupererEval = async () => {
+		try {
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_eval_idjoueur.php';
+			const data = new FormData();
+			data.append('id_joueur', id_joueur);
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			res = await res.json();
+			// @ts-ignore
+			if (res.status == '1') {
+				console.log(res.data)
+				liste_eval = res.data;
+				
+				liste_eval.forEach(evalu => {
+					if(compteur == 0)
+					{
+						console.log('eval :');
+						console.log(evalu);
+						eval1 = evalu;
+						eval1FormatteGraph[0] = 6;
+						eval1FormatteGraph[1] = 8;
+						eval1FormatteGraph[2] = 7;
+						eval1FormatteGraph[3] = 5; 
+						console.log(eval1FormatteGraph);
+					}
+					if(compteur == 1)
+					{
+						eval2 = evalu;
+						eval2FormatteGraph[0] = evalu.noteAssiduite;
+						eval2FormatteGraph[1] = evalu.noteVitesse;
+						eval2FormatteGraph[2] = 4;
+						eval2FormatteGraph[3] = 4; 
+					}
+					if(compteur == 2)
+					{
+						eval3 = evalu;
+						eval3FormatteGraph[0] = evalu.noteAssiduite;
+						eval3FormatteGraph[1] = evalu.noteVitesse;
+						eval3FormatteGraph[2] = 4;
+						eval3FormatteGraph[3] = 4; 
+					}
+					compteur = compteur+1;
+				});
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
+    /**
+	 * @param {any[]} colors
+	 */
     function getChartColorsArray(colors) {
         if (browser) {
             return colors.map(function (value) {
@@ -75,7 +161,7 @@
                     pointBorderColor: "#fff",
                     pointHoverBackgroundColor: "#fff",
                     pointHoverBorderColor: radarChartColors[1], //"#2ab57d",
-                    data: notesEvals1,
+                    data: eval1FormatteGraph,
                 },
                 {
                     label: "Eval 2",
@@ -85,7 +171,7 @@
                     pointBorderColor: "#fff",
                     pointHoverBackgroundColor: "#fff",
                     pointHoverBorderColor: radarChartColors[3], //"#5156be",
-                    data: notesEvals1,
+                    data: eval2FormatteGraph,
                 },
             ],
         };
