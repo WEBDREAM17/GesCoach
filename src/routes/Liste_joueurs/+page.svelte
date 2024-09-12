@@ -17,6 +17,7 @@
 	 */
 	let liste_joueurs = [];
 	let liste_coach = [];
+	let liste_niveauEquipe = [];
 	let id_joueur = '';
 	let id_personne ='';
 	let nom = '';
@@ -27,14 +28,19 @@
 	let licence = '';
 	let poste1 = '';
 	let poste2 = '';
+	let niveau = '';
 	
 	let _servicepath = 'http://localhost/webservice/';
 	let open = false;
   
 	onMount ( async()=> {
+		await recupererNiveauEquipe();
 		await recupererJoueur();
 		await recupererCoach();
 		await recupererPoste(id_joueur);
+		
+
+
 	})
 	const toggle = (/** @type {string} */ idJoueur) => {
 		id_joueur = idJoueur;
@@ -67,6 +73,7 @@
 				poste1 = monJoueur.poste1;
 				poste2 = monJoueur.poste2;
 				url_photo = monJoueur.url_photo;
+				niveau = monJoueur.niveau;
 			} else {
 				// @ts-ignore
 				console.log(res.message);
@@ -185,6 +192,32 @@
 			console.log(error);
 		}
 	};
+	const recupererNiveauEquipe = async () => {
+		try {
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_niveauEquipe.php';
+			const data = new FormData();
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				liste_niveauEquipe = res.data;
+				console.log(liste_niveauEquipe);
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	const creerDemandeEval = async () => {
 		try {
 
@@ -251,7 +284,7 @@
 			<td>{joueur.poste1}</td>
 			<td>{joueur.poste2}</td>
 			<td>{joueur.id_categorie}</td>
-			<td>{joueur.equipe}</td>
+			<td>{liste_niveauEquipe[joueur.niveau].nom_equipe}</td>
 			<td><img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
 			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
 			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>

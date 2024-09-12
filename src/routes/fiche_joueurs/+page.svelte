@@ -37,6 +37,8 @@
 		await recupererEval(id_joueur);
 		await recupererPoste(id_joueur);
 		
+		
+		
 	});
 	const recupererJoueur = async () => {
 		try {
