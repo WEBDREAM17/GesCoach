@@ -60,7 +60,9 @@
 			data.append('date_naissance', date_naissance);
 			data.append('url_photo','');
 			data.append('id_categorie', id_categorie);
-			//TO DO : rajouter poste1 et poste2 et les ajouter aussi dans le webservice creation_personne.php
+
+			console.log('date : ' + date_naissance);
+
 			let poste = document.getElementById('dd_postPersonne');
 			let poste2 = document.getElementById('dd_postPersonne2');
 			let lePoste1DeMonJoueur = poste.options[poste.selectedIndex].text;

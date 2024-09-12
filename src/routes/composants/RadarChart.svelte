@@ -48,10 +48,14 @@
         LineElement
     );
 
-    onMount ( async()=> {
+    onMount ( async()=> {        
         await recupererEval();
 	})
 
+    const notifyLoaded = () => {
+        console.log('loaded!')
+    }
+    
     const recupererEval = async () => {
 		try {
 			//On crée le User
@@ -109,9 +113,6 @@
 		}
 	};
 
-    /**
-	 * @param {any[]} colors
-	 */
     function getChartColorsArray(colors) {
         if (browser) {
             return colors.map(function (value) {
@@ -142,7 +143,8 @@
 
     var radarChartColors = getChartColorsArray(dataColors);
     var data={};
-
+    
+    console.log('id_joueur radar : ' + id_joueur);
     if (radarChartColors) {
 
         data = {
