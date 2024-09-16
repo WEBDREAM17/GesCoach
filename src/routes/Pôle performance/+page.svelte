@@ -3,6 +3,12 @@
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
 
+    const thumbnails = [
+    'https://picsum.photos/100/100?random=1',
+    'https://picsum.photos/100/100?random=2',
+    'https://picsum.photos/100/100?random=3'
+  ];
+
     let liste_coach = [];
     let _servicepath = 'http://localhost/webservice/';
 
@@ -40,8 +46,16 @@
 		}
 	};
 </script>
+<Image  fluid alt="This is a fluid Image" src="src/lib/images/3.jpg" />
+<tr></tr>
+<h1 style="margin-top: 50px; text-align:center;font-size:4rem;">Nos Programmes</h1>
+<div style="display:flex; justify-content:center;" class="horizontal">
+  {#each thumbnails as thumbnail}
+    <Image style="width:300px; margin: 30px;" data-bs-theme="dark" thumbnail alt="This is a thumbnail Image" src={thumbnail} />
+  {/each}
+</div>
 
-<Card>
+<!-- <Card>
   <CardHeader>
     <CardTitle style="font-size:4rem; margin: 10px 50px;">Notre staff</CardTitle>
   </CardHeader>
@@ -85,4 +99,4 @@
       <img src="src/lib/images/20.png" alt="">
     </CardText>
   </CardBody>
-</Card>
+</Card> -->

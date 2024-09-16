@@ -10,7 +10,9 @@
 		Card,
 		Progress
 	} from '@sveltestrap/sveltestrap';
+	import { goto } from '$app/navigation'
     import { onMount } from "svelte";
+
     let nom_categorie = '';
 	let id_coach = ''; 
 	let id_categorie = ''; 
@@ -40,8 +42,9 @@
 	let _servicepath = 'http://localhost/webservice/';
 
     onMount ( async()=> {
-		await recupererListeEquipe();
+		
 		await recupererListeCategorie();
+		await recupererListeEquipe();
 		await recupererListeCoach();
 		await recupererJoueur();
 		annee=new Date().getFullYear().toString();
@@ -177,7 +180,7 @@
 		try {
             console.log('id coach : '+ id_coach)
             
-			//On crée le User
+			//On crée une equipe
 			const updateRoute = _servicepath + 'creation_equipe.php';
 			const data = new FormData();
 
@@ -204,6 +207,8 @@
 		} catch (error) {
 			console.log(error);
 		}
+
+		goto('/Nos equipes');
 	};
 
     function VoirValeur(){

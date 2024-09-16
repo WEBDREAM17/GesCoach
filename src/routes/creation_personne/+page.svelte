@@ -223,7 +223,7 @@
 			console.log(error);
 		}
 	};
-	const createNiveauEquipe = async (/** @type {string | Blob} */ id_equipe,/** @type {string | Blob} */ nom_equipe) => {
+	const createNiveauEquipe = async (/** @type {string | Blob} */ id_joueur,/** @type {string | Blob} */ id_equipe,/** @type {string | Blob} */ id_categorie) => {
 		try {
 		
 			//On crée le User
@@ -232,9 +232,10 @@
 
 
 			
-			data.append('nom_equipe', nom_equipe);
+			data.append('nom_equipe', id_joueur);
 			data.append('id_equipe', id_equipe);
-			
+			data.append('id_categorie', id_categorie);
+			data.append('annee', annee);
 			
 			
 			let res = await fetch(updateRoute, {
@@ -399,7 +400,6 @@
 		<Row>
 			<Col>
 				<Button type="submit">Enregistrer</Button>
-				
 			</Col>
 		</Row>
 	</form>

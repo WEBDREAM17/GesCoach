@@ -26,62 +26,69 @@
     isOpen2 = event.detail.isOpen2;
   }
 </script>
-
 <Navbar color="white" light expand="md" >
 	<NavbarBrand  href="/" class="me-auto"><img style="height:150px; display:flex;float:left;" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt=""></NavbarBrand>
-	
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 	<Collapse {isOpen2} navbar expand="md" on:update={handleUpdate}>
 	  <Nav class="ms-auto" navbar>
 		<NavItem>
-			<NavLink href="Accueil" on:click={toggle}>Accueil</NavLink>
+		  <NavLink href="Accueil">Accueil</NavLink>
 		</NavItem>
 		<NavItem>
-			<NavLink  href="Actualités du club" on:click={toggle}>Actualités du club</NavLink>
+		  <NavLink href="Le Parc Fc" on:click={toggle}>Qui sommes nous ?</NavLink>
 		</NavItem>
+		<NavItem>
+			<NavLink href="Notre staff" on:click={toggle}>Notre staff </NavLink>
+		  </NavItem>
+		  <NavItem>
+			<NavLink href="Planning des entrainements" on:click={toggle}>Planning des entraînements </NavLink>
+		  </NavItem>
+		  <Dropdown nav inNavbar>
+			<DropdownToggle nav caret>Pôle performance</DropdownToggle>
+			<DropdownMenu end>
+			  <DropdownItem href="/" on:click={toggle}>Stage</DropdownItem>
+			  <DropdownItem href="/" on:click={toggle}>Spécifique aux postes</DropdownItem>
+			  <DropdownItem href="/" on:click={toggle}>Préparation physiques</DropdownItem>
+			  <DropdownItem href="/" on:click={toggle}>Préparation mentales</DropdownItem>
+			  <DropdownItem divider />
+			  <DropdownItem>Reset</DropdownItem>
+			</DropdownMenu>
+		  </Dropdown>
+		  <Dropdown nav inNavbar>
+			<DropdownToggle nav caret>Espaces joueurs</DropdownToggle>
+			<DropdownMenu end>
+			  <DropdownItem href="Liste_joueurs" on:click={toggle}>Fiche joueurs</DropdownItem>
+			  <DropdownItem href="Nos equipes" on:click={toggle}>Demander une évaluation</DropdownItem>
+			  <DropdownItem divider />
+			  <DropdownItem>Reset</DropdownItem>
+			</DropdownMenu>
+		  </Dropdown>
 		<Dropdown nav inNavbar>
-		  <DropdownToggle nav caret>Espace joueurs</DropdownToggle>
+		  <DropdownToggle nav caret>Espaces Dirigeant</DropdownToggle>
 		  <DropdownMenu end>
-			<DropdownItem><NavLink href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink></DropdownItem>
-			<DropdownItem><NavLink href="evaluation_joueurs" on:click={toggle}>Evaluation</NavLink></DropdownItem>
+			<DropdownItem href="Liste_joueurs" on:click={toggle}>Liste joueurs</DropdownItem>
+			<DropdownItem href="Nos equipes" on:click={toggle}>Nos équipes</DropdownItem>
+			<DropdownItem href="/" on:click={toggle}>Fiche Equipe</DropdownItem>
+			<DropdownItem href="Liste_joueurs" on:click={toggle}>Liste évènement</DropdownItem>
 			<DropdownItem divider />
 			<DropdownItem>Reset</DropdownItem>
 		  </DropdownMenu>
 		</Dropdown>
+		<Dropdown nav inNavbar>
+			<DropdownToggle nav caret>Espaces Admin</DropdownToggle>
+			<DropdownMenu end>
+			  <DropdownItem href="creation_personne" on:click={toggle}>Création personnes</DropdownItem>
+			  <DropdownItem href="creation_equipes" on:click={toggle}>Création Equipes</DropdownItem>
+			  <DropdownItem href="creation_evenement" on:click={toggle}>Création Évènements </DropdownItem>
+			  <DropdownItem divider />
+			  <DropdownItem>Reset</DropdownItem>
+			</DropdownMenu>
+		  </Dropdown>
+		  <NavItem>
+			<NavLink href="/" on:click={toggle}>Nous contacter</NavLink>
+		  </NavItem>
 	  </Nav>
 	</Collapse>
   </Navbar>
 <hr/>
-<!--<Navbar style="height:200px; background-color:white; border-bottom: 10px solid black;" >
-	<NavbarBrand  href="/" class="me-auto"><img style="height:150px; display:flex; margin: 20px auto;" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt=""></NavbarBrand>
-	<NavbarToggler on:click={toggle} class="me-2" />
-	<Collapse {isOpen} navbar>
-		<Nav navbar>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;" href="Accueil" on:click={toggle}>Accueil</NavLink>
-			</NavItem>
 
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="Actualités du club" on:click={toggle}>Actualités du club</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="Liste_joueurs" on:click={toggle}>Liste des joueurs</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="creation_equipes" on:click={toggle}>Espace Equipes</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="creation_evenement" on:click={toggle}>Espace Évènements</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="creation_personne" on:click={toggle}>Creation personne</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="evaluation_joueurs" on:click={toggle}>Evaluation</NavLink>
-			</NavItem>
-			<NavItem>
-				<NavLink style="font-size:1.3rem; color:aqua;"  href="fiche_equipes" on:click={toggle}>equipe</NavLink>
-			</NavItem>
-		</Nav>
-	</Collapse>
-</Navbar>-->
