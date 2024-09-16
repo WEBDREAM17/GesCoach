@@ -9,6 +9,13 @@
     let activeIndex = 0; 
   
   </script>
+   <Row style="padding:20px 0 0 20px; margin-bottom:30px;">
+    <h4>Le Parc Football Club, plus qu'un club</h4>
+    <h1 style="color:red;">Notre vision: </h1>
+   <p>L’école de foot du Parc FC a été créé en mai 2024, avec comme objectif de travailler principalement sur l’attitude des jeunes. Une équipe a de meilleurs résultats lorsque chaque joueur a un bon comportement.
+    Il est donc essentiel de mettre l’accent sur le développement personnel de l’enfant. L’apprentissage de la technique, bien qu’important et largement développé aux Parc FC, ne doit pas être le premier critère de sélection.
+    Notre volonté est d’uniquement conserver les joueurs qui ont la volonté de progresser dans leur attitude et de travailler sur leur mental.</p>
+</Row>
   <Carousel {items} bind:activeIndex>
     <CarouselIndicators bind:activeIndex {items} />
     <div class="carousel-inner">
@@ -18,6 +25,7 @@
         </CarouselItem>
       {/each}
     </div>
+   
     <div style="border:2px solid black;background-color:black;">
         <h4  style="color: red; padding:20px 0 0 20px;">Bienvenue à</h4>
         <h1 style="color: white;padding:10px 0 0 20px;">LE PARC FOOTALL CLUB</h1>

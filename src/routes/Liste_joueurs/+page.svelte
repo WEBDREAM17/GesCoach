@@ -29,6 +29,7 @@
 	let poste1 = '';
 	let poste2 = '';
 	let niveau = '';
+	let url_photo ='';
 	
 	let _servicepath = 'http://localhost/webservice/';
 	let open = false;
@@ -74,6 +75,17 @@
 				poste2 = monJoueur.poste2;
 				url_photo = monJoueur.url_photo;
 				niveau = monJoueur.niveau;
+				//Si pas de photo alors on affiche la photo générique
+				if(url_photo == null || url_photo == '') 
+				{					
+					url_photo = 'src/lib/images/avatar_garcon.png';
+					console.log('photo2 : ' + url_photo);
+				}
+				else
+				{
+					url_photo = 'http://localhost/webservice/' + monJoueur.url_photo;
+				}
+
 			} else {
 				// @ts-ignore
 				console.log(res.message);
