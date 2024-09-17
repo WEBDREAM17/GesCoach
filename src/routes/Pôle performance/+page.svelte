@@ -54,7 +54,6 @@
     <Image style="width:300px; margin: 30px;" data-bs-theme="dark" thumbnail alt="This is a thumbnail Image" src={thumbnail} />
   {/each}
 </div>
-
 <!-- <Card>
   <CardHeader>
     <CardTitle style="font-size:4rem; margin: 10px 50px;">Notre staff</CardTitle>

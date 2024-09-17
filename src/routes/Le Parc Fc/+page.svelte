@@ -26,7 +26,7 @@
 			conformément aux règles de la Fédération Française de Football, en leur réservant des créneaux
 			horaires dédiés.
 		</p>
-		<h2 style="margin: 30px 0; font-size:3rem; color:aqua;">Projet éducatif</h2>
+		<h2 style="margin: 30px 0; font-size:3rem; color:grey;">Projet éducatif</h2>
 		<p style="font-size:1.4rem; ">
 			Prenant en compte que le football est bien plus qu’un simple sport pour les enfants, notre
 			école de football s’engage à offrir des actions citoyennes et socio-éducatives à nos jeunes
@@ -37,7 +37,7 @@
 			les éducateurs et les enfants. Ces actions visent à renforcer la cohésion sociale et le
 			développement citoyen de nos jeunes joueurs.
 		</p>
-		<h2 style="margin: 30px 0; font-size:3rem; color:aqua;">Projet sportif</h2>
+		<h2 style="margin: 30px 0; font-size:3rem; color:grey;">Projet sportif</h2>
 		<p style="font-size:1.4rem; ">
 			Nous avons pour objectif de suivre le programme de formation et de pédagogie de la FFF pour
 			accompagner les jeunes joueurs dans leur développement sportif. Nous mettons tout en oeuvre
@@ -49,13 +49,13 @@
 			de créer un environnement propice à l’épanouissement sportif et éducatif de nos licenciés.
 		</p>
 
-		<h2 style="margin: 30px 0; font-size:3rem; color:aqua;">Installations</h2>
+		<h2 style="margin: 30px 0; font-size:3rem; color:grey;">Installations</h2>
 		<p style="font-size:1.4rem; ">1 - Stade Charpentier Auphan /</p>
 		<p style="font-size:1.4rem;">1 - Gymnase Charpentier Auphan /</p>
 	</Row>
 </CardBody>
 
-<TabContent style="background-color:aqua;" on:tab={(e) => (status = e.detail)}>
+<TabContent style="background-color:grey;" on:tab={(e) => (status = e.detail)}>
 	<TabPane tabId="Charte des joueurs du Parc FC" tab="Charte des joueurs du Parc FC" active>
 		<p style="font-size:1.4rem; margin:50px;">
 			Les joueurs qui intègrent Le Parc Football Club sont tenus de respecter les Chartes en

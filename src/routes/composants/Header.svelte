@@ -85,7 +85,7 @@
 			</DropdownMenu>
 		  </Dropdown>
 		  <NavItem>
-			<NavLink href="/" on:click={toggle}>Nous contacter</NavLink>
+			<NavLink href="Contact_nous" on:click={toggle}>Nous contacter</NavLink>
 		  </NavItem>
 	  </Nav>
 	</Collapse>
