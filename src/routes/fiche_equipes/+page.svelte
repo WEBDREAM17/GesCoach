@@ -225,54 +225,43 @@
 		}
 	};
 
-	
 </script>
-
 <Row
-	style="border:2px solid black; background-color: black; margin:20px; display:flex; align-items:center;justify-content:space-between;">
-	<Col><img class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
-	<Col style="font-size:3rem; color:white;">Categorie :{categorie.nom_categorie} Equipe :{equipe.nom_equipe}</Col>
-	<Col style="font-size:3rem; color: white;"> Coach : {coach.nom} {coach.prenom} </Col>
-	<Col style="border:2px solid black; background-color: grey; text-align:center; width:100px;"><a style="color:black; text-decoration:none; " href="/Nos equipes">Retour à la liste des équipes</a></Col>
+	style="display:flex; border: 2px solid black; background-color: white; margin:20px; display:flex; align-items:center;justify-content:space-between;">
+	<Col><img style="width:200px;" class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
+	<Col style="font-size:3rem; color:white;">{nom} {prenom}</Col>
+	<Col style="font-size:3rem; color: white;">{poste1} {poste2}</Col>
+	<Col style="border:2px solid black; background-color: grey; text-align:center;margin-right:100px;"><a style="color:black; text-decoration:none; " href="/Nos equipes">Retour a nos équipes</a></Col>
 </Row>
-<Button color="info" on:click={()=>goto('creation_personne')}>Ajouter un joueur</Button>
-	<Table striped>
-		<thead>
-		  <tr>
-			<th>#</th>
-			<th>Nom</th>
-			<th>Prénom</th>
-			<th>N° licence</th>
-			<th>Date de naissance</th>
-			<th>Téléphone</th>
-			<th>Poste</th>
-			<th>Poste2</th>
-			<th>Catégorie</th>
-			<th>Niveau</th>
-			<th>Fiche</th>
-			<th>Evaluation</th>
-		  </tr>
-		</thead>
-		<tbody>
-			{#each liste_joueurs as joueur}
-		  <tr>
-			<th scope="row">{joueur.id}</th>
-			<td>{joueur.nom}</td>
-			<td>{joueur.prenom}</td>
-			<td>{joueur.numero_licence}</td>
-			<td>{joueur.date_naissance}</td>
-			<td>{joueur.tel}</td>
-			<td>{joueur.poste1}</td>
-			<td>{joueur.poste2}</td>
-			<td>{joueur.id_categorie}</td>
-			<td>{joueur.equipe} <img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
-			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
-			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
-			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
-		  </tr>
-		 {/each}
-		</tbody>
-	  </Table>
+<Row style="margin:20px;">
+<Table bordered>
+<thead>
+	<tr>
+	  <th>#</th>
+	  <th>NOM</th>
+	  <th>PRENOM</th>
+	  <th>POSTE 1</th>
+	  <th>POSTE 2</th>
+	  <th>COACH</th>
+	</tr>
+  </thead>
+  <tbody>
+	<tr>
+	  <th scope="row">1</th>
+	  <td>Mark</td>
+	  <td>Mark</td>
+	  <td>Mark</td>
+	  <td>Mark</td>
+	  <td>Mark</td>
+	</tr>
+	
+  </tbody>
+</Table>
+</Row>
+
+	
+
+
 	
 
 	

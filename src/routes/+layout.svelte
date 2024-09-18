@@ -3,8 +3,13 @@
 	import Footer from "./composants/Footer.svelte";
 	import { Container, Row, Col } from "@sveltestrap/sveltestrap";
 </script>
-<Container fluid>
-	<h3 class="container">Deviens la meilleur version de toi mêmes avec nos entrainements Spécifique</h3>
-  </Container>
 
-	
+	<Header/>
+	<Container fluid>
+		<Row>
+			<Col style="margin:50px auto;" >
+				<slot/>
+			</Col>
+		</Row>	
+	</Container>	
+  	<Footer/>

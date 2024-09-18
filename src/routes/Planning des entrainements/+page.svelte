@@ -2,6 +2,8 @@
 	import {
 		Container,
 		Table,
+		Row,
+		Col
 		
 		
 		
@@ -11,10 +13,17 @@
 </script>
 
 <Container fluid>
-	<h1>Planning des entrainements de l'écôle de football du "Parc FC"</h1>
-	<p>Bienvenue sur la page du planning des entraînements de notre école de foot, « Le Parc Football Club». Cette page est destinée à vous fournir toutes les informations nécessaires concernant les horaires et les jours d’entraînement pour chaque catégorie.</p>
-	<hr>
-	<Table>
+	<Row
+	style="display:flex; align-items:center; border:  2px solid black;background-color: white; margin:20px;">
+	<Col>
+		<img style="width:200px;" class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" />
+	</Col>
+	<Col xs="auto">
+		<h1>Planning des entrainements de l'écôle de football du "Parc FC"</h1>
+		<p>Bienvenue sur la page du planning des entraînements de notre école de foot, « Le Parc Football Club». <br>Cette page est destinée à vous fournir toutes les informations nécessaires concernant les horaires et les jours d’entraînement pour chaque catégorie.</p>
+	</Col>
+</Row>
+	<Table borderd style="display:flex; align-items:center; border:2px solid black;background-color: white; margin:20px;"></Table>
 		<thead>
 		  <tr>
 			<th>Catégorie</th>

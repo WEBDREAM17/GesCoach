@@ -204,11 +204,11 @@
 </script>
 
 <Row
-	style="border:2px solid black; background-color: black; margin:20px; display:flex; align-items:center;justify-content:space-between;">
-	<Col><img class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
-	<Col style="font-size:3rem; color:white;">{nom} {prenom}</Col>
-	<Col style="font-size:3rem; color: white;">{poste1} {poste2}</Col>
-	<Col><img src="{url_photo}" width="200px"/></Col>
+	style="border:2px solid black; background-color: white; margin:20px; display:flex; align-items:center;justify-content:space-between;">
+	<Col><img style="width:200px;" class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
+	<Col style="font-size:3rem; color:black;">{nom} {prenom}</Col>
+	<Col style="font-size:3rem; color: black;">{poste1} {poste2}</Col>
+	<Col><img style="width:150px;" src="{url_photo}"></Col>
 	<Col style="border:2px solid black; background-color: grey; text-align:center; width:100px;"><a style="color:black; text-decoration:none; " href="/Liste_joueurs">Retour liste joueurs</a></Col>
 </Row>
 <Row
