@@ -234,17 +234,21 @@
       <Table striped>
         <thead>
           <tr>
+          <th>#</th>
           <th>Categorie</th>
           <th>Equipe</th>
           <th>nom du Coach</th>
+		  <th>Effectif</th>
           </tr>
         </thead>
         <tbody>
           {#each listeEquipeCoach as equipeCoach}
           <tr>
+          <th scope="row">{equipeCoach.id_equipe}</th>
           <td>{equipeCoach.nom_categorie}</td>
           <td>{equipeCoach.nom_equipe}</td>
-          <td>{equipeCoach.dd_nomCoach}</td>
+          <td>{equipeCoach.id_coach}</td>
+		  <td><a href="">Voir</a></td>
           <!-- <td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
           <td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
           <td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td> -->

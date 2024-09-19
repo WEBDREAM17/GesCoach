@@ -184,10 +184,11 @@
 			const updateRoute = _servicepath + 'creation_equipe.php';
 			const data = new FormData();
 
-			data.append('nom_equipe', nom_equipe);
-			data.append('nom_categorie', nom_categorie );
-			data.append('id_coach', id_coach );
-			
+			data.append('id_equipe', id_equipe);
+			data.append('id_categorie', id_categorie );
+			data.append('id_personne', id_coach );
+			data.append('annee', '2024' );
+
 			let res = await fetch(updateRoute, {
 				method: 'POST',
 				body: data
@@ -200,6 +201,7 @@
 			// @ts-ignore
 			if (res.status == '1') {
 				console.log('requete ok');
+				goto('/Nos equipes');
 			} else {
 				// @ts-ignore
 				console.log(res.message);
@@ -208,7 +210,7 @@
 			console.log(error);
 		}
 
-		goto('/Nos equipes');
+		
 	};
 
     function VoirValeur(){

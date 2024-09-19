@@ -296,7 +296,7 @@
 			<td>{joueur.poste1}</td>
 			<td>{joueur.poste2}</td>
 			<td>{joueur.id_categorie}</td>
-			<td>{liste_niveauEquipe[joueur.niveau].nom_equipe}</td>
+			<td>{liste_niveauEquipe[joueur.niveau-1].nom_equipe}</td>
 			<td><img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
 			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
 			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
