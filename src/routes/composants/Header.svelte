@@ -57,7 +57,7 @@
 			<DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Espaces joueurs</DropdownToggle>
 			<DropdownMenu end>
 			  <DropdownItem href="Liste_joueurs" on:click={toggle}>Fiche joueurs</DropdownItem>
-			  <DropdownItem href="Nos equipes" on:click={toggle}>Demander une évaluation</DropdownItem>
+			  <DropdownItem href="evaluation_joueurs" on:click={toggle}>Demander une évaluation</DropdownItem>
 			  <DropdownItem divider />
 			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>

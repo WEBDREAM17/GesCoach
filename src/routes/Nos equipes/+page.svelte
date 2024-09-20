@@ -1,12 +1,20 @@
 <script>
-	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText, Table} from "@sveltestrap/sveltestrap";
+	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText, Table,Modal,ModalFooter,ModalHeader} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+
+	let openSuppression = false;
+	let id_equipe='';
+  	const toggleSuppression = (/** @type {string} */ id_equipe_param, id_categorie_param) => {
+		console.log('id eq param : ' + id_equipe_param);
+		id_equipe = id_equipe_param;
+		id_categorie = id_categorie_param;
+		openSuppression = !openSuppression
+	};
 
     let nom_categorie = '';
 	let id_coach = ''; 
 	let id_categorie = ''; 
-	let id_equipe = ''; 
 	let id_joueur = '';
 	let nom_equipe = '';
 	let annee = '';
@@ -76,7 +84,39 @@
 			console.log(error);
 		}
 	};
+	const supprimer_equipe = async () => {
+		try {
 
+			//On crée le User
+			const updateRoute = _servicepath + 'supprimer_equipe.php';
+			const data = new FormData();
+			data.append('id_equipe', id_equipe);
+			data.append('id_categorie', id_categorie);
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete' + id_equipe);
+			res = await res.json();
+
+			
+			// @ts-ignore
+			if (res.status == '1') {
+				//On faut disparaitre la modal de confirmation
+				toggleSuppression('-1');
+
+				//On actualise la liste
+				await recupererListeEquipeCoach();
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	const recupererListeEquipeCoach = async () => {
 		try {
 			//On recupere un evenement
@@ -234,32 +274,36 @@
       <Table striped>
         <thead>
           <tr>
-          <th>#</th>
           <th>Categorie</th>
           <th>Equipe</th>
           <th>nom du Coach</th>
 		  <th>Effectif</th>
+		  <th>Action</th>
           </tr>
         </thead>
         <tbody>
           {#each listeEquipeCoach as equipeCoach}
           <tr>
-          <th scope="row">{equipeCoach.id_equipe}</th>
           <td>{equipeCoach.nom_categorie}</td>
           <td>{equipeCoach.nom_equipe}</td>
-          <td>{equipeCoach.id_coach}</td>
-		  <td><a href="">Voir</a></td>
-          <!-- <td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
-          <td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
-          <td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td> -->
+          <td>{equipeCoach.nomCoach}</td>
+          <td><a href="/Fiche_equipes?id_equipe={equipeCoach.id}&id_categorie={equipeCoach.id_categorie}" >Effectif</a></td>
+          <td><Button on:click={()=>toggleSuppression(equipeCoach.id, equipeCoach.id_categorie)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
           </tr>
          {/each}
         </tbody>
         </Table>
-
-
   </CardBody>
- 
+  <div>
+	<Modal isOpen={openSuppression} backdrop={false}>
+	  <ModalHeader>Etes vous sûr de vouloir supprimer cet équipe ?</ModalHeader>
+	  
+	  <ModalFooter>
+		<Button color="primary" on:click={supprimer_equipe}>Supprimer</Button>
+		<Button color="secondary" on:click={()=>toggleSuppression('-1')}>Annuler</Button>
+	  </ModalFooter>
+	</Modal>
+  </div>
     
  
  

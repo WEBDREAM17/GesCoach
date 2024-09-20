@@ -161,6 +161,10 @@
 				<Input type="text" id="dd_nomEvenement" bind:value={nom_evenement}>
                 </Input>
 
+				<Label for="dd_nomEvenement">Description de l'évènement :</Label>
+				<Input type="textarea" id="dd_descEvenement" bind:value={description_evenement}>
+                </Input>
+
                 <Label for="dd_debutEvenement">Début de l'évènement :</Label>
 				<Input type="datetime-local" id="dd_debutEvenement" bind:value={debut_evenement}>
                 </Input>

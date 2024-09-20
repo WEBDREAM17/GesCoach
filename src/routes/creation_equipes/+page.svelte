@@ -195,6 +195,7 @@
 			});
 
 			console.log('avant requete')
+			console.log('params : ' + id_equipe + ' / ' + id_categorie + ' / ' + id_coach);
 			res = await res.json();
 
 			console.log(res);
@@ -214,7 +215,7 @@
 	};
 
     function VoirValeur(){
-       
+       console.log('id cat : ' + id_categorie);
     }
 </script>
 
@@ -228,7 +229,8 @@
 			<Col xl="6" style="margin-top:15px;">
                 <Label for="dd_categorieEquipe">Categorie l'equipe:</Label>
 				<Input type="select" id="dd_categorieEquipe" bind:value={id_categorie} on:change={VoirValeur} required>
-                    {#each listeCategorie as categorie}
+                    <option value='-1'></option>
+					{#each listeCategorie as categorie}
                     <option value={categorie.id}>{categorie.nom_categorie}</option>
                     {/each }
 				</Input>
