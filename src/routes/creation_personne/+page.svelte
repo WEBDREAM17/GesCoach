@@ -60,9 +60,9 @@
 			data.append('date_naissance', date_naissance);
 			data.append('url_photo','');
 			data.append('id_categorie', id_categorie);
+			data.append('niveau', id_equipe);
 
-			console.log('date : ' + date_naissance);
-
+			//TO DO : rajouter poste1 et poste2 et les ajouter aussi dans le webservice creation_personne.php
 			let poste = document.getElementById('dd_postPersonne');
 			let poste2 = document.getElementById('dd_postPersonne2');
 			let lePoste1DeMonJoueur = poste.options[poste.selectedIndex].text;
@@ -92,6 +92,8 @@
 					await createPostePerssonne(id_joueur,poste1);
 				await createPostePerssonne(id_joueur,poste2);
 				await createEquipePerssonne(id_joueur,id_equipe,id_categorie);
+				await createNiveauEquipe (id_equipe,nom_equipe);
+
 				goto('/Liste_joueurs');
 				}
 				
@@ -221,6 +223,43 @@
 			console.log(error);
 		}
 	};
+	const createNiveauEquipe = async (/** @type {string | Blob} */ id_equipe,/** @type {string | Blob} */ nom_equipe) => {
+		try {
+		
+			//On crée le User
+			const updateRoute = _servicepath + 'recuperer_niveauEquipe.php';
+			const data = new FormData();
+
+
+			
+			data.append('nom_equipe', nom_equipe);
+			data.append('id_equipe', id_equipe);
+			
+			
+			
+			let res = await fetch(updateRoute, {
+				method: 'POST',
+				body: data
+			});
+
+			console.log('avant requete')
+			res = await res.json();
+
+			console.log(res);
+			// @ts-ignore
+			if (res.status == '1') {
+				console.log('requete ok');
+				creationOk = true;
+				
+			} else {
+				// @ts-ignore
+				console.log(res.message);
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
+
 </script>
 
 <Card class="styleCardFormulaire">
