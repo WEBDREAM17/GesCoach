@@ -250,7 +250,7 @@
 			// @ts-ignore
 			if (res.status == '1') {
 				
-				goto('evaluation_joueurs?id='+id_joueur);
+				goto('/Admin/evaluation_joueurs?id='+id_joueur);
 				toggle('-1');
 
 			} else {
@@ -264,7 +264,7 @@
 	</script>
 	
 	<h1>Liste Joueurs</h1>
-<Button color="info" on:click={()=>goto('creation_personne')}>Créer un joueur</Button>
+<Button color="info" on:click={()=>goto('/Admin/creation_personne')}>Créer un joueur</Button>
 	<Table striped>
 		<thead>
 		  <tr>
@@ -298,7 +298,7 @@
 			<td>{joueur.id_categorie}</td>
 			<td>{liste_niveauEquipe[joueur.niveau-1].nom_equipe}</td>
 			<td><img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
-			<td><a href="/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
+			<td><a href="/Joueurs/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
 			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
 			<td><Button on:click={()=>toggleSuppression(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
 		  </tr>

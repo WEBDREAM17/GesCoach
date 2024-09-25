@@ -205,10 +205,10 @@
 
 <Row
 	style="border:2px solid black; background-color: white; margin:20px; display:flex; align-items:center;justify-content:space-around;">
-	<Col><img style="width:200px;" class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
+	<Col><img style="width:200px;" class="logoClub" src="/src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
 	<Col style="font-size:2rem; color:black;">{nom} {prenom}</Col>
 	<Col style="font-size:2rem; color: black;">{poste1} {poste2}</Col>
-	<Col><img style="width:150px;" src="{url_photo}"></Col>
+	<Col><img style="width:150px;" src="/{url_photo}"></Col>
 	<Col style=" margin-right:20px, border: 2px solid black; background-color:grey; text-align:center;"><a style="color:black; text-decoration:none; " href="/Liste_joueurs">Liste joueurs</a></Col>
 </Row>
 <Row
