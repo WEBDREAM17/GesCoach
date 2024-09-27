@@ -1,5 +1,7 @@
 Camal, je t'ai mis dans ce dossier les éléments nécessaires à l'utilisation du login.
 
+Avant de commencer il faut que tu copies tous les fichiers php de ce dossier dans ton webservice et que tu exécutes le script SQL utilisateurs.sql dans phpMyAdmin.
+
  1 - Pour créer un utilisateur, il faut que tu appelles creation_utilisateur.php à l'aide de POSTMAN en donnant en paramètres :
      - username (le nom d'utilisateur)
      - password (le mot de passe)
