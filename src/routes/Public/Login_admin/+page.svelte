@@ -1,86 +1,80 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+  import { Card, Label, Input, Col, Row, Button, Alert} from "@sveltestrap/sveltestrap";
+  import { page} from '$app/stores';
 
   let isAuthenticated = false;
   let _servicepath = 'http://localhost/webservice/';
+  let username = '';
+  let password = '';
+  let error = false;
+  let page_demandee = '';
+  
+  
+
 
   onMount(() => {
-      authenticate();
+    page_demandee =$page.url.searchParams.get('request');
   });
 
-  async function checkAuth() {
-      try {
-
-          const response = await fetch('http://localhost/webservice/protected_endpoint.php', {
-          method: 'GET',
-          // Utilisez 'same-origin' pour les requêtes locales (HTTP)
-          // et 'include' en production pour autoriser les requêtes cross-origin avec les cookies.
-          credentials: window.location.hostname === 'localhost' ? 'same-origin' : 'include'
-          });
-          //const response = await fetch('http://localhost/webservice/protected_endpoint.php', {
-            //  method: 'GET',
-              //credentials: 'include',
-          //});
-          console.log(response);
-          if (response.ok) {
-              const data = await response.json();
-              isAuthenticated = true;
-          } else {
-              //goto('/login'); // Redirection si non authentifié
-              console.log('echec');
-          }
-      } catch (error) {
-          console.error('Erreur lors de la vérification de l\'authentification', error);
-          //goto('/login_'); // Redirection si une erreur survient
-      }
-  }
-
-  async function fetchProtectedData() {
-      try {
-          const response = await fetch('http://localhost/webservice/protected_endpoint.php', {
-              method: 'GET',
-              credentials: window.location.hostname === 'localhost' ? 'same-origin' : 'include'
-              //credentials: 'include', // Autorise l'envoi des cookies avec la requête
-          });
-
-          if (response.ok) {
-              const data = await response.json();
-              console.log("Données protégées:", data);
-          } else if (response.status === 401) {
-              console.error("Erreur 401 : Non autorisé. L'utilisateur n'est pas authentifié.");
-          } else {
-              console.error("Erreur : ", response.status, response.statusText);
-          }
-      } catch (error) {
-          console.error("Erreur réseau ou autre problème :", error);
-      }
-  }
-
-  async function authenticate(){
-      try{
-          const updateRoute = _servicepath + 'protected_endpoint.php';
+  async function authenticate() {
+    try {        
+          const updateRoute = _servicepath + 'authentification.php';
           const data = new FormData();
+          data.append('username', username);
+          data.append('password', password);
 
-    let res = await fetch(updateRoute, {
-      method: 'POST',
-      body: data
-    });
+          let res = await fetch(updateRoute, {
+            method: 'POST',
+            body: data
+          });
 
           res = await res.json();
-          console.log('res.data : ' + res.data);
+
           if (res.status == '1') {
-              isAuthenticated = true;
+            error = false;
+            let utilisateur = res.data;
+            console.log(utilisateur);
+            setCookie("user", utilisateur[0].username, 7);
+            let userCookie = getCookie("user");
+            console.log('cookie : ' + userCookie)
+            goto(page_demandee);
           }
           else
           {
-              isAuthenticated = false;
+            error = true;
           }
+    
+      } 
+      catch (error) {
+          console.error('Erreur lors de la vérification de l\'authentification', error);          
       }
-      catch(error){
-          console.error("Erreur réseau ou autre problème :", error);
-      }
+  } 
+
+  function setCookie(name, value, days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        const expires = "expires=" + date.toUTCString();
+        document.cookie = name + "=" + value + ";" + expires + ";path=/";
   }
+
+   // Fonction pour lire un cookie
+   function getCookie(name) {
+        let cookies = document.cookie.split(';');
+        for (let cookie of cookies) {
+            let [cookieName, cookieValue] = cookie.split('=').map(c => c.trim());
+            if (cookieName === name) {
+                return cookieValue;
+            }
+        }
+        return null; // Retourne null si le cookie n'existe pas
+    }
+
+    // Fonction pour supprimer un cookie
+    function deleteCookie(name) {
+        document.cookie = name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+    }
   
 </script>
 
@@ -95,20 +89,24 @@
   <Row>
     <Col style="margin-top:50px;" sm="12" md={{ size: 6, offset: 3 }}>
       <Label style="color:white;">Identifiant</Label>
-      <Input></Input>
+      <Input id="username" bind:value={username}></Input>
     </Col>
     <Col sm="8" md={{ size: 6, offset: 3 }}>
       <Label style="color:white;">Mot de passe</Label>
-      <Input></Input>
+      <Input type="password" id="password" bind:value={password}></Input>
     </Col>
     <Col sm="12" md={{ size: 6, offset: 3 }}>
       <a style="color:red;"href="/">Mot de passe oublié</a>
     </Col>
       
       <Col sm="6" md={{ size: 6, offset: 3 }}>
-        <Button style="margin-bottom:50px;">Se connecter</Button>
+        <Button style="margin-bottom:50px;" on:click={authenticate}>Se connecter</Button>
       </Col>
-    
+      {#if error}
+      <Col sm="6" md={{ size: 6, offset: 3 }}>
+        <Alert color="danger">Identifiant ou mot de passe incorrect</Alert>
+      </Col>
+      {/if}
   </Row>
 </Card>
 
