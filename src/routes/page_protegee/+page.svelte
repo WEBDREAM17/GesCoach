@@ -2,10 +2,8 @@
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
 	import { Button } from '@sveltestrap/sveltestrap';
-	import { page } from '$app/stores';
-
+	
     let isAuthenticated = false;
-    let _servicepath = 'http://localhost/webservice/';
     let userName = '';
 
     onMount(() => {
@@ -60,35 +58,8 @@
     //==============================================================================//
     //            FIN A METTRE SUR TOUTES LES PAGES PROTEGEES                       //
     //==============================================================================//
-
-    async function checkAuth() {
-        try {
-
-            const response = await fetch('http://localhost/webservice/protected_endpoint.php', {
-            method: 'GET',
-            // Utilisez 'same-origin' pour les requêtes locales (HTTP)
-            // et 'include' en production pour autoriser les requêtes cross-origin avec les cookies.
-            credentials: window.location.hostname === 'localhost' ? 'same-origin' : 'include'
-            });
-            //const response = await fetch('http://localhost/webservice/protected_endpoint.php', {
-              //  method: 'GET',
-                //credentials: 'include',
-            //});
-            console.log(response);
-            if (response.ok) {
-                const data = await response.json();
-                isAuthenticated = true;
-            } else {
-                //goto('/login'); // Redirection si non authentifié
-                console.log('echec');
-            }
-        } catch (error) {
-            console.error('Erreur lors de la vérification de l\'authentification', error);
-            //goto('/login_'); // Redirection si une erreur survient
-        }
-    }        
 </script>
-
+<!--SI ON EST AUTHENTIFIE ON ACCEDE AU CONTENU SINON ON EST REDIRIGE VERS LA PAGE DE CONNEXION-->
 {#if isAuthenticated}
     <h1>Bienvenue {userName}</h1>
     <Button on:click={deconnecter}>Déconnexion</Button>
