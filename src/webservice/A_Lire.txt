@@ -1,0 +1,10 @@
+Camal, je t'ai mis dans ce dossier les éléments nécessaires à l'utilisation du login.
+
+ 1 - Pour créer un utilisateur, il faut que tu appelles creation_utilisateur.php à l'aide de POSTMAN en donnant en paramètres :
+     - username (le nom d'utilisateur)
+     - password (le mot de passe)
+     - id_personne (l'id de la personne à qui correspond l'utilisateur)
+
+ 2 - Pour sécuriser des pages, il faut que tu fasses comme dans la page_protegee
+
+ 3 - Cette méthode d'authentification est provisoire tant que l'on ne passe pas en production, car en localhost il serait compliqué d'utiliser le HTTPS.
