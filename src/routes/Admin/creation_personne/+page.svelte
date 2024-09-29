@@ -57,14 +57,16 @@
 			data.append('telephone', tel);
 			data.append('num_licence', licence);
 			data.append('id_statut', type_personne);
-			data.append('date_naissance', date_naissance);
+			
 			data.append('url_photo','');
+			if(type_personne == '2')
+			{
+				data.append('date_naissance', date_naissance);
 			data.append('id_categorie', id_categorie);
 			data.append('niveau', id_equipe);
 
 			//TO DO : rajouter poste1 et poste2 et les ajouter aussi dans le webservice creation_personne.php
-			if(type_personne == '2')
-			{
+			
 				let poste = document.getElementById('dd_postPersonne');
 				let poste2 = document.getElementById('dd_postPersonne2');			
 				let lePoste1DeMonJoueur = poste.options[poste.selectedIndex].text;

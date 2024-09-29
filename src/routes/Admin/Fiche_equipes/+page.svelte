@@ -1,7 +1,8 @@
 <script>
 	import { Table, Col, Row, Button, Modal, Input, ModalFooter } from '@sveltestrap/sveltestrap';
 	import { onMount } from 'svelte';
-	import { page } from '$app/stor../../composants/RadarChart.svelte/composants/RadarChart.svelte'; 
+	import { page } from '$app/stores';
+	
 
 	let nom_categorie = '';
 	let id_coach = ''; 
@@ -42,6 +43,7 @@
 		id_categorie = $page.url.searchParams.get('id_categorie');
 		await recupererListeEquipeParEquipe();
 		await recupererCoachEquipe();
+		await recupererPoste();
 	});
 
 	const recupererListeEquipeParEquipe = async () => {
@@ -161,7 +163,7 @@
 	<Col><img style="width:200px;" class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
 	<Col style="font-size:2.5rem; color:black;">{nom_categorie} : {nom_equipe}</Col>
 	<Col style="font-size:1.5rem; color:black;">COACH : {nomPrenomCoach}</Col>
-	<Col style="border:2px solid black; background-color: grey; text-align:center;margin-right:100px;"><a style="color:black; text-decoration:none; " href="/Nos equipes">Nos équipes</a></Col>
+	<Col style="border:2px solid black; background-color: grey; text-align:center;margin-right:100px;"><a style="color:black; text-decoration:none; " href="/Admin/Nos equipes">Nos équipes</a></Col>
 </Row>
 <Row style="margin:20px;">
 <Table bordered>
