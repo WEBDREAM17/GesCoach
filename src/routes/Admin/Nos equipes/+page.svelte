@@ -250,7 +250,7 @@
           <td>{equipeCoach.nom_categorie}</td>
           <td>{equipeCoach.nom_equipe}</td>
           <td>{equipeCoach.nomCoach}</td>
-          <td><a href="/Fiche_equipes?id_equipe={equipeCoach.id}&id_categorie={equipeCoach.id_categorie}" >Effectif</a></td>
+          <td><a href="/Admin/Fiche_equipes?id_equipe={equipeCoach.id}&id_categorie={equipeCoach.id_categorie}" >Effectif</a></td>
           <td><Button on:click={()=>toggleSuppression(equipeCoach.id, equipeCoach.id_categorie)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
           </tr>
          {/each}

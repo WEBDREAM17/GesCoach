@@ -202,7 +202,7 @@
 			// @ts-ignore
 			if (res.status == '1') {
 				console.log('requete ok');
-				goto('/Nos equipes');
+				goto('/Admin/Nos equipes');
 			} else {
 				// @ts-ignore
 				console.log(res.message);

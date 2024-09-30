@@ -9,6 +9,7 @@
   let activeIndex = 0; 
 
 </script>
+
 <CardHeader style="background-color:black; margin:20px;">
   <CardTitle style="font-size:4rem; margin: 10px 30px; color:grey;">LE PARC FOOTBALL CLUB, plus qu'un club</CardTitle>
 </CardHeader>
@@ -85,16 +86,4 @@
   </Col>
 </Row>
 
-<Carousel style="width:1350px;margin:50px auto;" {items} bind:activeIndex>
-  <div class="carousel-inner">
-    {#each items as item, index}
-      <CarouselItem style="height:800px;" bind:activeIndex itemIndex={index}>
-        <img src={item} class="d-block w-100" alt="{item} {index + 1}"/>
-      </CarouselItem>
-      
-    {/each}
-  </div>
-  <CarouselControl direction="prev" bind:activeIndex {items} />
-  <CarouselControl direction="next" bind:activeIndex {items} />
-</Carousel>
 

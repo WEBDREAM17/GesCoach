@@ -1,9 +1,13 @@
 <script>
   import { onMount } from 'svelte';
   import { goto } from '$app/navigation';
+<<<<<<< HEAD
   import { Card, Label, Input, Col, Row, Button, Alert} from "@sveltestrap/sveltestrap";
   import { page} from '$app/stores';
 
+=======
+  import { Card, Table, Label, Input, Image, Col, Row, Button} from "@sveltestrap/sveltestrap";
+>>>>>>> 49a0740 (29/09)
   let isAuthenticated = false;
   let _servicepath = 'http://localhost/webservice/';
   let username = '';

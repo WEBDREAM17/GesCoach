@@ -8,5 +8,5 @@ Avant de commencer il faut que tu copies tous les fichiers php de ce dossier dan
      - id_personne (l'id de la personne à qui correspond l'utilisateur)
 
  2 - Pour sécuriser des pages, il faut que tu fasses comme dans la page_protegee
-
+comment appeler un
  3 - Cette méthode d'authentification est provisoire tant que l'on ne passe pas en production, car en localhost il serait compliqué d'utiliser le HTTPS.
