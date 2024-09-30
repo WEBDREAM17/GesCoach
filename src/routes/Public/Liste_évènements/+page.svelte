@@ -8,9 +8,10 @@
 
   onMount(async () => {
 		await recupererListeEvenements();
+		await creation_utilisateur();
 	});
 
-	const recupererListeEvenements = async () => {
+	const creation_utilisateur = async () => {
 		try {
 			//On crée le User
 			const updateRoute = _servicepath + 'recuperer_liste_evenements.php';

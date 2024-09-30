@@ -21,7 +21,7 @@
         {
             //L'utilisateur n'est pas connecté, on redirige vers la page de login en passant l'url demandée en paramètre
             isAuthenticated = false;
-            goto('Public/Login_admin?request='+'../page_protegee');
+            goto('/Public/Login_admin?request='+'../page_protegee');
         }
         //==============================================================================//
         //            FIN A METTRE SUR TOUTES LES PAGES PROTEGEES                       //
