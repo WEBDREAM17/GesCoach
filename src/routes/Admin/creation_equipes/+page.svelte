@@ -1,14 +1,8 @@
 <script>
 	import {
-		Container,
-		Row,
-		Col,
-		Icon,
-		Label,
-		Input,
-		Button,
-		Card,
-		Progress
+	
+		Row,Col,Label,Input,Button,Card,
+		
 	} from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation'
     import { onMount } from "svelte";
@@ -226,7 +220,7 @@
 	<form id="frmCreationEquipe" class="formulaireClassique" on:submit|preventDefault={createEquipe}>
 		<Row>
 
-			<Col xl="6" style="margin-top:15px;">
+			<Col xl="6">
                 <Label for="dd_categorieEquipe">Categorie l'equipe:</Label>
 				<Input type="select" id="dd_categorieEquipe" bind:value={id_categorie} on:change={VoirValeur} required>
                     <option value='-1'></option>
@@ -253,11 +247,16 @@
 				<Label for="dd_annee">Saison :</Label>
 				<Input type="text" id="dd_annee" bind:value={annee} on:change={miseAjourAnnee} style="width:150px;"></Input>/ {annee2}
 			
-					
-
 				<Button type="submit" on:click={() => (validated = true)}>Enregistrer</Button>
             </Col>
 		</Row>
 	</form>
 </Card>
+
+<style>
+	h1 {
+		color: rgb(204, 231, 255);
+		font-size: 5rem;
+	}
+</style>
 

@@ -1,16 +1,8 @@
 <script>
 	import {
 		Collapse,
-		Nav,
-		Navbar,
-		NavbarBrand,
-		NavbarToggler,
-		NavItem,
-		NavLink,
-		Dropdown,
-		DropdownMenu,
-		DropdownToggle,
-		DropdownItem
+		Nav,Navbar,NavbarBrand,NavbarToggler,NavItem,NavLink,
+		Dropdown,DropdownMenu,DropdownToggle,DropdownItem
 	} from '@sveltestrap/sveltestrap';
 
 	let isOpen = false;
@@ -27,7 +19,7 @@
   }
 </script>
 <Navbar color="white" light expand="md" >
-	<NavbarBrand  href="/" class="me-auto"><img style="height:150px; display:flex;float:left;" src="/src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt=""></NavbarBrand>
+	<NavbarBrand  href="/" class="me-auto"><img src="/src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt=""></NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 	<Collapse {isOpen2} navbar expand="md" on:update={handleUpdate}>
 	  <Nav class="ms-auto" navbar>
@@ -38,6 +30,7 @@
 			  <DropdownItem href="/Public/Notre staff" on:click={toggle}>Notre staff </DropdownItem>
 			  <DropdownItem href="/Public/Nos equipes" on:click={toggle}>Nos équipes</DropdownItem>
 			  <DropdownItem href="/Public/Planning des entrainements" on:click={toggle}>Planning des entraînements </DropdownItem>
+			  <DropdownItem href="/Public/Liste_évènements" on:click={toggle}>Liste évènement</DropdownItem>
 			  <DropdownItem divider />
 			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
@@ -62,23 +55,15 @@
 			</DropdownMenu>
 		  </Dropdown>
 		<Dropdown nav inNavbar>
-		  <DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Espaces Dirigeant</DropdownToggle>
-		  <DropdownMenu end>
-			<DropdownItem href="/Admin/Liste_joueurs" on:click={toggle}>Liste joueurs</DropdownItem>
-			<DropdownItem href="/Admin/Nos equipes" on:click={toggle}>Nos équipes</DropdownItem>
-			<DropdownItem href="/Admin/Fiche_equipes" on:click={toggle}>Fiche Equipe</DropdownItem>
-			<DropdownItem href="/Public/Liste_évènements" on:click={toggle}>Liste évènement</DropdownItem>
-			<DropdownItem divider />
-			<DropdownItem>Reset</DropdownItem>
-		  </DropdownMenu>
-		</Dropdown>
-		<Dropdown nav inNavbar>
 			<DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Espaces Admin</DropdownToggle>
 			<DropdownMenu end>
 			  <DropdownItem href="/Admin/creation_personne" on:click={toggle}>Création personnes</DropdownItem>
 			  <DropdownItem href="/Admin/creation_equipes" on:click={toggle}>Création Equipes</DropdownItem>
 			  <DropdownItem href="/Admin/creation_evenement" on:click={toggle}>Création Évènements </DropdownItem>
-			  <DropdownItem divider />
+			  <DropdownItem href="/Admin/Liste_joueurs" on:click={toggle}>Liste joueurs</DropdownItem>
+			<DropdownItem href="/Admin/Nos equipes" on:click={toggle}>Nos équipes</DropdownItem>
+			<DropdownItem href="/Admin/dashboard" on:click={toggle}>dashboard</DropdownItem>
+			  <DropdownItem divider />	
 			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
@@ -99,3 +84,11 @@
   </Navbar>
 <hr/>
 
+<style>
+	
+	img {
+		height:150px; 
+		display:flex;
+		float:left;
+	}
+</style>
