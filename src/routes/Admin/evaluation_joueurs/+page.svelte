@@ -8,6 +8,8 @@
 	let id_joueur ='2';
 	let id_evaluateur='3';
 	let evalTerminer = false;
+	let url_photo='';
+	let nom_coach=';'
 
     let noteAttitude = 5;
     let noteLeader = 5;
@@ -59,7 +61,7 @@
 			const data = new FormData();
 
 
-			
+	data.append('nom_coach', nom_coach);	
 	data.append('id_joueur', id_joueur);
     data.append('id_evaluateur', id_evaluateur);
     data.append('noteAttitude', noteAttitude.toString());
@@ -150,13 +152,17 @@
 	};
 	</script>
     
-		<CardHeader style="height:200px; background-color:grey; padding:30px;">
-			<div><h1 style="color:white;font-size:3rem;">Evaluation de {prenom} {nom} </h1></div>
-			
+	<div class="identite">
+		<img src="/src/lib/images/logo.png" alt="">
+		<div class="info">
+		<h3>Évaluer par</h3>
+			<h1>{nom} {prenom}</h1>
+			<a class="retour" href="/Admin/Liste_joueurs">Liste joueur</a>
 			<strong>Toutes les notes sont sur 10 points</strong>
-		</CardHeader>
-
-
+		</div>
+		<img src="/{url_photo}" alt="">
+	</div>
+		
 		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
 			<div style="width: 800px;">
 				<h3 style="color:red;">Critères Mentales</h3>
@@ -242,4 +248,33 @@
 			<Button color="primary" on:click={createEvalutionJoueur}>Enregistrer</Button>
 			{/if}
 		</Row>
-	
+		<style>
+			h1{
+				color: black;
+				font-size: 5rem;
+				margin: 10px ;
+			
+			}
+			img{
+				width:200px;
+			}
+			.identite{
+				display:flex;
+				justify-content: space-around;
+				align-items: center;
+			}	
+			.info {
+				text-align: center;
+				display: flex;
+				flex-direction:column ;
+			}
+			.retour {
+				background-color: rgb(147, 210, 255);
+				padding: 10px 10px;
+				color: black;
+				border-radius: 10px;;
+			}
+			strong{
+				font-size: 1rem;
+			}
+		</style>

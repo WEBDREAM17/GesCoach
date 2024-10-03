@@ -1,5 +1,5 @@
 <script>
-	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText, Table,Modal,ModalFooter,ModalHeader} from "@sveltestrap/sveltestrap";
+	import { CardBody,Button,Table,Modal,ModalFooter,ModalHeader} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
 

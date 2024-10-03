@@ -25,6 +25,7 @@
 	let mail = '';
 	let id_equipe = '';
 	let id_categorie = '';
+	let nom_equipe = '';
 	let poste1 = '';
 	let poste2 = '';
 	let annee = '';

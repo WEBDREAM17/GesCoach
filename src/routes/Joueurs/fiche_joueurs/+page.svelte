@@ -203,14 +203,16 @@
 	
 </script>
 
-<Row
-	style="border:2px solid black; background-color: white; margin:20px; display:flex; align-items:center;justify-content:space-around;">
-	<Col><img style="width:200px;" class="logoClub" src="/src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
-	<Col style="font-size:2rem; color:black;">{nom} {prenom}</Col>
-	<Col style="font-size:2rem; color: black;">{poste1} {poste2}</Col>
-	<Col><img style="width:150px;" src="/{url_photo}"></Col>
-	<Col style=" margin-right:20px, border: 2px solid black; background-color:grey; text-align:center;"><a style="color:black; text-decoration:none; " href="/Liste_joueurs">Liste joueurs</a></Col>
-</Row>
+<div class="identite">
+	<img src="/src/lib/images/logo.png" alt="">
+	<div class="info">
+		<h3>{poste1} {poste2}</h3>
+		<h1>{nom} {prenom}</h1>
+		<a class="retour" href="/Admin/Liste_joueurs">Liste joueur</a>
+	</div>
+	<img src="/{url_photo}" alt="">
+</div>
+
 <Row
 	style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"
 >
@@ -410,4 +412,28 @@
 		</Col>
 		<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/></Col>
 	</Row>
-	
+	<style>
+		h1{
+			color: black;
+			font-size: 5rem;
+			margin: 10px ;
+		
+		}
+		img{
+			width:200px;
+		}
+		.identite{
+			display:flex;
+			justify-content: space-around;
+			align-items: center;
+		}	
+		.info {
+			text-align: center;
+		}
+		.retour {
+			background-color: rgb(147, 210, 255);
+			padding: 10px 10px;
+			color: black;
+			border-radius: 10px;;
+		}
+	</style>
