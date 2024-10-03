@@ -1,14 +1,12 @@
 <script>
 	import {
-		Container,
 		Row,
 		Col,
-		Icon,
 		Label,
 		Input,
 		Button,
 		Card,
-		Progress,
+		
 		Alert
 	} from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation'
@@ -271,16 +269,17 @@
 </script>
 
 <Card class="styleCardFormulaire">
-	<Row>
+	<div>
 		<h1>Creation d'une personne</h1>
-	</Row>
+	</div>
+		
 	<Row>
 		{#if creationOk}
 			<Alert color="success">Création effectué avec succes</Alert>
 		{/if}
 	</Row>
 	<form id="frmCreationPersonne" class="formulaireClassique" on:submit|preventDefault={createPersonne}>
-		<Row>
+		<div>
 			<Col xl="6" style="margin-top:15px;">
 				<Label for="dd_typePersonne">Type de personne à créer :</Label>
 				<Input type="select" id="dd_typePersonne" bind:value={type_personne}>
@@ -291,8 +290,8 @@
 					<option value="4">Admin</option>
 				</Input>
 			</Col>
-		</Row>
-		<Row>
+		</div>
+		<div>
 			<Col xl="6">
 				<Label for="iPhoto">Photo de la personne :</Label>
 				<Input name="iPhoto" type="file" id="iPhoto" accept=".jpg, .jpeg, .png"/>
@@ -307,17 +306,15 @@
 				<Label for="iMail">E-mail :</Label>
 				<Input name="iMail" type="email"  bind:value={mail} />
 			</Col>
-		</Row>
-		<Row>
+		</div>
 			{#if type_personne == '2'}
 				<h4>Creation d'un joueur</h4>
-				<Row>
+				<div>
 					<Col xl="6">
 						<Label for="dd_date_Personne">date de naissance :</Label>
 						<Input type="date" id="dd_date_Personne" placeholder="date placeholder" bind:value={date_naissance} />
 					</Col>
-				</Row>
-				<Row>
+				</div>
 					<Col xl="6">
 						<Label for="dd_categorie">Categorie :</Label>
 						<Input type="select" name="" id="dd_categorie" bind:value={id_categorie}>
@@ -331,8 +328,6 @@
 							<option value="8">U13</option>
 						</Input>
 					</Col>
-				</Row>
-				<Row>
 					<Col xl="6">
 						<Label for="dd_equipe">Equipe :</Label>
 						<Input type="select" name="" id="dd_equipe" bind:value={id_equipe}>
@@ -345,8 +340,7 @@
 							<option value="7">Groupe C</option>
 						</Input>
 					</Col>
-				</Row>
-				<Row>
+	
 					<Col xl="6">
 						<Label for="dd_postPersonne">Poste Joueur :</Label>
 						<Input type="select" name="" id="dd_postPersonne" bind:value={poste1} >
@@ -364,8 +358,7 @@
 							<option value="12">Attaquant Droit</option>
 						</Input>
 					</Col>
-				</Row>
-				<Row>
+				
 					<Col xl="6">
 						<Label for="dd_postPersonne2">Poste Joueur 2 :</Label>
 						<Input type="select" name="" id="dd_postPersonne2" bind:value={poste2}>
@@ -383,7 +376,7 @@
 							<option value="12">Attaquant Droit</option>
 						</Input>
 					</Col>
-				</Row>
+				
 				<Label for="dd_annee">Saison :</Label>
 				<Input type="text" id="dd_annee" bind:value={annee} style="width:150px;"></Input>
 				
@@ -402,12 +395,15 @@
 			{#if type_personne == '4'}
 				<h4>Creation d'un admin</h4>
 			{/if}
-		</Row>
 
-		<Row>
 			<Col>
 				<Button type="submit">Enregistrer</Button>
 			</Col>
-		</Row>
 	</form>
 </Card>
+<style>
+	h1{
+		font-size: 5rem;
+		margin-top: 20px;
+	}
+</style>
