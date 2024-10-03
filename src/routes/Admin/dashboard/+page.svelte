@@ -71,14 +71,14 @@
 {/if}
 
     <div class="row1">
-        <a href="/Admin/creation_personne"><img src="/src/lib/images/8.jpg" alt=""></a>
-        <a href="/Admin/Liste_joueurs"> <img src="/src/lib/images/3.jpg" alt=""></a>
-        <a href="/Admin/evaluation_joueurs"><img src="/src/lib/images/5.jpg" alt=""></a>
+        <a href="/Admin/creation_personne"><img src="/src/lib/images/image 2.png" alt="">Créer un Joueur</a>
+        <a href="/Admin/Liste_joueurs"> <img src="/src/lib/images/image 7.png" alt="">Liste des joueurs</a>
+        <a href="/Admin/evaluation_joueurs"><img src="/src/lib/images/datasoccer.png" alt="">Evaluer un joueur</a>
     </div>
    <div class="row2">
-    <a href="/Admin/creation_equipe"><img src="/src/lib/images/4.jpg" alt=""></a>
-    <a href="/Admin/Fiche_equipes"><img src="/src/lib/images/3.jpg" alt=""></a>
-    <a href="/Admin/creation_evenement"><img src="/src/lib/images/9.jpg" alt=""></a>
+    <a href="/Admin/creation_equipes"><img src="/src/lib/images/image 3.png" alt="">Créer une équipe</a>
+    <a href="/Admin/Nos equipes"><img src="/src/lib/images/image 6.png" alt="">Mon equipe</a>
+    <a href="/Admin/creation_evenement"><img src="/src/lib/images/image 7.png" alt="">Créer un évènement</a>
    </div>
    <Button on:click={deconnecter}>Déconnexion</Button>
 
@@ -111,7 +111,15 @@ img {
     gap: 20px;  
 
 }
-
+a {
+    display: flex;
+    flex-direction: column ;
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: none;
+    color: black;
+    font-size: 2rem;
+}
 
 </style>
 

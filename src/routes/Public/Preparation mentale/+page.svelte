@@ -43,24 +43,22 @@
  
 	<div class="container">
 		<!-- Logo du Club avec effet explosion -->
-		<img src="/src/lib/images/image 7.png" alt="Logo du Club de Football" class="logo">
+		<img src="/src/lib/images/mental.jpeg" alt="Logo du Club de Football" class="logo">
 		
 		<!-- Phrase d'accueil percutante -->
-		<p class="welcome-text">Découvrez nos specifiques</p>
+		<p class="welcome-text">Éliminer la peur d'échouer pour laisser le corp se libérer.</p>
 		
-		<div class="specifique">
+		
 			<!-- Lien pour visiter nos spécifiques -->
-		<a href="/Public/Le Parc Fc" class="enter-link">Gardien</a>
-		<a href="/Public/Le Parc Fc" class="enter-link">Attaquant</a>
-		<a href="/Public/Le Parc Fc" class="enter-link">Prepa Physique</a>
-		</div>
+		<a href="/Public/Le Parc Fc" class="enter-link">Découvrez nos services</a>
+		
 		
 	</div>
   </body>
   <style>
 	/* Styles Globaux */
 	body {
-		background-color: #000000;
+		background-color:#000000;
 		height: 100vh;
 		overflow: hidden;
 		margin: 0;
@@ -121,7 +119,7 @@
 	/* Phrase d'accueil percutante */
 	.welcome-text {
 		font-size: 38px;
-		color: white;
+		color: #ffffff;
 		font-weight: bold;
 		letter-spacing: 3px;
 		text-transform: uppercase;
@@ -145,9 +143,8 @@
 	/* Lien pour entrer sur le site */
 	.enter-link {
 		text-decoration: none;
-		background-image: "src/lib/images/image 7.png";
-		background-size: c;
-		color: white;
+		background: linear-gradient(135deg, #ffffff, #a8ebff);
+		color: black;
 		padding: 15px 50px;
 		font-size: 24px;
 		font-weight: bold;

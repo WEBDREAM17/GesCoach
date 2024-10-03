@@ -5,7 +5,7 @@
   import { page} from '$app/stores';
 
   let isAuthenticated = false;
-  let _servicepath = 'http://localhost:9000/';
+  let _servicepath = 'http://localhost/webservice/';
   let username = '';
   let password = '';
   let error = false;

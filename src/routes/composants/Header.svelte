@@ -40,22 +40,21 @@
 			<DropdownMenu end>
 			  <DropdownItem href="/Public/Stages" on:click={toggle}>Stage</DropdownItem>
 			  <DropdownItem href="/Public/Specifique" on:click={toggle}>Spécifique aux postes</DropdownItem>
-			  <DropdownItem href="/Public/Preparation physique" on:click={toggle}>Préparation physiques</DropdownItem>
+			  <DropdownItem href="/Public/Preparation mentale" on:click={toggle}>Préparation mentale</DropdownItem>
 			  <DropdownItem divider />
 			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		  <Dropdown nav inNavbar>
-			<DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Espaces joueurs</DropdownToggle>
+			<DropdownToggle style="font-size:1.2rem; margin-right:20px; display:none;" nav caret>Espaces joueurs</DropdownToggle>
 			<DropdownMenu end>
 			  <DropdownItem href="/Joueurs/Liste_joueurs" on:click={toggle}>Fiche joueurs</DropdownItem>
-			  <DropdownItem href="/Admin/evaluation_joueurs" on:click={toggle}>Demander une évaluation</DropdownItem>
 			  <DropdownItem divider />
 			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		<Dropdown nav inNavbar>
-			<DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Espaces Admin</DropdownToggle>
+			<DropdownToggle style="font-size:1.2rem; margin-right:20px; display:none;" nav caret>Espaces Admin</DropdownToggle>
 			<DropdownMenu end>
 			  <DropdownItem href="/Admin/creation_personne" on:click={toggle}>Création personnes</DropdownItem>
 			  <DropdownItem href="/Admin/creation_equipes" on:click={toggle}>Création Equipes</DropdownItem>

@@ -233,8 +233,8 @@
 
   <CardBody style="width:1000px; margin: 50px 30px;">
   
-    <h1 style="margin-top: 80px;">Liste des Equipes</h1>
-      <Table bordered>
+    <h1>Liste des Equipes</h1>
+      <Table bordered >
         <thead>
           <tr>
           <th>Categorie</th>
@@ -255,7 +255,7 @@
           </tr>
          {/each}
         </tbody>
-        </Table>
+	</Table>
   </CardBody>
   <div>
 	<Modal isOpen={openSuppression} backdrop={false}>
@@ -267,7 +267,46 @@
 	  </ModalFooter>
 	</Modal>
   </div>
-    
+   <style>
+	h1{
+		margin-top: 100px;
+		text-align: center;
+		color: aliceblue;
+		font-size: 5rem;
+		margin-bottom: 50px;
+	}
+	/* table {
+		
+		margin: 20px auto;
+		border: solid black 2px;
+		text-align: center;
+	}
+	thead {
+		margin: 20px auto;
+		border: solid black 2px;
+		padding: 10px 20px;
+		text-align: center;
+	}
+	tr{
+		margin: 20px auto;
+		border: solid black 2px;
+		padding: 10px 20px;
+		text-align: center;
+	}
+	th{
+		margin: 20px auto;
+		border: solid black 2px;
+		padding: 10px 20px;
+		text-align: center;
+	}
+	td {
+		margin: 20px auto;
+		border: solid black 2px;
+		padding: 10px 20px;
+		text-align: center;
+	} */
+
+   </style> 
  
  
   

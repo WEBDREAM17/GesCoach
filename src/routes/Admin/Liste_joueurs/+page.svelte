@@ -265,7 +265,7 @@
 	
 	<h1>Liste Joueurs</h1>
 <Button color="info" on:click={()=>goto('/Admin/creation_personne')}>Créer un joueur</Button>
-	<Table striped>
+	<Table bordered>
 		<thead>
 		  <tr>
 			<th>#</th>
@@ -328,4 +328,15 @@
 		  </ModalFooter>
 		</Modal>
 	  </div>
+	  <style>
+		tr{
+			text-align: center;
+		}
+		a {
+			text-decoration: none;
+		}
+		td{
+			text-align: center;
+		}
+	  </style>
 
