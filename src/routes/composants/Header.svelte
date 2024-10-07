@@ -45,6 +45,9 @@
 			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
+		  <NavItem style="color:red;">
+			<NavLink style=" font-size:1.2rem; margin-right:30px;" href="/Public/Pôle performance" on:click={toggle}>Pôle performance</NavLink>
+		  </NavItem>
 		  <Dropdown nav inNavbar>
 			<DropdownToggle style="font-size:1.2rem; margin-right:20px; display:none;" nav caret>Espaces joueurs</DropdownToggle>
 			<DropdownMenu end>

@@ -43,7 +43,7 @@
  
 	<div class="container">
 		<!-- Logo du Club avec effet explosion -->
-		<img src="/src/lib/images/image 7.png" alt="Logo du Club de Football" class="logo">
+		<!-- <img src="/src/lib/images/image 7.png" alt="Logo du Club de Football" class="logo"> -->
 		
 		<!-- Phrase d'accueil percutante -->
 		<p class="welcome-text">Découvrez nos specifiques</p>
