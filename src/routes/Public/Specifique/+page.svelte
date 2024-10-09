@@ -60,7 +60,7 @@
   <style>
 	/* Styles Globaux */
 	body {
-		background-color: #000000;
+		background-color: white;
 		height: 100vh;
 		overflow: hidden;
 		margin: 0;
@@ -121,19 +121,19 @@
 	/* Phrase d'accueil percutante */
 	.welcome-text {
 		font-size: 38px;
-		color: white;
+		color: black;
 		font-weight: bold;
 		letter-spacing: 3px;
 		text-transform: uppercase;
-		text-shadow: 3px 3px 10px rgba(170, 227, 248, 0.3);
+		text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.3);
 		margin-top: 20px;
 		opacity: 0;
-		animation: textPopUp 2s ease-in-out 2s forwards; /* Apparaît après le logo */
+		animation: textPopUp 1s ease-in-out 1s forwards; /* Apparaît après le logo */
 	}
   
 	@keyframes textPopUp {
 		0% {
-			transform: translateY(50px);
+			transform: translateY(30px);
 			opacity: 0;
 		}
 		100% {
@@ -145,17 +145,15 @@
 	/* Lien pour entrer sur le site */
 	.enter-link {
 		text-decoration: none;
-		background-image: "src/lib/images/image 7.png";
-		background-size: c;
-		color: white;
+		color: black;
 		padding: 15px 50px;
 		font-size: 24px;
 		font-weight: bold;
 		border-radius: 40px;
 		display: inline-block;
 		margin-top: 30px;
-		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		box-shadow: 0 15px 30px rgba(193, 232, 247, 0.7);
+		transition: transform 0.1s ease, box-shadow 0.2s ease;
+		box-shadow: 0 15px 30px black;
 		opacity: 0;
 		animation: buttonAppear 2s ease-in-out 4s forwards; /* Apparaît après le texte */
 	}

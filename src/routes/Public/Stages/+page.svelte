@@ -1,5 +1,5 @@
 <script>
-	
+	import { Image,} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
   import { page} from '$app/stores';
 
@@ -43,16 +43,16 @@
  
 	<div class="container">
 		<!-- Logo du Club avec effet explosion -->
-		<!-- <img src="" alt="Logo du Club de Football" class="logo"> -->
+		<!-- <img src="/src/lib/images/image 7.png" alt="Logo du Club de Football" class="logo"> -->
 		
 		<!-- Phrase d'accueil percutante -->
-		<p class="welcome-text">Participez à nos stages encadrées par des éducateurs diplômés.</p>
+		<p class="welcome-text">Inscrivez vous dans nos stages de perferction</p>
 		
 		<div class="specifique">
 			<!-- Lien pour visiter nos spécifiques -->
-		<a href="/Public/Le Parc Fc" class="enter-link">S'inscrire</a>
+		<a href="/Accueil" class="enter-link">Découvrir</a>
 		
-</div>
+		</div>
 		
 	</div>
   </body>
@@ -120,7 +120,7 @@
 	/* Phrase d'accueil percutante */
 	.welcome-text {
 		font-size: 38px;
-		color: rgb(0, 0, 0);
+		color: black;
 		font-weight: bold;
 		letter-spacing: 3px;
 		text-transform: uppercase;
@@ -144,9 +144,7 @@
 	/* Lien pour entrer sur le site */
 	.enter-link {
 		text-decoration: none;
-		background-image: "src/lib/images/image 7.png";
-		background-size: c;
-		color: rgb(0, 0, 0);
+		color: black;
 		padding: 15px 50px;
 		font-size: 24px;
 		font-weight: bold;
@@ -154,7 +152,7 @@
 		display: inline-block;
 		margin-top: 30px;
 		transition: transform 0.3s ease, box-shadow 0.3s ease;
-		box-shadow: 0 15px 30px rgba(193, 232, 247, 0.7);
+		box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
 		opacity: 0;
 		animation: buttonAppear 2s ease-in-out 4s forwards; /* Apparaît après le texte */
 	}
@@ -172,7 +170,7 @@
   
 	.enter-link:hover {
 		transform: scale(1.15) translateY(-10px);
-		box-shadow: 0 20px 50px rgba(58, 56, 52, 0.9);
+		box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
 	}
   </style>
 

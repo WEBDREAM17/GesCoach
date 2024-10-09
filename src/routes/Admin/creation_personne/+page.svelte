@@ -6,7 +6,6 @@
 		Input,
 		Button,
 		Card,
-		
 		Alert
 	} from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation'
@@ -157,7 +156,7 @@
 	const createPostePerssonne = async (/** @type {string | Blob} */ id_joueur,/** @type {string | Blob} */ id_poste) => {
 		try {
 		
-			//On crée le User
+			//On crée le poste et on l'attibue a un joueur
 			const updateRoute = _servicepath + 'creation_postePersonne.php';
 			const data = new FormData();
 
@@ -194,7 +193,7 @@
 	const createEquipePerssonne = async (/** @type {string | Blob} */ id_joueur,/** @type {string | Blob} */ id_equipe,/** @type {string | Blob} */ id_categorie) => {
 		try {
 		
-			//On crée le User
+			//On lie un joueur a une equipe et une categorie
 			const updateRoute = _servicepath + 'creation_EquipePersonne.php';
 			const data = new FormData();
 
@@ -231,7 +230,7 @@
 	const createNiveauEquipe = async (/** @type {string | Blob} */ id_joueur,/** @type {string | Blob} */ id_equipe,/** @type {string | Blob} */ id_categorie) => {
 		try {
 		
-			//On crée le User
+			//On récupère le niveau
 			const updateRoute = _servicepath + 'recuperer_niveauEquipe.php';
 			const data = new FormData();
 

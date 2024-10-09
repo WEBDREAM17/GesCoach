@@ -65,7 +65,10 @@
 
 
 {#if isAuthenticated}
-    <h1>Bienvenue {userName} dans ton dashboard</h1>
+<div class="cardHeader" >
+    <h1 class="title">Bienvenue {userName} dans ton dashboard</h1>
+   <Button style="background-color:rgb(182, 219, 252);" on:click={deconnecter}><img class="deconnexion" src="/src/lib/images/2.png" alt=""></Button>
+  </div>
 {:else}
     <p>Redirection vers la page de connexion...</p>
 {/if}
@@ -84,13 +87,20 @@
 
 
 <style>
-   
-h1{
-    color: rgb(0, 0, 0);
-    font-size: 4rem;
-    text-align: center;
+   .cardHeader{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color:rgb(182, 219, 252);
+    padding: 20px 10px;
+      
+    }
+    .title {
+      font-size:4rem;
+       text-align: center;
+       color:black;
+    }
 
-}
 img {
     width: 400px;
     
@@ -120,7 +130,11 @@ a {
     color: black;
     font-size: 2rem;
 }
+.deconnexion{
+    width: 50px;
+    text-align: center;
 
+}
 </style>
 
 

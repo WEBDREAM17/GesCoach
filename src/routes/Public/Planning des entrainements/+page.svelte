@@ -12,18 +12,15 @@
 	import { page } from '$app/stores';
 </script>
 
-<Container fluid>
-	<Row
-	style="display:flex;justify-content:center; align-items:center; border:2px solid black;margin:20px; padding:30px;">
-	<Col>
-		<img style="width:150px;" class="logoClub" src="/src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" />
-	</Col>
-	<Col xs="auto">
-		<h1>Planning des entrainements de l'écôle de football du "Parc FC"</h1>
-		<p>Bienvenue sur la page du planning des entraînements de notre école de foot, « Le Parc Football Club». <br>Cette page est destinée à vous fournir toutes les informations nécessaires concernant les horaires et les jours d’entraînement pour chaque catégorie.</p>
-	</Col>
-</Row>
-<Row style="margin:70px 20px; ">
+<main>
+	<img src="/src/lib/images/logo1.png" alt="">
+<div class="cardTitle">
+	<h1>Planning des entrainements de l'écôle de football du "Parc FC"</h1>
+	<p>Bienvenue sur la page du planning des entraînements de notre école de foot, « Le Parc Football Club». <br>Cette page est destinée à vous fournir toutes les informations nécessaires concernant les horaires et les jours d’entraînement pour chaque catégorie.</p>
+</div>
+</main>
+
+
 	<Table bordered>
 		<thead>
 		  <tr>
@@ -186,5 +183,20 @@
 		  </tr>
 		</tbody>
 	  </Table>
-	</Row>
-  </Container>
+
+ 
+<style>
+	main{
+	display:flex;
+	align-items: center;
+	background-color:white;
+	border: 2px solid rgb(182, 219, 252);
+	margin-bottom: 50px;
+	padding:30px;
+}
+img{
+	width:150px;
+	margin-right: 20px;
+}
+
+</style>

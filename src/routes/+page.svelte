@@ -1,8 +1,5 @@
-<script lang="ts">
- 
-</script>
+
 <body>
- 
   <div class="container">
       <!-- Logo du Club avec effet explosion -->
       <img src="/src/lib/images/logo.png" alt="Logo du Club de Football" class="logo">
@@ -11,7 +8,7 @@
       <p class="welcome-text">Vivez chaque instant comme un champion !</p>
       
       <!-- Lien pour entrer sur le site -->
-      <a href="/Public/Le Parc Fc" class="enter-link">Entrer sur le site</a>
+      <a href="/Accueil" class="enter-link">Entrer sur le site</a>
   </div>
 </body>
 <style>

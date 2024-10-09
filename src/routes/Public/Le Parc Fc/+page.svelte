@@ -12,13 +12,13 @@
 	import { page } from '$app/stores';
 </script>
 
-<CardHeader style="background-color:black">
-	<CardTitle style="font-size:4rem; margin: 10px 30px; color:grey;">Le Parc Football Club</CardTitle
-	>
-</CardHeader>
-<CardBody style=" margin: 50px 30px;">
+<div class="cardHeader">
+	<h1 class="title">Le Parc Football Club</h1>
+</div>
+
+<div class="cardBody">
 	<Row>
-		<p style="font-size:1.4rem; ">
+		<p >
 			L’Association Sportive 1901 de l’école de foot du Parc Football Club s’engage à offrir une
 			pratique du football à tous les jeunes qui souhaitent s’inscrire dans notre école située à
 			Marsille 03. Nous organisons des journées portes ouvertes pour permettre aux jeunes de
@@ -26,8 +26,8 @@
 			conformément aux règles de la Fédération Française de Football, en leur réservant des créneaux
 			horaires dédiés.
 		</p>
-		<h2 style="margin: 30px 0; font-size:3rem; color:grey;">Projet éducatif</h2>
-		<p style="font-size:1.4rem; ">
+		<h2>Projet éducatif</h2>
+		<p>
 			Prenant en compte que le football est bien plus qu’un simple sport pour les enfants, notre
 			école de football s’engage à offrir des actions citoyennes et socio-éducatives à nos jeunes
 			adhérents, en utilisant le football comme un outil éducatif et de socialisation. Dans le cadre
@@ -37,8 +37,8 @@
 			les éducateurs et les enfants. Ces actions visent à renforcer la cohésion sociale et le
 			développement citoyen de nos jeunes joueurs.
 		</p>
-		<h2 style="margin: 30px 0; font-size:3rem; color:grey;">Projet sportif</h2>
-		<p style="font-size:1.4rem; ">
+		<h2 >Projet sportif</h2>
+		<p>
 			Nous avons pour objectif de suivre le programme de formation et de pédagogie de la FFF pour
 			accompagner les jeunes joueurs dans leur développement sportif. Nous mettons tout en oeuvre
 			pour offrir les meilleures conditions d’apprentissage à nos licenciés, en organisant des
@@ -49,15 +49,15 @@
 			de créer un environnement propice à l’épanouissement sportif et éducatif de nos licenciés.
 		</p>
 
-		<h2 style="margin: 30px 0; font-size:3rem; color:grey;">Installations</h2>
-		<p style="font-size:1.4rem; ">1 - Stade Charpentier Auphan /</p>
-		<p style="font-size:1.4rem;">1 - Gymnase Charpentier Auphan /</p>
+		<h2 style="">Installations</h2>
+		<p>1 - Stade Charpentier Auphan /</p>
+		<p>1 - Gymnase Charpentier Auphan /</p>
 	</Row>
-</CardBody>
+</div>
 
-<TabContent style="background-color:grey;" on:tab={(e) => (status = e.detail)}>
+<TabContent style="background-color:rgb(182, 219, 252)" on:tab={(e) => (status = e.detail)}>
 	<TabPane tabId="Charte des joueurs du Parc FC" tab="Charte des joueurs du Parc FC" active>
-		<p style="font-size:1.4rem; margin:50px;">
+		<p >
 			Les joueurs qui intègrent Le Parc Football Club sont tenus de respecter les Chartes en
 			vigueur, à savoir la Charte des joueurs, la Charte des parents, la Charte des éducateurs et la
 			Charte des dirigeants.<br /><br />
@@ -91,7 +91,7 @@
 		</p>
 	</TabPane>
 	<TabPane tabId="Charte des parents du Parc FC" tab="Charte des parents du Parc FC">
-		<p style="font-size:1.4rem; margin:50px;">
+		<p>
 			Les parents dont les enfants sont membres du Parc FC, Ecole de football à Marseille s’engagent à
 			:<br /><br />
 
@@ -154,3 +154,29 @@
 		</p>
 	</TabPane>
 </TabContent>
+
+<style>
+	.cardHeader{
+		background-color:rgb(182, 219, 252);
+		padding: 20px 10px;
+		
+	}
+	.title {
+		font-size:5rem;
+		 margin: 10px 30px; 
+		 color:black;
+	}
+	.cardBody {
+		margin: 10px 30px;
+	}
+	h2{
+		margin: 10px 0; 
+		font-size:3rem; 
+		color:black;
+	}
+	p{
+		font-size:1.4rem;
+		margin:20px;
+
+	}
+</style>

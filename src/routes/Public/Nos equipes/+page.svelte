@@ -230,68 +230,100 @@
 	};
 </script>  
 
-  <CardHeader style="background-color:black">
-    <CardTitle style="font-size:4rem; margin: 10px 30px; color:grey;">Nos équipes - Le Parc Football Club</CardTitle>
-  </CardHeader>
-  <CardBody style="width:1000px; margin: 50px 30px;">
-    <Col><p style="font-size:1.3rem;">
-      Bienvenue sur notre page dédiée à nos équipes. Ici, à l’Association de Football le Parc Football club, nous sommes fiers de notre gamme d’équipes, de U6 à U13. Chaque équipe est unique, mais toutes partagent notre engagement envers le sport, le respect, l’amusement et le développement personnel.</p></Col>
-    <Col>
+  <div class="cardHeader" >
+    <h1 class="title">Nos équipes - Le Parc Football Club</h1>
+  </div>
+  <div class="cardBody" >
+    <p>
+      Bienvenue sur notre page dédiée à nos équipes. Ici, à l’Association de Football le Parc Football club, nous sommes fiers de notre gamme d’équipes, de U6 à U13. Chaque équipe est unique, mais toutes partagent notre engagement envers le sport, le respect, l’amusement et le développement personnel.</p>
+    
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U6</h2>
-      <p style="font-size:1.3rem;">Notre équipe U6 est l’endroit idéal pour les débutants. En U6, le jeu se joue en format 2 vs 2, 3 vs 3 et 5 vs 5 pour permettre un maximum de participation. L’accent est mis sur le plaisir, le développement des compétences de base, la créativité et l’introduction à l’esprit d’équipe.</p></Col>
-    <Col>
+      <p style="font-size:1.3rem;">Notre équipe U6 est l’endroit idéal pour les débutants. En U6, le jeu se joue en format 2 vs 2, 3 vs 3 et 5 vs 5 pour permettre un maximum de participation. L’accent est mis sur le plaisir, le développement des compétences de base, la créativité et l’introduction à l’esprit d’équipe.</p>
+    
       <h2 style="font-size:1.7rem; margin-top:50px;">Les u7</h2>
       <p style="font-size:1.3rem;">En U7, nos joueurs continuent à développer leurs compétences tout en apprenant à jouer en équipe. Les règles sont similaires à celles de U6, avec des matches joués également en format 3 vs 3, 5 vs 5, et un accent renouvelé sur l’amusement et l’apprentissage.</p>
-    </Col>
-    <Col>
+   
     <h2 style="font-size:1.7rem; margin-top:50px;">Les U8</h2>
     <p style="font-size:1.3rem;">Pour notre équipe U8, les règles commencent à évoluer. Les matches sont joués en format 5 vs 5, mais avec des objectifs plus grands et une légère augmentation de la taille du terrain. C’est une année excitante pour le développement des compétences et la compréhension du jeu.</p>
-    </Col>
-    <Col>
+   
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U9</h2>
       <p style="font-size:1.3rem;">L’équipe U9 s’aventure dans des matches plus compétitifs, tout en continuant à se concentrer sur le développement des compétences et le plaisir du jeu. Les matches se jouent en format 5 vs 5 ou 8 vs 8, introduisant une nouvelle dimension de stratégie et de coopération.</p>
-    </Col>
-    <Col>
+   
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U10</h2>
       <p style="font-size:1.3rem;">L’équipe U10 continue à construire sur les compétences et les concepts introduits dans les niveaux précédents. Les matches se jouent en format 8 contre 8, avec un accent sur l’amélioration technique et la compréhension tactique du jeu.</p>
-    </Col>
-    <Col>
+    
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U11</h2>
       <p style="font-size:1.3rem;">En U11, nos joueurs commencent à appliquer leurs compétences et leurs connaissances dans un format de match plus complexe de 8 vs 8. L’accent est mis sur le travail d’équipe, la stratégie et le développement continu des compétences techniques et tactiques.</p>
-    </Col>
-    <Col>
+   
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U12</h2>
       <p style="font-size:1.3rem;">Les joueurs de l’équipe U12 continuent à développer leur compréhension du jeu et leurs compétences dans un environnement compétitif. Le format est toujours 8 vs 8, préparant les joueurs à l’expérience du football à 11 contre 11 qu’ils rencontreront en U13.</p>
-    </Col>
-    <Col>
+   
       <h2 style="font-size:1.7rem; margin-top:50px;">Les U13</h2>
       <p style="font-size:1.3rem;">Notre équipe U13 est le sommet de notre parcours de développement. Les matches se jouent 8 vs 8 en debut d'année, au fil du temps nous passeront à 9 vs 9 jusqu'à arriver à du 11 vs 11 sur un terrain plus grand. À ce stade, nos joueurs ont développé un excellent ensemble de compétences et une compréhension approfondie du jeu.
 
         Chaque équipe du Parc Fc a sa propre personnalité et ses propres objectifs, mais toutes partagent l’amour du jeu et le désir de s’améliorer. Nous sommes impatients de vous voir soutenir nos équipes pour la saison 2024-2025 !</p>
-    </Col>
+	  </div>
+	<div class="cardTitle" >
+		<h1 class="title">Liste des équipes</h1>
+	  </div>
 
-    <h1 style="margin-top: 80px;">Liste des Equipes</h1>
-      <Table bordered>
-        <thead>
-          <tr>
-          <th>Categorie</th>
-          <th>Equipe</th>
-          <th>nom du Coach</th>
-          </tr>
-        </thead>
-        <tbody>
-          {#each listeEquipeCoach as equipeCoach}
-          <tr>
-          <td>{equipeCoach.nom_categorie}</td>
-          <td>{equipeCoach.nom_equipe}</td>
-          <td>{equipeCoach.nomCoach}</td>
-          </tr>
-         {/each}
-        </tbody>
-        </Table>
-  </CardBody>
+	  <div class="tableau">
+		<Table bordered>
+			<thead>
+			  <tr>
+			  <th>Categorie</th>
+			  <th>Equipe</th>
+			  <th>nom du Coach</th>
+			  </tr>
+			</thead>
+			<tbody>
+			  {#each listeEquipeCoach as equipeCoach}
+			  <tr>
+			  <td>{equipeCoach.nom_categorie}</td>
+			  <td>{equipeCoach.nom_equipe}</td>
+			  <td>{equipeCoach.nomCoach}</td>
+			  </tr>
+			 {/each}
+			</tbody>
+			</Table>
+	
+	  </div>
+      
   
     
+  <style>
+    .cardHeader{
+      background-color:rgb(182, 219, 252);
+      padding: 20px 10px;
+      
+    }
+    .title {
+      font-size:5rem;
+       margin: 20px; 
+       color:black;
+    }
+    .cardBody {
+      margin: 20px;
+    }
+    h2{
+      margin: 10 20px; 
+      font-size:3rem; 
+      color:rgb(182, 219, 252);
+    }
+    p{
+      font-size:1.4rem;
+      margin: 10 20px;
+  
+    }
+	.cardTitle {
+		border: 2px solid rgb(0, 187, 255);
+		margin: 50px;
+	}
+	.tableau {
+		margin: 50px;
+	}
+
+  </style>
  
  
   

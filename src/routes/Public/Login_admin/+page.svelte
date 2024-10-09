@@ -85,33 +85,60 @@
   <p>Redirection vers la page de connexion...</p>
 {/if}
 
-<h1>Login Admin</h1>
-<Card style="background-color:black;">
-  <Row>
-    <Col style="margin-top:50px;" sm="12" md={{ size: 6, offset: 3 }}>
-      <Label style="color:white;">Identifiant</Label>
-      <Input id="username" bind:value={username}></Input>
-    </Col>
-    <Col sm="8" md={{ size: 6, offset: 3 }}>
-      <Label style="color:white;">Mot de passe</Label>
-      <Input type="password" id="password" bind:value={password}></Input>
-    </Col>
-    <Col sm="12" md={{ size: 6, offset: 3 }}>
-      <a style="color:red;"href="/">Mot de passe oublié</a>
-    </Col>
-      
-      <Col sm="6" md={{ size: 6, offset: 3 }}>
+<h1>Admin</h1>
+<form class="connexion" action="" >
+  <div class="formulaire">
+    <div>
+      <label>Identifiant
+      <input id="username" bind:value={username}>
+  </div>
+    <div>
+      <label>
+        Password
+      <input type="password" id="password" bind:value={password}>
+      </div>
+  
+    <div>
         <Button style="margin-bottom:50px;" on:click={authenticate}>Se connecter</Button>
-      </Col>
+      
       {#if error}
       <Col sm="6" md={{ size: 6, offset: 3 }}>
         <Alert color="danger">Identifiant ou mot de passe incorrect</Alert>
       </Col>
       {/if}
-  </Row>
-</Card>
+    </div>
+  
+  </div>
+ 
+</form>
 
 
+
+
+
+<style>
+  
+  label{
+    margin-top:50px;
+  }
+  a {
+    color:red;
+  }
+  button {
+
+  }
+  .connexion{
+    background-color: rgb(182, 219, 252);
+    
+  }
+  .formulaire {
+    margin: auto 20px;
+  }
+  input{
+    margin-left: 30px;
+
+  }
+</style>
 
 
 

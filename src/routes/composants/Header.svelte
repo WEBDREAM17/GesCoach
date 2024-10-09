@@ -31,20 +31,8 @@
 			  <DropdownItem href="/Public/Nos equipes" on:click={toggle}>Nos équipes</DropdownItem>
 			  <DropdownItem href="/Public/Planning des entrainements" on:click={toggle}>Planning des entraînements </DropdownItem>
 			  <DropdownItem href="/Public/Liste_évènements" on:click={toggle}>Liste évènement</DropdownItem>
-			  <DropdownItem divider />
-			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		</Dropdown>
-			<Dropdown nav inNavbar>
-			<DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Pôle performance</DropdownToggle>
-			<DropdownMenu end>
-			  <DropdownItem href="/Public/Stages" on:click={toggle}>Stage</DropdownItem>
-			  <DropdownItem href="/Public/Specifique" on:click={toggle}>Spécifique aux postes</DropdownItem>
-			  <DropdownItem href="/Public/Preparation mentale" on:click={toggle}>Préparation mentale</DropdownItem>
-			  <DropdownItem divider />
-			  <DropdownItem>Reset</DropdownItem>
-			</DropdownMenu>
-		  </Dropdown>
 		  <NavItem style="color:red;">
 			<NavLink style=" font-size:1.2rem; margin-right:30px;" href="/Public/Pôle performance" on:click={toggle}>Pôle performance</NavLink>
 		  </NavItem>
@@ -52,8 +40,7 @@
 			<DropdownToggle style="font-size:1.2rem; margin-right:20px; display:none;" nav caret>Espaces joueurs</DropdownToggle>
 			<DropdownMenu end>
 			  <DropdownItem href="/Joueurs/Liste_joueurs" on:click={toggle}>Fiche joueurs</DropdownItem>
-			  <DropdownItem divider />
-			  <DropdownItem>Reset</DropdownItem>
+			 
 			</DropdownMenu>
 		  </Dropdown>
 		<Dropdown nav inNavbar>
@@ -65,8 +52,6 @@
 			  <DropdownItem href="/Admin/Liste_joueurs" on:click={toggle}>Liste joueurs</DropdownItem>
 			<DropdownItem href="/Admin/Nos equipes" on:click={toggle}>Nos équipes</DropdownItem>
 			<DropdownItem href="/Admin/dashboard" on:click={toggle}>dashboard</DropdownItem>
-			  <DropdownItem divider />	
-			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		  <Dropdown nav inNavbar>
@@ -74,8 +59,6 @@
 			<DropdownMenu end>
 			  <DropdownItem href="/Public/Login_admin" on:click={toggle}>Admin</DropdownItem>
 			  <DropdownItem href="/Public/Login_joueurs" on:click={toggle}>Joueurs</DropdownItem>
-			  <DropdownItem divider />
-			  <DropdownItem>Reset</DropdownItem>
 			</DropdownMenu>
 		  </Dropdown>
 		  <NavItem style="color:red;">

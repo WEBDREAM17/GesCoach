@@ -47,31 +47,40 @@
 	};
 </script>
 <nav class="navbar2">
-	<a href="/Public/Stages">Stage</a><a href="/Public/Specifique">Spécifiques</a><a href="/Public/Preparation mentale">Préaparation Mentale</a>
+	<a class="menu" href="/Public/Stages">Stage</a><a class="menu" href="/Public/Specifique">Spécifiques</a><a class="menu" href="/Public/Preparation mentale">Préaparation Mentale</a>
 </nav>
 <body>
  
 	<div class="container">
 		<!-- Logo du Club avec effet explosion -->
-		<img src="/src/lib/images/logo.png" alt="Logo du Club de Football" class="logo">
+		<img src="/src/lib/images/image 4.png" alt="Logo du Club de Football" class="logo">
 		
 		<!-- Phrase d'accueil percutante -->
-		<p class="welcome-text">Découvrez notre pôle performance.</p>
+		<p class="welcome-text">Venez découvrir nos sections performances</p>
 		
-		<!-- Lien pour entrer sur le site -->
-		<a href="/Public/Le Parc Fc" class="enter-link">Entrer sur le site</a>
+		<!-- Lien pour entrer sur le site
+		<a href="/Public/S" class="enter-link">Venez découvrir nos sections performances</a> -->
 	</div>
   </body>
-  /* Styles Globaux */
+  <!-- /* Styles Globaux */ -->
   <style>
 	.navbar2 {
 		display: flex;
 		justify-content: space-around;
 		font-size: 2rem;
+        border: 1px solid black;
+        padding: 20px;
+        border-radius: 15px;
+        background-color: aliceblue;
 	}
-	a{
+	.menu
+    {
 			text-decoration: none;
 			color: #000000;
+            
+            
+
+            
 		}
  body {
       background: linear-gradient(135deg, #ffffff, #ffffff);

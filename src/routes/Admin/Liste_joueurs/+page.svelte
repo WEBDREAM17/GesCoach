@@ -4,7 +4,8 @@
     ButtonGroup,
     Modal,
     ModalBody,
-    ModalHeader } from "@sveltestrap/sveltestrap";
+    ModalHeader } 
+	from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
 
 	let openSuppression = false;

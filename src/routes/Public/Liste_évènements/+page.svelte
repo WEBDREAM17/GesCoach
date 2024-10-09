@@ -48,15 +48,48 @@
     
   ];
 </script>  
-<CardHeader style="background-color:black">
-	<CardTitle style="font-size:4rem; margin: 10px 30px; color:grey;">Nos évènements</CardTitle
-	>
-</CardHeader>
-<div style="display:flex; justify-content:center;" class="horizontal">
+<div class="cardHeader">
+	<h1 class="title">Nos évènements</h1>
+	</div>
+<div class="cardBody">
   {#each thumbnails as thumbnail}
-   <a href="{thumbnail[1]}" target="_blank"><Image style="width:350px; height:350px;"data-bs-theme="dark" thumbnail alt="This is a thumbnail Image" src={thumbnail[0]} /></a>
+   <a href="{thumbnail[1]}" target="_blank">
+	<img src={thumbnail[0]} />
+</a>
   {/each}
 </div>
-
+<style>
+    .cardHeader{
+      background-color:rgb(182, 219, 252);
+      padding: 20px 10px;
+      
+    }
+    .title {
+      font-size:5rem;
+       margin: 10px 30px; 
+       color:black;
+    }
+    .cardBody {
+      margin: 50px;
+	  display:flex; 
+	  justify-content:space-around;
+	  align-items:center;
+	  gap: 20px;
+    }
+    h2{
+      margin: 10px 0; 
+      font-size:3rem; 
+      color:black;
+    }
+    p{
+      font-size:1.4rem;
+      margin:20px;
+  
+    }
+	img {
+		width:400px;
+		 height:450px;
+	}
+  </style>
 
    
