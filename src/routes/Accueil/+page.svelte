@@ -1,5 +1,13 @@
-<script lang="ts">
+<script>
     import { Carousel, CarouselControl, CarouselIndicators, CarouselItem, Row, Col,} from '@sveltestrap/sveltestrap';
+    import { onMount } from 'svelte';
+    import { replaceState } from '$app/navigation';
+
+    onMount(async () => {
+      console.log('onMount');
+      replaceState.bind('/Accueil');
+    });
+
     const items = [
       '/images/7.jpg',
       '/images/9.jpg',
@@ -84,6 +92,12 @@
   </Row>
  
   <style>
+     body {
+      
+      overflow: auto;
+      height:auto;
+      }
+      
       .cardHeader{
       border :solid 3px rgb(182, 219, 252);
       padding: 20px 10px;

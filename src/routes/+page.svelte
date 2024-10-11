@@ -1,4 +1,6 @@
+<script>
 
+</script>
 <body>
   <div class="container">
       <!-- Logo du Club avec effet explosion -->
@@ -8,7 +10,7 @@
       <p class="welcome-text">Vivez chaque instant comme un champion !</p>
       
       <!-- Lien pour entrer sur le site -->
-      <a href="/Accueil" class="enter-link">Entrer sur le site</a>
+      <a data-sveltekit-reload href="/Accueil" class="enter-link">Entrer sur le site</a>
   </div>
 </body>
 <style>
