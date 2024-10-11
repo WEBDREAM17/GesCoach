@@ -41,9 +41,9 @@
 
 
     const thumbnails = [
-      ['/src/lib/images/4.jpg','Stages'],
-      ['/src/lib/images/3.jpg','Specifique'],
-      ['/src/lib/images/7.jpg','Preparation physique'],
+      ['/src/lib/images/image 4.png','Stages'],
+      ['/src/lib/images/image 7.png','Specifique'],
+      ['/src/lib/images/image 5.png','Preparation mentale'],
      
     
   ];
@@ -62,6 +62,7 @@
     .cardHeader{
       background-color:rgb(182, 219, 252);
       padding: 20px 10px;
+	  
       
     }
     .title {
@@ -86,10 +87,7 @@
       margin:20px;
   
     }
-	img {
-		width:400px;
-		 height:450px;
-	}
+	
   </style>
 
    

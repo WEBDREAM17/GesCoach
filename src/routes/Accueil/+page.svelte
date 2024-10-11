@@ -9,7 +9,7 @@
     let activeIndex = 0; 
   </script>
    <div class="cardHeader">
-    <h1 class="title">Notre vision: </h1>
+    <h1 class="title">NOTRE VISION </h1>
   </div>
     <h4>Le Parc Football Club, plus qu'un club</h4>
    <p>L’école de foot du Parc FC a été créé en mai 2024, avec comme objectif de travailler principalement sur l’attitude des jeunes. Une équipe a de meilleurs résultats lorsque chaque joueur a un bon comportement.
@@ -21,7 +21,7 @@
     <div class="carousel-inner">
       {#each items as item, index}
         <CarouselItem  bind:activeIndex itemIndex={index}>
-          <img style="height:600px;"  src={item} class="d-block w-100" alt="{item} {index + 1}" />
+          <img src={item} class="d-block w-100" alt="{item} {index + 1}" />
         </CarouselItem>
       {/each}
     </div>
@@ -42,11 +42,11 @@
         <img src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
         <h3>Entrainement</h3>
-        <p>Le joueur du Parc aura des séances structurées dans une ambiance positive et amusante. il travaillera sa technique de passe, sa qualité de réception, sa capacité à dribbler et à frapper, sa coordination et d'autres choses encore tout au long de l'année.</p>
+        <p>Le joueur du Parc FC aura des séances structurées dans une ambiance positive et amusante. il travaillera sa technique de passe, sa qualité de réception, sa capacité à dribbler et à frapper, sa coordination et d'autres choses encore tout au long de l'année.</p>
         </div>
     </Col>
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
-        <img style="width:100px;" src="src/lib/images/1.png" alt="">
+        <img src="src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
         <h3>Respect</h3>
         <p>Le respect des règles est le pilier du sport et permet à chacun d'évoluer à son rythme. Même s'il commence par-là, le respect ne se résume pas à des bonjours et autres mercis, c'est un tout qui s'appuie sur le fair-play, le respect de l'arbitre, de ses décisions et de l'adversaire.</p>
@@ -57,14 +57,14 @@
         <img src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
         <h3>Jeunesse</h3>
-        <p>Le football est bien plus qu'un jeu : c'est un outil puissant pour le développement global des jeunes. En jouant au football, les enfants acquièrent des compétences essentielles, développeunt leur caractère et apprennent des de vie précieuses.</p>
+        <p>Le football est bien plus qu'un jeu : c'est un outil puissant pour le développement global des jeunes. En jouant au football, les enfants acquièrent des compétences essentielles, développeunt leur caractère et apprennent des codes de vie précieux.</p>
         </div>
     </Col>
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
         <img src="/src/lib/images/1.png" alt="">
         <div style="display:flex; flex-direction:column;"> 
         <h3>Performance</h3>
-        <p>Les capacités techniques, tactiques et mentales sont constamment en interaction et jouent sur la performance du joueur. Il est important de travailler ces différents facettes du football afin de permettre aux joueurs de s'exprimer pleinement sur le terrain. le facteur physique est devenu primordial pour que le footballeur, deevenu athlètes, puisse exprimer au mieu ses qualités.</p>
+        <p>Les capacités techniques, tactiques et mentales sont constamment en interaction et jouent sur la performance du joueur. Il est important de travailler ces différentes facettes du football afin de permettre aux joueurs de s'exprimer pleinement sur le terrain. le facteur physique est devenu primordial pour que le footballeur, deevenu athlètes, puisse exprimer au mieu ses qualités.</p>
         </div>
     </Col>
     <Col style="display:flex; align-items:center;background-color:white; width:500px; gap:20px; border: 2px solid black;">
@@ -114,6 +114,9 @@
     }
     img {
       height:50px;
+    }
+    .d-block {
+      height: auto;
     }
     h1 {
       margin-top: 50px;
