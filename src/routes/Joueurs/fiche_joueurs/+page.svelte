@@ -204,7 +204,7 @@
 </script>
 
 <div class="identite">
-	<img src="src/lib/images/logo.png" alt="">
+	<img src="/images/logo.png" alt="">
 	<div class="info">
 		<h3>{poste1} {poste2}</h3>
 		<h1>{nom} {prenom}</h1>

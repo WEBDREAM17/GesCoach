@@ -160,7 +160,7 @@
 
 </script>
 <Row style="margin:20px; display:flex; justify-content:center; border: 2px solid black; background-color: white; align-items:center;">
-	<Col><img style="width:200px;" class="logoClub" src="src/lib/images/logopfc.jpeg" alt="" /></Col>
+	<Col><img style="width:200px;" class="logoClub" src="%sveltekit.assets%/images/logopfc.jpeg" alt="" /></Col>
 	<Col style="font-size:2.5rem; color:black;">{nom_categorie} : {nom_equipe}</Col>
 	<Col style="font-size:1.5rem; color:black;">COACH : {nomPrenomCoach}</Col>
 	<Col style="border:2px solid black; background-color: grey; text-align:center;margin-right:100px;"><a style="color:black; text-decoration:none; " href="/Admin/Nos equipes">Nos équipes</a></Col>

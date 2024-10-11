@@ -2,7 +2,7 @@
 <body>
   <div class="container">
       <!-- Logo du Club avec effet explosion -->
-      <img src="src/lib/images/logo.png" alt="Logo du Club de Football" class="logo">
+      <img src="/images/logo.png" alt="Logo du Club de Football" class="logo">
       
       <!-- Phrase d'accueil percutante -->
       <p class="welcome-text">Vivez chaque instant comme un champion !</p>

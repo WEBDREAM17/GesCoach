@@ -38,13 +38,13 @@
 		</p>
 	</Col>
 	<Col xs="6">
-		<a href="/"><Image thumbnail alt="This is a fluid Image" src="/src/lib/images/2.jpg" /></a>
+		<a href="/"><Image thumbnail alt="This is a fluid Image" src="/images/2.png" /></a>
 		</Col>
 </Row>
 
 <Row>
 		<Col xs="6">
-			<a href="/"><Image thumbnail alt="This is a fluid Image" src="/src/lib/images/2.jpg" /></a>
+			<a href="/"><Image thumbnail alt="This is a fluid Image" src="/images/2.png" /></a>
 			</Col>
 			<Col xs="6">
 				<h3>A propos de l'application</h3>
