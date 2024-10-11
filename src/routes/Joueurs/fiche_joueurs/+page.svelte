@@ -3,7 +3,7 @@
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import RadarChart from '../../composants/RadarChart.svelte'; 
-
+	import { _servicepath } from '../../store';
 
 	let liste_joueurs = [];
 	let liste_eval = [];
@@ -27,8 +27,6 @@
 	let compteur = 0;
 	let dataColors;
 	let id_joueur = '-1';
-
-	let _servicepath = 'http://localhost/webservice/';
 
 	onMount(async () => {
 		// @ts-ignore

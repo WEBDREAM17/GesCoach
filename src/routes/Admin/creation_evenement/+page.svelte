@@ -9,6 +9,8 @@
 		
 	} from '@sveltestrap/sveltestrap';
     import { onMount } from "svelte";
+	import { _servicepath } from '../../store';
+
     let id_coach = '';
 	let type_evenement = '';
 	let validated = false;
@@ -27,7 +29,6 @@
 	 * @type {any[]}
 	 */
     let listeTypeEvenement =[];
-	let _servicepath = 'http://localhost/webservice/';
 
     onMount ( async()=> {
 		await recupererTypeEvenement();

@@ -2,7 +2,7 @@
 	import { Table, Col, Row, Button, Modal, Input, ModalFooter } from '@sveltestrap/sveltestrap';
 	import { onMount } from 'svelte';
 	import { page } from '$app/stores';
-	
+	import { _servicepath } from '../../store';
 
 	let nom_categorie = '';
 	let id_coach = ''; 
@@ -34,7 +34,6 @@
 	let poste2 = '';
 	let id_equipe = '';
 	let id_categorie ='';
-	let _servicepath = 'http://localhost/webservice/';
 	let nomPrenomCoach = '';
 	let compteurJoueurs = 0;
 

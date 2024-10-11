@@ -7,6 +7,7 @@
     ModalHeader } 
 	from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
+	import { _servicepath } from '../../store';
 
 	let openSuppression = false;
   	const toggleSuppression = (/** @type {string} */ idJoueur) => {
@@ -32,7 +33,6 @@
 	let niveau = '';
 	let url_photo ='';
 	
-	let _servicepath = 'http://localhost/webservice/';
 	let open = false;
   
 	onMount ( async()=> {

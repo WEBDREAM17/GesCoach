@@ -10,6 +10,7 @@
 	} from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation'
 	import { onMount } from "svelte";
+	import { _servicepath } from '../../store';
 
 	let type_personne = '';
 	let personne_poste = '';
@@ -27,7 +28,6 @@
 	let poste2 = '';
 	let annee = '';
 	let errorMessage = '';
-	let _servicepath = 'http://localhost/webservice/';
 	let creationOk = false;
 
 	onMount ( async()=> {

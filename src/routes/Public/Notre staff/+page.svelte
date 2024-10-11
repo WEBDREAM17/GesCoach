@@ -1,8 +1,8 @@
 <script>
-	import { Container, Image, Col, CardBody,CardHeader, CardTitle,Table, Button} from "@sveltestrap/sveltestrap";
-	import { onMount } from "svelte";
-    import { page} from '$app/stores';
-
+  import { Container, Image, Col, CardBody,CardHeader, CardTitle,Table, Button} from "@sveltestrap/sveltestrap";
+  import { onMount } from "svelte";
+  import { page} from '$app/stores';
+  import { _servicepath } from '../../store';
 
   
 	let id_coach = ''; 
@@ -23,11 +23,9 @@
  
   let listeEquipeCoach = [];
 	let errorMessage = '';
-    /**
-	 * @type {any[]}
-	 */
+    
  
-	let _servicepath = 'http://localhost/webservice/';
+	
 
     onMount ( async()=> {
 	

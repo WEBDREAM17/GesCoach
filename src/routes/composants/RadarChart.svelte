@@ -3,7 +3,7 @@
     export let dataColors;
     import { browser } from "$app/environment"
     import { onMount } from "svelte";
-
+    import { _servicepath } from '../store';
     export let id_joueur;
     
     /**
@@ -17,7 +17,6 @@
 	let eval3FormatteGraph = [];
 
     let liste_eval = [];
-    let _servicepath = 'http://localhost/webservice/';
 	let compteur = 0;
 	/**
 	 * @type {any[]}

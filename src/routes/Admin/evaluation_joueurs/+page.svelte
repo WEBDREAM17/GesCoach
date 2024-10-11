@@ -2,6 +2,7 @@
 	import { Card, CardBody, CardHeader, Input, Label,Row, Col,Button, Alert, Image } from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+	import { _servicepath } from '../../store';
 
 	let nomJoueur='Ribault';
 	let prenomJoueur='Raphaël';
@@ -46,7 +47,6 @@
 	let poste1 = '';
 	let poste2 = '';
 
-	let _servicepath = 'http://localhost/webservice/';
 
 	onMount ( async()=> {
 		id_joueur =$page.url.searchParams.get('id');

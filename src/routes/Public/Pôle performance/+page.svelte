@@ -2,6 +2,7 @@
 	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+    import { _servicepath } from '../../store';
 
     const thumbnails = [
     'https://picsum.photos/100/100?random=1',
@@ -10,7 +11,6 @@
   ];
 
     let liste_coach = [];
-    let _servicepath = 'http://localhost/webservice/';
 
     onMount ( async()=> {
 		await recupererCoach();

@@ -1,11 +1,8 @@
 <script>
-	import {
-	
-		Row,Col,Label,Input,Button,Card,
-		
-	} from '@sveltestrap/sveltestrap';
+	import { Row,Col,Label,Input,Button,Card} from '@sveltestrap/sveltestrap';
 	import { goto } from '$app/navigation'
     import { onMount } from "svelte";
+	import { _servicepath } from '../../store';
 
     let nom_categorie = '';
 	let id_coach = ''; 
@@ -27,13 +24,13 @@
     /**
 	 * @type {any[]}
 	 */
-  let listeEquipe = [];
+  	let listeEquipe = [];
 	let errorMessage = '';
     /**
 	 * @type {any[]}
 	 */
-  let listeCategorie = [];
-	let _servicepath = 'http://localhost/webservice/';
+  	let listeCategorie = [];
+	
 
     onMount ( async()=> {
 		

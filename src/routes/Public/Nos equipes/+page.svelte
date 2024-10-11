@@ -2,6 +2,7 @@
 	import { Container, Image, Col, Row, Card, CardBody,CardHeader, CardTitle, CardSubtitle,Button,CardText, Table,Modal,ModalFooter,ModalHeader} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
     import { page} from '$app/stores';
+	import { _servicepath } from '../../store';
 
 	let openSuppression = false;
 	let id_equipe='';
@@ -40,7 +41,6 @@
 	 * @type {any[]}
 	 */
   let listeCategorie = [];
-	let _servicepath = 'http://localhost/webservice/';
 
     onMount ( async()=> {
 		await recupererNiveauEquipe();

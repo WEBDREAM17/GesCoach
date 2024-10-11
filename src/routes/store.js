@@ -1,0 +1,1 @@
+export const _servicepath = 'https://gescoach.c3r.app/webservices/';

@@ -1,9 +1,9 @@
 <script>
 	import { Image,} from "@sveltestrap/sveltestrap";
 	import { onMount } from "svelte";
-  import { page} from '$app/stores';
+  	import { page} from '$app/stores';
+  	import { _servicepath } from '../../store';
 
-  let _servicepath = 'http://localhost/webservice/';
   let liste_evenements = [];
 
   onMount(async () => {

@@ -3,9 +3,8 @@
   import { goto } from '$app/navigation';
   import { Card, Label, Input, Col, Row, Button, Alert} from "@sveltestrap/sveltestrap";
   import { page} from '$app/stores';
-
+  import { _servicepath } from '../../store';
   let isAuthenticated = false;
-  let _servicepath = 'http://localhost/webservice/';
   let username = '';
   let password = '';
   let error = false;
