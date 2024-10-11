@@ -15,13 +15,15 @@
 
  
   function handleUpdate(event) {
+	
     isOpen2 = event.detail.isOpen2;
+	
   }
 </script>
 <Navbar color="white" light expand="md" >
 	<NavbarBrand  href="/" class="me-auto"><img src="/images/logopfc.jpeg" alt=""></NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
-	<Collapse {isOpen2} navbar expand="md" on:update={handleUpdate}>
+	<Collapse {isOpen} navbar expand="md" on:update={handleUpdate}>
 	  <Nav class="ms-auto" navbar>
 		  <Dropdown nav inNavbar>
 			<DropdownToggle style="font-size:1.2rem; margin-right:20px;" nav caret>Le Parc Football Club</DropdownToggle>
