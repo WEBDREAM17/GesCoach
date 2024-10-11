@@ -20,6 +20,7 @@
     } from 'chart.js';
 
 	import BarChart from '../../composants/BarChart.svelte';
+	import { _servicepath } from '../../store';
 
 	ChartJS.register(
         Title,
@@ -65,8 +66,6 @@
 	var dataMental={};
 	var dataTechnique={};
 	var dataTactique={};
-
-	let _servicepath = 'http://localhost/webservice/';
 
 	onMount(async () => {
 		// @ts-ignore
@@ -435,6 +434,7 @@
 			console.log(error);
 		}
 	};
+
 	const recupererPoste = async () => {
 		try {
 			//On crée le User
