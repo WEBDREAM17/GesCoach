@@ -97,7 +97,7 @@
           {#each listeCoach as Coach}
           <!-- {#each listeEquipeCoach as equipeCoach} -->
           <tr>
-          <td>{Coach.nomCoach}</td>
+          <td>{Coach.nom}</td>
           <td>supprimer</td>
     
           <!-- <td><a href="/Fiche_equipes?id_equipe={equipeCoach.id}&id_categorie={equipeCoach.id_categorie}" >Effectif</a></td> -->
