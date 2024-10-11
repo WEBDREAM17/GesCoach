@@ -23,7 +23,7 @@
  
   let listeEquipeCoach = [];
 	let errorMessage = '';
-    
+  let annee = '2024';
  
 	
 
@@ -32,7 +32,7 @@
 		await recupererListeCoach();
 	
 		annee=new Date().getFullYear().toString();
-		miseAjourAnnee();
+		//miseAjourAnnee();
 
 	})
   const recupererListeCoach = async () => {
