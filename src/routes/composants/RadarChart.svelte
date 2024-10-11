@@ -1,5 +1,5 @@
 <script>
-    import { Radar } from 'svelte-chartjs';
+    import { Bar } from 'svelte-chartjs';
     export let dataColors;
     import { browser } from "$app/environment"
     import { onMount } from "svelte";
@@ -179,4 +179,4 @@
     }
 </script>
 
-<Radar {data} option={{ responsive: true }} class="chartjs-chart" />
+<Bar {data} option={{ responsive: true }} class="chartjs-chart" />
