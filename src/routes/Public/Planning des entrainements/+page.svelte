@@ -13,7 +13,7 @@
 </script>
 
 <main>
-	<img src="/src/lib/images/logo1.png" alt="">
+	<img src="/images/logo1.png" alt="">
 <div class="cardTitle">
 	<h1>Planning des entrainements de l'écôle de football du "Parc FC"</h1>
 	<p>Bienvenue sur la page du planning des entraînements de notre école de foot, « Le Parc Football Club». <br>Cette page est destinée à vous fournir toutes les informations nécessaires concernant les horaires et les jours d’entraînement pour chaque catégorie.</p>

@@ -43,7 +43,7 @@
  
 	<div class="container">
 		<!-- Logo du Club avec effet explosion -->
-		<!-- <img src="/src/lib/images/mental.jpeg" alt="Logo du Club de Football" class="logo"> -->
+		<!-- <img src="/images/mental.jpeg" alt="Logo du Club de Football" class="logo"> -->
 		
 		<!-- Phrase d'accueil percutante -->
 		<p class="welcome-text">Éliminer la peur d'échouer pour laisser le corp se libérer.</p>

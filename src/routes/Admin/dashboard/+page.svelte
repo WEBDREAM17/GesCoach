@@ -67,21 +67,21 @@
 {#if isAuthenticated}
 <div class="cardHeader" >
     <h1 class="title">Bienvenue {userName} dans ton dashboard</h1>
-   <Button style="background-color:rgb(182, 219, 252);" on:click={deconnecter}><img class="deconnexion" src="/src/lib/images/2.png" alt=""></Button>
+   <Button style="background-color:rgb(182, 219, 252);" on:click={deconnecter}><img class="deconnexion" src="/images/2.png" alt=""></Button>
   </div>
 {:else}
     <p>Redirection vers la page de connexion...</p>
 {/if}
 
     <div class="row1">
-        <a href="/Admin/creation_personne"><img src="/src/lib/images/image 2.png" alt="">Créer un Joueur</a>
-        <a href="/Admin/Liste_joueurs"> <img src="/src/lib/images/image 7.png" alt="">Liste des joueurs</a>
-        <a href="/Admin/evaluation_joueurs"><img src="/src/lib/images/datasoccer.png" alt="">Evaluer un joueur</a>
+        <a href="/Admin/creation_personne"><img src="/images/image 2.png" alt="">Créer un Joueur</a>
+        <a href="/Admin/Liste_joueurs"> <img src="/images/image 7.png" alt="">Liste des joueurs</a>
+        <a href="/Admin/evaluation_joueurs"><img src="/images/datasoccer.png" alt="">Evaluer un joueur</a>
     </div>
    <div class="row2">
-    <a href="/Admin/creation_equipes"><img src="/src/lib/images/image 3.png" alt="">Créer une équipe</a>
-    <a href="/Admin/Nos equipes"><img src="/src/lib/images/image 6.png" alt="">Mon equipe</a>
-    <a href="/Admin/creation_evenement"><img src="/src/lib/images/image 7.png" alt="">Créer un évènement</a>
+    <a href="/Admin/creation_equipes"><img src="/images/image 3.png" alt="">Créer une équipe</a>
+    <a href="/Admin/Nos equipes"><img src="/images/image 6.png" alt="">Mon equipe</a>
+    <a href="/Admin/creation_evenement"><img src="/images/image 7.png" alt="">Créer un évènement</a>
    </div>
    <Button on:click={deconnecter}>Déconnexion</Button>
 

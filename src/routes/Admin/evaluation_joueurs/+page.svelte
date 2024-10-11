@@ -175,7 +175,7 @@
 				<Label for="iEndurance">Assiduité : {noteAssiduite}/10</Label>
 				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteAssiduite} />
 			</div>
-			<Image style="width:400px;" fluid alt="This is a fluid Image" src="/src/lib/images/mental.jpeg" />
+			<Image style="width:400px;" fluid alt="This is a fluid Image" src="/images/mental.jpeg" />
 		</CardBody>
 			
 		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;align-items:center;">
@@ -198,7 +198,7 @@
 				<Label for="iEndurance"> Pied faible : {notePiedFaible}/10</Label>
 				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={notePiedFaible} />
 			</div>
-			<Image style="width:400px;height:400px;" fluid alt="This is a fluid Image" src="/src/lib/images/image 4.png" />
+			<Image style="width:400px;height:400px;" fluid alt="This is a fluid Image" src="/images/image 4.png" />
 		</CardBody>		
 					
 		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
@@ -213,7 +213,7 @@
 				<Label for="iEndurance">Force : {noteForce}</Label>
 				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteForce} />
 			</div>
-			<Image style="width:400px; " fluid alt="This is a fluid Image" src="/src/lib/images/image 5.png" />
+			<Image style="width:400px; " fluid alt="This is a fluid Image" src="/images/image 5.png" />
 		</CardBody>	
 			
 		<CardBody style=" padding:30px; margin:20px auto; border:3px solid black; display:flex; justify-content:space-between;">
@@ -228,7 +228,7 @@
 				<Label for="iEndurance">Prise de décision (choix de jeu) : {noteDecision}</Label>
 				<Input type="range" min={0} max={10} step={1} placeholder="range placeholder" bind:value={noteDecision} />
 			</div>
-			<Image style="width:400px; " fluid alt="This is a fluid Image" src="/src/lib/images/tableau-tactif-sport.jpg" />
+			<Image style="width:400px; " fluid alt="This is a fluid Image" src="/images/tableau-tactif-sport.jpg" />
 		</CardBody>		
            
         <h3>Commentaire générale</h3>

@@ -41,9 +41,9 @@
 
 
     const thumbnails = [
-      ['/src/lib/images/image 4.png','Stages'],
-      ['/src/lib/images/image 7.png','Specifique'],
-      ['/src/lib/images/image 5.png','Preparation mentale'],
+      ['/images/image 4.png','Stages'],
+      ['/images/image 7.png','Specifique'],
+      ['/images/image 5.png','Preparation mentale'],
      
     
   ];
