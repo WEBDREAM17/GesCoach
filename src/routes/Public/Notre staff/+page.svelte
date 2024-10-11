@@ -90,7 +90,7 @@
         <thead>
           <tr>
           <th>Nom du coach</th>
-		      <th>Action</th>
+		      
           </tr>
         </thead>
         <tbody>
@@ -98,7 +98,7 @@
           <!-- {#each listeEquipeCoach as equipeCoach} -->
           <tr>
           <td>{Coach.nom}</td>
-          <td>supprimer</td>
+          
     
           <!-- <td><a href="/Fiche_equipes?id_equipe={equipeCoach.id}&id_categorie={equipeCoach.id_categorie}" >Effectif</a></td> -->
           <!-- <td><Button on:click={()=>toggleSuppression(equipeCoach.id, equipeCoach.id_categorie)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td> -->
