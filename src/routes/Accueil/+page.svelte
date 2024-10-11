@@ -1,9 +1,9 @@
 <script lang="ts">
     import { Carousel, CarouselControl, CarouselIndicators, CarouselItem, Row, Col,} from '@sveltestrap/sveltestrap';
     const items = [
-      'src/lib/images/7.jpg',
-      'src/lib/images/9.jpg',
-      'src/lib/images/5.jpg'
+      '/images/7.jpg',
+      '/images/9.jpg',
+      '/images/5.jpg'
     ];
 
     let activeIndex = 0; 
