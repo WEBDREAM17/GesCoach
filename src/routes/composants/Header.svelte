@@ -19,7 +19,7 @@
   }
 </script>
 <Navbar color="white" light expand="md" >
-	<NavbarBrand  href="/" class="me-auto"><img src="/src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt=""></NavbarBrand>
+	<NavbarBrand  href="/" class="me-auto"><img src="/src/lib/images/logopfc.jpeg" alt=""></NavbarBrand>
 	<NavbarToggler on:click={() => (isOpen = !isOpen)} />
 	<Collapse {isOpen2} navbar expand="md" on:update={handleUpdate}>
 	  <Nav class="ms-auto" navbar>
