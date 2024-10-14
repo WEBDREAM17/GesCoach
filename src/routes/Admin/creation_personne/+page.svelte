@@ -11,6 +11,7 @@
 	import { goto } from '$app/navigation'
 	import { onMount } from "svelte";
 	import { _servicepath } from '../../store';
+	import { isAuthenticated } from "../../store";
 
 	let type_personne = '';
 	let personne_poste = '';
@@ -31,7 +32,10 @@
 	let creationOk = false;
 
 	onMount ( async()=> {
-	
+		if(!$isAuthenticated)
+       {
+        goto('/Accueil');
+       }
 		annee=new Date().getFullYear().toString();
 	})
 

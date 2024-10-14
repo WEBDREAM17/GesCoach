@@ -10,6 +10,7 @@
 	} from '@sveltestrap/sveltestrap';
     import { onMount } from "svelte";
 	import { _servicepath } from '../../store';
+	import { isAuthenticated } from "../../store";
 
     let id_coach = '';
 	let type_evenement = '';
@@ -31,9 +32,14 @@
     let listeTypeEvenement =[];
 
     onMount ( async()=> {
-		await recupererTypeEvenement();
-        await recupererListeCoach();
-
+		if(!$isAuthenticated)
+		{
+			goto('/Accueil');
+		}
+		else{
+			await recupererTypeEvenement();
+        	await recupererListeCoach();
+		}
 	})
 
     const recupererTypeEvenement = async () => {

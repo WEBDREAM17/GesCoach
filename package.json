@@ -37,6 +37,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@auth0/auth0-angular": "^2.2.3",
 		"@sveltestrap/sveltestrap": "^6.2.7",
 		"chart.js": "^4.4.4",
 		"open-props": "^1.7.6",

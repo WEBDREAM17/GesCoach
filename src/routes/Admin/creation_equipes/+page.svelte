@@ -3,6 +3,8 @@
 	import { goto } from '$app/navigation'
     import { onMount } from "svelte";
 	import { _servicepath } from '../../store';
+	
+	import { isAuthenticated } from "../../store";
 
     let nom_categorie = '';
 	let id_coach = ''; 
@@ -33,15 +35,21 @@
 	
 
     onMount ( async()=> {
-		
-		await recupererListeCategorie();
-		await recupererListeEquipe();
-		await recupererListeCoach();
-		await recupererJoueur();
-		annee=new Date().getFullYear().toString();
-		miseAjourAnnee();
 
+		if(!$isAuthenticated)
+		{
+			goto('/Accueil');
+		}
+		else{
+			await recupererListeCategorie();
+			await recupererListeEquipe();
+			await recupererListeCoach();
+			await recupererJoueur();
+			annee=new Date().getFullYear().toString();
+			miseAjourAnnee();
+		}
 	})
+
 	function miseAjourAnnee(){
 		annee2=Number(annee)+1;
 	}
