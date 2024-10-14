@@ -301,9 +301,11 @@
 			<td>{joueur.id_categorie}</td>
 			<td>{liste_niveauEquipe[joueur.niveau-1].nom_equipe}</td>
 			<td><img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
-			<td><a href="/Joueurs/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
-			<td><Button color="info" on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
-			<td><Button color="info" on:click={()=>toggleSuppression(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
+			<td><button class="fiche"><a  href="/Joueurs/fiche_joueurs?id={joueur.id}" >Voir</a></button></td>
+			<td><button class="evaluation" color="info" on:click={()=>toggle(joueur.id)}>Evaluation</button></td>
+			<td><button class="supprimer" color="info" on:click={()=>toggleSuppression(joueur.id)}>X</button>
+				<button class="update" color="info" on:click={()=>toggleSuppression(joueur.id)}>U</button>
+			</td>
 		  </tr>
 		 {/each}
 		</tbody>
@@ -341,5 +343,47 @@
 		td{
 			text-align: center;
 		}
+		.supprimer{
+			border:1px solid red;
+			background-color:red;
+			color:white;
+			text-decoration:underline;
+			margin:0 auto;
+			padding:0 auto;
+			text-decoration: none;
+		}
+		.evaluation {
+			border:1px solid yellow;
+			background-color:yellow;
+			color:black;
+			text-decoration:underline;
+			margin:0 auto;
+			padding:0 auto;
+			text-decoration: none;
+		}
+		.update {
+			border:1px solid grey;
+			background-color:gray;
+			color:black;
+			text-decoration:underline;
+			margin:0 auto;
+			padding:0 auto;
+			text-decoration: none;
+		}
+		.fiche {
+			border:1px solid blue;
+			background-color:blue;
+			color:black;
+			text-decoration:underline;
+			margin:0 auto;
+			padding:0 auto;
+			text-decoration: none;
+			
+		}
+		a{
+			color: black;
+			text-decoration: none;
+		}
+
 	  </style>
 

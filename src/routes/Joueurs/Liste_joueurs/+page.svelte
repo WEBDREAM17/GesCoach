@@ -299,8 +299,11 @@
 			<td>{liste_niveauEquipe[joueur.niveau-1].nom_equipe}</td>
 			<td><img src="http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
 			<td><a href="/Joueurs/fiche_joueurs?id={joueur.id}" >Fiche</a></td>
-			<td><Button on:click={()=>toggle(joueur.id)} style="border:0px;background-color:transparent;color:blue;text-decoration:underline;margin:0 auto;padding:0 auto;">Evaluation</Button></td>
-			<td><Button on:click={()=>toggleSuppression(joueur.id)} style="border:0px;background-color:transparent;color:red;text-decoration:underline;margin:0 auto;padding:0 auto;">supprimer</Button></td>
+			<td><button class="evaluation" on:click={()=>toggle(joueur.id)}>Evaluation</button></td>
+			<td>
+				<button class="supprimer" on:click={()=>toggleSuppression(joueur.id)} >X</button>
+				<button class="update" on:click={()=>toggleSuppression(joueur.id)}>U</button>
+			</td>
 		  </tr>
 		 {/each}
 		</tbody>
@@ -328,4 +331,42 @@
 		  </ModalFooter>
 		</Modal>
 	  </div>
+
+	  <style>
+.supprimer	{
+	border:0px;
+	background-color:red;
+	color:black;
+	text-decoration:none;
+	margin:0 auto;
+	padding:0 auto;
+	border:red 1px solid;
+}
+.evaluation{
+	border:0px;
+	background-color:blue;
+	color:white;
+	text-decoration:none;
+	margin:0 auto;
+	padding:0 auto;
+	border:blue 1px solid;
+}
+.update{
+	border:0px;
+	background-color:yellow;
+	color:black;
+	text-decoration:none;
+	margin:0 auto;
+	padding:0 auto;
+	border:yellow 1px solid;
+}
+	  </style>
+
+	
+
+
+	
+	
+
+	  
 

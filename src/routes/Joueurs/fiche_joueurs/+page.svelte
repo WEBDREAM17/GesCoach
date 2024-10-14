@@ -486,18 +486,16 @@
 	
 </script>
 
-<Row
-	style="border:2px solid black; background-color: black; margin:20px; display:flex; align-items:center;justify-content:space-between;">
-	<Col><img class="logoClub" src="src/lib/images/WhatsApp Image 2024-09-05 at 11.36.21.jpeg" alt="" /></Col>
-	<Col style="font-size:3rem; color:white;">{nom} {prenom}</Col>
-	<Col style="font-size:3rem; color: white;">{poste1} {poste2}</Col>
-	<Col><img src="{url_photo}" width="200px"/></Col>
-	<Col style="border:2px solid black; background-color: grey; text-align:center; width:100px;"><a style="color:black; text-decoration:none; " href="/Liste_joueurs">Retour liste joueurs</a></Col>
-</Row>
-<Row
-	style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"
+<div class="cardHeader">
+	<img class="logoClub" src="/src/lib/images/1.png" alt="" />
+	<p>{nom} {prenom}</p>
+	<p>{poste1} {poste2}</p>
+	<img src="/{url_photo}" width="150px"/>
+	<button class="retour"><a href="/Joueurs/Liste_joueurs">Retour liste joueurs</a></button>
+</div>
+<div  style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"
 >
-	<Col style="border:2px solid black;margin:20px;">
+	<div class="tableau" >
 		<Table striped>
 			<thead>
 				<h1>Capacité Physique</h1>
@@ -535,9 +533,9 @@
 				</tr>
 			</tbody>
 		</Table>
-	</Col>
-	<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></Col>
-</Row>
+	</div>
+	<div style="border:2px solid black;margin:20px; width:500px;" xs="6"><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></div>
+</div>
 
 <Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
 	<Col style="border:2px solid black;margin:20px;">
@@ -691,4 +689,33 @@
 		</Col>
 		<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><BarChart data={dataTactique}/><!--<RadarChart notesEvals1={eval1FormatteGraph} notesEvals2={eval1FormatteGraph} notesEvals3={eval1FormatteGraph} dataColors={["blue","blue","red","red"]}/>--></Col>
 	</Row>
-	
+	<style>
+	.cardHeader{
+		border:2px solid black;
+		 background-color: black; 
+		 margin:20px; 
+		 display:flex; 
+		 align-items:center;
+		justify-content: center;
+		justify-content: space-between;
+		
+	}.logoClub {
+		width: 150px;
+	}
+		.tableau {
+			border:2px solid black;
+			margin:20px;
+		}
+		.retour {
+			background-color: rgb(107, 224, 251);
+			margin-right: 50px;
+			border-radius: 10px;
+		}
+		p {
+			font-size: 2rem;
+			color: rgb(107, 224, 251);
+		}
+		a{
+			text-decoration: none;
+		}
+	</style>

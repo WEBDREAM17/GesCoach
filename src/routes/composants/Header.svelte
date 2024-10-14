@@ -97,7 +97,7 @@
 		  {/if}
 
 		  <NavItem style="color:red;">
-			<NavLink style=" font-size:1.2rem; color:red; margin-right:30px;" href="Contact_nous" on:click={toggle}>Nous contacter</NavLink>
+			<NavLink style=" font-size:1.2rem; color:red; margin-right:30px;" href="/Public/Contact_nous" on:click={toggle}>Nous contacter</NavLink>
 		  </NavItem>
 	  </Nav>
 	</Collapse>
