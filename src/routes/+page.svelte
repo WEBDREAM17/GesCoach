@@ -1,6 +1,4 @@
-<script>
 
-</script>
 <body>
   <div class="container">
       <!-- Logo du Club avec effet explosion -->

@@ -2,7 +2,7 @@
 	import { Image, Col, Row } from '@sveltestrap/sveltestrap';
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
-	import { Button } from '@sveltestrap/sveltestrap';
+	
     import { isAuthenticated } from "../../store";
 	
     
@@ -21,7 +21,6 @@
 {#if isAuthenticated}
 <div class="cardHeader" >
     <h1 class="title">Bienvenue {userName} dans ton dashboard</h1>
-   <Button style="background-color:rgb(182, 219, 252);" on:click={deconnecter}><img class="deconnexion" src="/images/2.png" alt=""></Button>
   </div>
 {:else}
     <p>Redirection vers la page de connexion...</p>
@@ -37,7 +36,7 @@
     <a href="/Admin/Nos equipes"><img src="/images/image 6.png" alt="">Mon equipe</a>
     <a href="/Admin/creation_evenement"><img src="/images/image 7.png" alt="">Créer un évènement</a>
    </div>
-   <Button on:click={deconnecter}>Déconnexion</Button>
+  
 
 
 <style>

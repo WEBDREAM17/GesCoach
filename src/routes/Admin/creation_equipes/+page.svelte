@@ -252,16 +252,27 @@
 				<Label for="dd_annee">Saison :</Label>
 				<Input type="text" id="dd_annee" bind:value={annee} on:change={miseAjourAnnee} style="width:150px;"></Input>/ {annee2}
 			
-				<Button type="submit" on:click={() => (validated = true)}>Enregistrer</Button>
+				<button type="submit" on:click={() => (validated = true)}>Enregistrer</button>
             </Col>
 		</Row>
 	</form>
 </Card>
 
 <style>
-	h1 {
-		color: rgb(204, 231, 255);
+	h1{
+		text-align: center;
 		font-size: 5rem;
+		margin-top: 20px;
+	}
+	.formulaireClassique {
+		margin: 20px ;
+	}
+	button {
+		margin: 30px 0;
+		padding: 10px 20px;
+		border-radius: 10px;
+		background-color: gainsboro;
+		color: black;
 	}
 </style>
 

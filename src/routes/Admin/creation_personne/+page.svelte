@@ -399,14 +399,25 @@
 				<h4>Creation d'un admin</h4>
 			{/if}
 
-			<Col>
-				<Button type="submit">Enregistrer</Button>
-			</Col>
+			
+				<button type="submit">Enregistrer</button>
+			
 	</form>
 </Card>
 <style>
 	h1{
+		text-align: center;
 		font-size: 5rem;
 		margin-top: 20px;
+	}
+	.formulaireClassique {
+		margin: 20px ;
+	}
+	button {
+		margin: 30px 0;
+		padding: 10px 20px;
+		border-radius: 10px;
+		background-color: gainsboro;
+		color: black;
 	}
 </style>

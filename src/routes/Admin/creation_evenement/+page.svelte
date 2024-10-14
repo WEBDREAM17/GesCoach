@@ -182,8 +182,25 @@
 		     <Label for="dd_prixEvenement">Prix :</Label>
 				<Input type="text"id="dd_prixEvenement" bind:value={prix}/>
 		
-				<Button type="submit" on:click={() => (validated = true)}>Enregistrer</Button>
+				<button type="submit" on:click={() => (validated = true)}>Enregistrer</button>
             </Col>
 		</Row>
 	</form>
 </Card>
+<style>
+	h1{
+		text-align: center;
+		font-size: 5rem;
+		margin-top: 20px;
+	}
+	.formulaireClassique {
+		margin: 20px ;
+	}
+	button {
+		margin: 30px 0;
+		padding: 10px 20px;
+		border-radius: 10px;
+		background-color: gainsboro;
+		color: black;
+	}
+</style>
