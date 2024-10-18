@@ -98,11 +98,7 @@
       height:auto;
       }
       
-      .cardHeader{
-      border :solid 3px rgb(182, 219, 252);
-      padding: 20px 10px;
-     
-    }
+   
     .title {
       font-size:5rem;
        margin: 20px 30px; 
