@@ -334,7 +334,7 @@
 				method: 'POST',
 				body: data
 			});
-
+			
 			res = await res.json();
 			// @ts-ignore
 			if (res.status == '1') {

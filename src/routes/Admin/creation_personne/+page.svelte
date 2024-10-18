@@ -102,7 +102,7 @@
 				await createEquipePerssonne(id_joueur,id_equipe,id_categorie);
 				await createNiveauEquipe (id_equipe,nom_equipe);
 
-				goto('/Liste_joueurs');
+				goto('/Admin/Liste_joueurs');
 				}
 				
 			} else {

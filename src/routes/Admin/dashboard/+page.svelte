@@ -2,7 +2,6 @@
 	import { Image, Col, Row } from '@sveltestrap/sveltestrap';
     import { onMount } from 'svelte';
     import { goto } from '$app/navigation';
-	
     import { isAuthenticated } from "../../store";
 	
     
