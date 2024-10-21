@@ -487,14 +487,13 @@
 </script>
 
 <div class="cardHeader">
-	<img class="logoClub" src="/src/lib/images/1.png" alt="" />
+	<img class="logoClub" src="src/lib/images/1.png" alt="" />
 	<p>{nom} {prenom}</p>
 	<p>{poste1} {poste2}</p>
-	<img src="/{url_photo}" width="150px"/>
+	<img src="{url_photo}" width="150px"/>
 	<button class="retour"><a href="/Joueurs/Liste_joueurs">Retour liste joueurs</a></button>
 </div>
-<div  style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;"
->
+<div  style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
 	<div class="tableau" >
 		<Table striped>
 			<thead>
