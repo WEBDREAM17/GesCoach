@@ -487,14 +487,14 @@
 </script>
 
 <div class="cardHeader">
-	<img class="logoClub" src="src/lib/images/1.png" alt="" />
+	<img class="logoClub" src="/src/lib/images/1.png" alt="" />
 	<p>{nom} {prenom}</p>
 	<p>{poste1} {poste2}</p>
-	<img src="{url_photo}" width="150px"/>
+	<img src="/{url_photo}" width="150px"/>
 	<button class="retour"><a href="/Joueurs/Liste_joueurs">Retour liste joueurs</a></button>
 </div>
-<div  style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
-	
+	<Row style="border:2px solid black; margin:20px; display:flex; align-items:center; justify-content:center;">
+	<Col style="border:2px solid black; margin:20px;">
 		<Table striped>
 			<thead>
 				<h1>Capacité Physique</h1>
@@ -532,9 +532,9 @@
 				</tr>
 			</tbody>
 		</Table>
-	<div style="border:2px solid black;margin:20px; width:500px;" xs="6"><BarChart data={dataPhysique}/><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></div>
-</div>
-
+	</Col>	
+	<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><BarChart data={dataPhysique}/><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></Col>
+	</Row>
 <Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
 	<Col style="border:2px solid black;margin:20px;">
 		<Table striped>
@@ -579,7 +579,7 @@
 </Row>
 	
 	<Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
-		<Col style="border:2px solid black;margin:20px;">
+		<Col style="border:2px solid black; margin:20px;">
 			<Table striped>
 				<thead>
 					<h1>Capacités Techniques</h1>
