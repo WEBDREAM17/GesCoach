@@ -482,8 +482,6 @@
 			console.log(error);
 		}
 	};
-
-	
 </script>
 
 <div class="cardHeader">
