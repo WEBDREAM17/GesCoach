@@ -494,7 +494,7 @@
 	<button class="retour"><a href="/Joueurs/Liste_joueurs">Retour liste joueurs</a></button>
 </div>
 <div  style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
-	<div class="tableau" >
+	
 		<Table striped>
 			<thead>
 				<h1>Capacité Physique</h1>
@@ -532,8 +532,7 @@
 				</tr>
 			</tbody>
 		</Table>
-	</div>
-	<div style="border:2px solid black;margin:20px; width:500px;" xs="6"><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></div>
+	<div style="border:2px solid black;margin:20px; width:500px;" xs="6"><BarChart data={dataPhysique}/><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></div>
 </div>
 
 <Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
