@@ -303,12 +303,12 @@
 				//Si pas de photo alors on affiche la photo générique
 				if(url_photo == null || url_photo == '') 
 				{					
-					url_photo = 'src/lib/images/avatar_garcon.png';
+					url_photo = '/images/avatar_garcon.png';
 					console.log('photo2 : ' + url_photo);
 				}
 				else
 				{
-					url_photo = 'http://localhost/webservice/' + monJoueur.url_photo;
+					url_photo = _servicepath + monJoueur.url_photo;
 				}
 
 				if (date == null) {
