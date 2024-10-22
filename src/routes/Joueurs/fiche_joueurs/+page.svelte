@@ -531,7 +531,7 @@
 			</tbody>
 		</Table>
 	</Col>	
-	<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><BarChart data={dataPhysique}/><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></Col>
+	<Col style="border:2px solid black;margin:20px; width:500px;" xs="6"><!--<Bar {data} option={{ responsive: true }} class="chartjs-chart" />--> <BarChart data={dataPhysique}/></Col>
 	</Row>
 <Row style="border:2px solid black;margin:20px; display:flex; align-items:center;justify-content:center;">
 	<Col style="border:2px solid black;margin:20px;">
