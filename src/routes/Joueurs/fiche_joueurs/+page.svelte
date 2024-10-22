@@ -489,7 +489,7 @@
 	<p>{nom} {prenom}</p>
 	<p>{poste1} {poste2}</p>
 	<img src="{url_photo}" width="150px"/>
-	<button class="retour"><a href="/Joueurs/Liste_joueurs">Retour liste joueurs</a></button>
+	<button class="retour"><a href="/Admin/Liste_joueurs">Retour liste joueurs</a></button>
 </div>
 	<Row style="border:2px solid black; margin:20px; display:flex; align-items:center; justify-content:center;">
 	<Col style="border:2px solid black; margin:20px;">
