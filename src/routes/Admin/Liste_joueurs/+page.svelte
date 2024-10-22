@@ -66,28 +66,29 @@
 			// @ts-ignore
 			if (res.status == '1') {
 				liste_joueurs = res.data;
-				let monJoueur = liste_joueurs[0];
-				nom = monJoueur.nom;
-				prenom = monJoueur.prenom;
-				date = monJoueur.date;
-				equipe = monJoueur.equipe;
-				licence = monJoueur.numero_licence;
-				poste1 = monJoueur.poste1;
-				poste2 = monJoueur.poste2;
-				url_photo = monJoueur.url_photo;
-				niveau = monJoueur.niveau;
-				//Si pas de photo alors on affiche la photo générique
-				if(url_photo == null || url_photo == '') 
-				{					
-					url_photo = '/images/avatar_garcon.png';
-					console.log('photo2 : ' + url_photo);
-				}
-				else
-				{
-					url_photo = _servicepath + monJoueur.url_photo;
-				}
-				
-				monJoueur.url_photo = url_photo;
+
+				//On parcours la liste des joueurs pour formatter correctement l'image et la date de naissance
+				liste_joueurs.forEach(jouuuueur => {
+					if(jouuuueur.url_photo == null || jouuuueur.url_photo == '') 
+					{					
+						jouuuueur.url_photo = '/images/avatar_garcon.png';						
+					}
+					else
+					{
+						jouuuueur.url_photo = _servicepath + jouuuueur.url_photo;
+					}
+
+					if(jouuuueur.date_naissance == null)
+					{
+						jouuuueur.date_naissance = 'NC';
+					}
+					else
+					{
+						let datenaiss = new Date(jouuuueur.date_naissance);
+						jouuuueur.date_naissance = datenaiss.toLocaleDateString();
+					}
+
+				});				
 
 			} else {
 				// @ts-ignore
