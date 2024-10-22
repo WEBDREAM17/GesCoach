@@ -303,7 +303,7 @@
 				//Si pas de photo alors on affiche la photo générique
 				if(url_photo == null || url_photo == '') 
 				{					
-					url_photo = '/images/avatar_garcon.png';
+					url_photo = 'images/avatar_garcon.png';
 					console.log('photo2 : ' + url_photo);
 				}
 				else
@@ -485,7 +485,7 @@
 </script>
 
 <div class="cardHeader">
-	<img class="logoClub" src="/src/lib/images/1.png" alt="" />
+	<img class="logoClub" src="images/1.png" alt="" />
 	<p>{nom} {prenom}</p>
 	<p>{poste1} {poste2}</p>
 	<img src="/{url_photo}" width="150px"/>

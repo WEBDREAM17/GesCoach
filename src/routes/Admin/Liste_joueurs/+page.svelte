@@ -79,12 +79,12 @@
 				//Si pas de photo alors on affiche la photo générique
 				if(url_photo == null || url_photo == '') 
 				{					
-					url_photo = 'src/lib/images/avatar_garcon.png';
+					url_photo = '/images/avatar_garcon.png';
 					console.log('photo2 : ' + url_photo);
 				}
 				else
 				{
-					url_photo = 'http://localhost/webservice/' + monJoueur.url_photo;
+					url_photo = _servicepath + monJoueur.url_photo;
 				}
 
 			} else {
@@ -300,7 +300,7 @@
 			<td>{joueur.poste2}</td>
 			<td>{joueur.id_categorie}</td>
 			<td>{liste_niveauEquipe[joueur.niveau-1].nom_equipe}</td>
-			<td><img src="/http://localhost/webservice{joueur.url_photo}" width="50px"/></td>
+			<td><img src="{joueur.url_photo}" width="50px"/></td>
 			<td><button class="fiche"><a  href="/Joueurs/fiche_joueurs?id={joueur.id}" >Voir</a></button></td>
 			<td><button class="evaluation" color="info" on:click={()=>toggle(joueur.id)}>Evaluation</button></td>
 			<td><button class="supprimer" color="info" on:click={()=>toggleSuppression(joueur.id)}>X</button>
